@@ -163,7 +163,7 @@
             position: relative; 
         }
 
-        /* Floating Center Logo Badge - Sized down, forced to fill border */
+        /* Floating Center Logo Badge - Using a Clipping Mask to fill the border */
         .hero-logo-badge {
             position: absolute;
             z-index: 10;
@@ -176,7 +176,16 @@
             left: 45%; 
             top: 50%;
             transform: translate(-50%, -50%);
-            object-fit: cover; /* Forces image to flush against white border perfectly */
+            overflow: hidden; /* This hides the overflowing image padding */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-logo-badge img {
+            width: 125%; /* Scales the image up to crop out the built-in padding */
+            height: 125%;
+            object-fit: contain;
         }
         
         .hero-text-side {
@@ -547,7 +556,9 @@
     </nav>
 
     <header class="hero">
-        <img src="HHI.1.png" alt="Hearten Home Logo" class="hero-logo-badge">
+        <div class="hero-logo-badge">
+            <img src="HHI.1.png" alt="Hearten Home Logo">
+        </div>
         
         <div class="hero-text-side">
             <div class="hero-content">
@@ -612,7 +623,7 @@
         
         <div class="ig-grid reveal">
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&q=80&w=1000" alt="Kitchen Remodel">
+                <img src="IG1.jpeg" alt="Instagram Showcase 1">
                 <div class="ig-overlay">
                     <div class="ig-stats">
                         <span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 218</span>
@@ -621,19 +632,19 @@
                 </div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800" alt="Living Room Styling">
+                <img src="IG2.jpeg" alt="Instagram Showcase 2">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 131</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&q=80&w=800" alt="Dining Table Setup">
+                <img src="IG3.jpeg" alt="Instagram Showcase 3">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 94</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=800" alt="Bedroom Details">
+                <img src="IG4.jpeg" alt="Instagram Showcase 4">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 112</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800" alt="Home Decor">
+                <img src="IG5.jpeg" alt="Instagram Showcase 5">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 88</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
