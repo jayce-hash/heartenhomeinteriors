@@ -61,6 +61,7 @@
         .btn-gold {
             border-color: var(--gold);
             color: var(--gold);
+            background-color: rgba(0,0,0,0.2); /* Helps button pop on image */
         }
         .btn-gold:hover {
             background-color: var(--gold);
@@ -92,7 +93,7 @@
             width: auto;
             border-radius: 50%; 
             display: block;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Adds a tiny shadow so it pops off the background */
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         .nav-links { display: flex; gap: 40px; align-items: center; }
@@ -103,7 +104,10 @@
             text-transform: uppercase; 
             transition: var(--transition);
             position: relative;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Helps nav links show over bright images */
         }
+        nav.scrolled .nav-links a { text-shadow: none; } /* Removes shadow when scrolled onto solid background */
+        
         .nav-links a::after {
             content: ''; position: absolute; width: 0; height: 1px;
             bottom: -4px; left: 0; background-color: var(--gold);
@@ -119,31 +123,45 @@
             justify-content: center;
             text-align: center;
             position: relative;
-            background: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+            /* Added fixed attachment for parallax scrolling effect */
+            background: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat fixed;
         }
         .hero::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, rgba(28, 47, 110, 0.4), rgba(0,0,0,0.1));
+            /* Darkened the overlay significantly so white text is always readable */
+            background: linear-gradient(135deg, rgba(28, 47, 110, 0.7) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: 1;
         }
+        
+        /* Hero Load-In Animation */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
         .hero-content {
             position: relative;
             z-index: 2;
             color: var(--warm-white);
-            max-width: 800px;
+            max-width: 900px;
             padding: 0 20px;
+            opacity: 0; /* Starts hidden for animation */
+            animation: fadeUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards 0.3s;
         }
         .hero-content p {
-            font-size: 12px;
-            letter-spacing: 4px;
+            font-size: 13px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: var(--gold);
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
         .hero-content h1 {
             color: var(--warm-white);
-            font-size: clamp(50px, 8vw, 90px);
+            font-size: clamp(55px, 8vw, 100px);
             line-height: 1.1;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.4); /* Strong shadow for readability */
         }
         .hero-content em { font-style: italic; color: var(--gold); }
 
@@ -285,10 +303,10 @@
 
         /* --- FOOTER --- */
         footer {
-            background-color: var(--navy);
-            color: var(--warm-white);
+            background-color: var(--cream); /* Updated to the lighter version */
             padding: 80px 5% 40px;
             text-align: center;
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
         
         /* FOOTER LOGO SIZING */
@@ -298,6 +316,7 @@
             border-radius: 50%;
             margin: 0 auto 20px auto; 
             display: block;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08); /* Small shadow to pop */
         }
         
         .footer-links {
@@ -308,11 +327,17 @@
             font-size: 12px;
             letter-spacing: 2px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.7);
+            color: var(--navy); /* Updated to navy to contrast the cream */
             transition: var(--transition);
+            font-weight: 500;
         }
         .footer-links a:hover { color: var(--gold); }
-        .copyright { font-size: 12px; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+        .copyright { 
+            font-size: 12px; 
+            color: var(--text-light); 
+            border-top: 1px solid rgba(28, 47, 110, 0.1); 
+            padding-top: 20px; 
+        }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
@@ -329,6 +354,7 @@
             .def-word { font-size: 36px; }
             .def-box { padding: 40px 20px; }
             h1 { font-size: 40px !important; }
+            .hero { background-attachment: scroll; } /* Parallax is sometimes clunky on mobile, so we turn it off here */
         }
     </style>
 </head>
@@ -349,7 +375,7 @@
     <header class="hero">
         <div class="hero-content">
             <p>Interior Design & Remodeling in DFW</p>
-            <h1>Creating spaces where <em>life happens</em> beautifully.</h1>
+            <h1>Creating spaces where <br><em>life happens</em> beautifully.</h1>
             <a href="#contact" class="btn btn-gold">Start Your Project</a>
         </div>
     </header>
@@ -438,7 +464,7 @@
         <div class="footer-logo">
             <img src="HHI.1.png" alt="Hearten Home Interiors Logo">
         </div>
-        <p style="margin-bottom: 30px; font-size: 14px; color: rgba(255,255,255,0.7);">Based in Colleyville, TX • Serving the DFW Area</p>
+        <p style="margin-bottom: 30px; font-size: 14px; color: var(--text-light);">Based in Colleyville, TX • Serving the DFW Area</p>
         <div class="footer-links">
             <a href="mailto:bonnie@heartenhome.com">bonnie@heartenhome.com</a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank">Instagram</a>
