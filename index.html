@@ -94,14 +94,15 @@
             gap: 20px;
         }
         
-        /* BULLETPROOF NAV LOGO */
+        /* Bulletproof Nav Logo Container */
         .nav-logo {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            position: relative;
             overflow: hidden;
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             transition: var(--transition);
         }
         nav.scrolled .nav-logo {
@@ -109,12 +110,9 @@
             height: 40px;
         }
         .nav-logo img {
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 115%; /* Scales image up to push white edges out */
-            height: 115%;
-            max-width: none;
-            transform: translate(-50%, -50%); /* Pins to dead center */
+            width: 130%; /* Forces the image to bleed past the edges */
+            height: 130%;
+            flex-shrink: 0; /* Prevents flexbox from squeezing it */
             object-fit: cover;
         }
 
@@ -170,7 +168,7 @@
             position: relative; 
         }
 
-        /* BULLETPROOF HERO LOGO BADGE */
+        /* Bulletproof Hero Logo Badge */
         .hero-logo-badge {
             position: absolute;
             z-index: 10;
@@ -182,19 +180,17 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.2);
             left: 45%;
             top: 50%;
-            /* Centers the wrapper itself on the split */
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); /* Positions the wrapper on the seam */
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         
         .hero-logo-badge img {
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 115%; /* Scales image up to push white edges out */
-            height: 115%;
-            max-width: none;
-            /* Pins the image to the dead center of the wrapper */
-            transform: translate(-50%, -50%);
+            width: 130%; /* Scales up aggressively to hide JPG margins */
+            height: 130%;
+            flex-shrink: 0; /* Prevents the image from compressing */
             object-fit: cover;
         }
         
@@ -404,23 +400,21 @@
             text-align: center;
         }
 
-        /* BULLETPROOF FOOTER LOGO */
+        /* Bulletproof Footer Logo */
         .footer-logo {
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            position: relative;
-            overflow: hidden;
             margin: 0 auto 25px auto; 
-            display: block;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .footer-logo img {
-            position: absolute;
-            top: 50%; left: 50%;
-            width: 115%;
-            height: 115%;
-            max-width: none;
-            transform: translate(-50%, -50%);
+            width: 130%;
+            height: 130%;
+            flex-shrink: 0;
             object-fit: cover;
         }
 
@@ -509,7 +503,7 @@
                 height: 125px;
                 left: 50%;
                 top: calc(70px + 45vh);
-                /* transform: translate(-50%, -50%) inherits from desktop CSS */
+                transform: translate(-50%, -50%);
             }
 
             .hero-content { animation: none; opacity: 1; transform: none; }
