@@ -163,7 +163,7 @@
             position: relative; 
         }
 
-        /* Floating Center Logo Badge - Using a Clipping Mask to fill the border */
+        /* Floating Center Logo Badge */
         .hero-logo-badge {
             position: absolute;
             z-index: 10;
@@ -176,16 +176,19 @@
             left: 45%; 
             top: 50%;
             transform: translate(-50%, -50%);
-            overflow: hidden; /* This hides the overflowing image padding */
+            overflow: hidden; 
             display: flex;
             justify-content: center;
             align-items: center;
         }
         
+        /* Fixed centering and scaling */
         .hero-logo-badge img {
-            width: 125%; /* Scales the image up to crop out the built-in padding */
-            height: 125%;
+            width: 100%; 
+            height: 100%;
             object-fit: contain;
+            object-position: center; /* Locks image to dead center */
+            transform: scale(1.3); /* Uniformly zooms in to eliminate padding */
         }
         
         .hero-text-side {
@@ -467,23 +470,27 @@
             .menu-toggle.open span:nth-child(2) { opacity: 0; }
             .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-            /* Mobile Hero Adjustments */
+            /* Mobile Hero Adjustments - PULLING EVERYTHING UP */
             .hero { flex-direction: column; height: auto; padding-top: 70px; }
-            .hero-image-side { width: 100%; height: 55vh; order: 1; }
-            .hero-text-side { width: 100%; padding: 80px 5% 60px; text-align: center; order: 2; background-color: var(--navy); }
             
-            /* Center badge directly on the horizontal split */
+            /* Reduced image height from 55vh to 45vh */
+            .hero-image-side { width: 100%; height: 45vh; order: 1; }
+            
+            /* Tightened padding significantly to pull content up */
+            .hero-text-side { width: 100%; padding: 50px 5% 40px; text-align: center; order: 2; background-color: var(--navy); }
+            
+            /* Recalculated position: 70px nav + 45vh image */
             .hero-logo-badge {
-                width: 125px;
-                height: 125px;
+                width: 120px; /* Slightly smaller to fit tight space */
+                height: 120px;
                 left: 50%;
-                top: calc(70px + 55vh); 
+                top: calc(70px + 45vh); 
             }
 
             .hero-content { animation: none; opacity: 1; transform: none; }
-            .hero-content p.eyebrow { font-size: 10px; margin-bottom: 20px; }
-            .hero-content h1 { font-size: 34px; margin-bottom: 30px; }
-            .hero-content .btn { padding: 14px 30px; }
+            .hero-content p.eyebrow { font-size: 10px; margin-bottom: 15px; }
+            .hero-content h1 { font-size: 32px; margin-bottom: 25px; line-height: 1.15; }
+            .hero-content .btn { padding: 14px 28px; }
             
             /* Spacing & Typography Fixes for Mobile Sections */
             .definition-section { padding: 60px 5% 50px; }
