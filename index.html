@@ -168,30 +168,33 @@
             position: relative; 
         }
 
-        /* Bulletproof Hero Logo Badge */
+        /* Floating Center Logo Badge */
         .hero-logo-badge {
             position: absolute;
             z-index: 10;
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 4px solid var(--white); 
+            border: 4px solid var(--white);
             background-color: var(--navy);
             box-shadow: 0 12px 40px rgba(0,0,0,0.2);
             left: 45%;
             top: 50%;
-            transform: translate(-50%, -50%); /* Positions the wrapper on the seam */
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            /* Centering the whole box on the horizontal split seam */
+            transform: translate(-50%, -50%);
+            overflow: hidden; /* This hides the overflowing image padding */
         }
-        
+
+        /* Centering and Scaling the inner image to move it down 'a hair' */
         .hero-logo-badge img {
-            width: 130%; /* Scales up aggressively to hide JPG margins */
-            height: 130%;
-            flex-shrink: 0; /* Prevents the image from compressing */
-            object-fit: cover;
+            position: absolute;
+            top: 55%; /* Changing from 50% to 55% moves the image content down within the box */
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* translate(-50%, -50%) centers it, scale(1.3) crops out built-in white padding */
+            transform: translate(-50%, -50%) scale(1.3);
         }
         
         .hero-text-side {
