@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     
     <style>
-        /* --- $100M DESIGN SYSTEM --- */
         :root {
             --navy: #142040; 
             --gold: #BFA15F; 
@@ -41,7 +40,6 @@
 
         a { text-decoration: none; color: inherit; }
         
-        /* --- BUTTONS --- */
         .btn {
             display: inline-block;
             padding: 16px 40px;
@@ -61,7 +59,6 @@
             color: var(--white);
         }
 
-        /* --- SCROLL ANIMATIONS --- */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -90,7 +87,6 @@
             height: 70px;
         }
 
-        /* Nav Brand Area (Logo + Icons) */
         .nav-brand {
             display: flex;
             align-items: center;
@@ -119,9 +115,7 @@
             align-items: center;
             transition: var(--transition);
         }
-        .nav-socials a:hover {
-            color: var(--gold);
-        }
+        .nav-socials a:hover { color: var(--gold); }
         .nav-socials svg {
             width: 22px;
             height: 22px;
@@ -138,7 +132,6 @@
         }
         .nav-links a:hover { color: var(--gold); }
 
-        /* Mobile Hamburger Icon */
         .menu-toggle {
             display: none; 
             flex-direction: column;
@@ -154,7 +147,7 @@
             transition: var(--transition);
         }
 
-        /* --- EDITORIAL SPLIT HERO SECTION --- */
+        /* --- HERO --- */
         .hero {
             display: flex;
             height: 100vh;
@@ -163,7 +156,14 @@
             position: relative; 
         }
 
-        /* Floating Center Logo Badge */
+        /*
+         * LOGO BADGE FIX
+         * The split is 45% text / 55% image.
+         * To sit exactly on the seam, left = 45% and we translate -50% to center the
+         * badge's own width on that line. This is correct for desktop.
+         * The image inside used scale(1.3) which was cropping the logo — removed that
+         * and used padding instead so the full logo is visible and centered.
+         */
         .hero-logo-badge {
             position: absolute;
             z-index: 10;
@@ -173,24 +173,22 @@
             border: 4px solid var(--white); 
             background-color: var(--navy);
             box-shadow: 0 12px 40px rgba(0,0,0,0.2);
-            left: 45%; 
+            /* Sits exactly on the column seam */
+            left: 45%;
             top: 50%;
-            /* This centers the whole badge on the screen split */
             transform: translate(-50%, -50%);
-            overflow: hidden; 
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        /* Bulletproof Image Centering */
+        /* FIX: Remove the absolute+scale approach. Use a simple centered img. */
         .hero-logo-badge img {
-            position: absolute;
-            width: 100%; 
-            height: 100%;
+            width: 85%;
+            height: 85%;
             object-fit: contain;
-            /* Anchors the image to the dead center of the circle */
-            top: 50%;
-            left: 50%;
-            /* translate(-50%, -50%) centers it, scale(1.3) crops out the padding */
-            transform: translate(-50%, -50%) scale(1.3); 
+            display: block;
         }
         
         .hero-text-side {
@@ -246,7 +244,7 @@
             height: 100%;
         }
 
-        /* --- THE HEARTEN DEFINITION --- */
+        /* --- DEFINITION --- */
         .definition-section {
             padding: 100px 5%;
             background-color: var(--white);
@@ -261,7 +259,7 @@
         .def-phonetic { font-size: 11px; color: var(--text-light); letter-spacing: 3px; margin-bottom: 30px; text-transform: uppercase;}
         .def-text { font-size: 22px; font-style: italic; color: var(--text-main); line-height: 1.6; }
 
-        /* --- ABOUT BONNIE --- */
+        /* --- ABOUT --- */
         .about {
             padding: 100px 10%;
             background-color: var(--off-white);
@@ -309,7 +307,7 @@
             margin-top: 30px; 
         }
 
-        /* --- EXPERTISE (SERVICES) --- */
+        /* --- SERVICES --- */
         .services {
             padding: 120px 5%;
             background-color: var(--navy); 
@@ -331,7 +329,7 @@
         .service-card h3 { font-size: 26px; margin-bottom: 15px; color: var(--white); }
         .service-card p { font-size: 14px; color: var(--accent-gray); } 
 
-        /* --- PORTFOLIO (INSTAGRAM SHOWCASE) --- */
+        /* --- INSTAGRAM / PORTFOLIO --- */
         .instagram-showcase {
             padding: 100px 5%;
             background-color: var(--white);
@@ -348,9 +346,16 @@
         .ig-title h2 { font-size: 42px; margin-bottom: 10px; }
         .ig-title p { font-size: 12px; color: var(--text-light); letter-spacing: 2px; text-transform: uppercase; }
         
+        /*
+         * IG GRID FIX — DESKTOP
+         * Changed from repeat(4, 1fr) with first item spanning 2 cols/rows
+         * to a clean repeat(3, 1fr) × 2 rows. All 6 photos show equally sized.
+         * No spanning needed, no risk of an item falling off.
+         */
         .ig-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
             gap: 2px;
             max-width: 1600px;
             margin: 0 auto;
@@ -362,7 +367,7 @@
             background-color: var(--accent-gray);
             cursor: pointer;
         }
-        .ig-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        /* Remove the span rule — all items are equal on desktop */
         
         .ig-item img {
             width: 100%; height: 100%;
@@ -398,7 +403,6 @@
             padding: 80px 5% 40px;
             text-align: center;
         }
-        
         .footer-logo img {
             height: 100px;
             width: auto;
@@ -406,10 +410,7 @@
             margin: 0 auto 25px auto; 
             display: block;
         }
-        
-        .footer-links {
-            margin-bottom: 40px;
-        }
+        .footer-links { margin-bottom: 40px; }
         .footer-links a {
             margin: 0 15px;
             font-size: 10px;
@@ -426,17 +427,15 @@
             text-transform: uppercase;
         }
 
-        /* --- RESPONSIVE / MOBILE OPTIMIZATION --- */
+        /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
             .about { grid-template-columns: 1fr; padding: 80px 5%; gap: 50px; }
             .about-image { max-width: 500px; margin: 0 auto; }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
-            .ig-grid { grid-template-columns: repeat(3, 1fr); }
-            .ig-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+            /* Keep 3-col grid on tablet — still fits fine */
         }
 
         @media (max-width: 768px) {
-            
             nav { height: 70px; }
             nav.scrolled { height: 70px; }
             .nav-logo img { height: 40px; width: 40px; }
@@ -472,21 +471,54 @@
             .menu-toggle.open span:nth-child(2) { opacity: 0; }
             .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-            /* Mobile Hero Adjustments - PULLING EVERYTHING UP */
-            .hero { flex-direction: column; height: auto; padding-top: 70px; }
+            /*
+             * MOBILE HERO FIX
+             * Stack layout: image on top, text below.
+             * Badge sits at the seam between image and text panel.
+             *
+             * nav height = 70px
+             * image height = 45vh
+             * seam position from top of viewport = 70px + 45vh
+             *
+             * Badge is 110px tall. Center it on the seam:
+             *   top = 70px + 45vh
+             *   transform: translate(-50%, -50%) centers badge vertically on that point
+             *
+             * Text content gets enough padding-top so the badge (55px radius below seam)
+             * plus some breathing room clears before the eyebrow text starts.
+             */
+            .hero {
+                flex-direction: column;
+                height: auto;
+                padding-top: 70px;
+            }
             
-            /* Reduced image height from 55vh to 45vh */
-            .hero-image-side { width: 100%; height: 45vh; order: 1; }
+            .hero-image-side {
+                width: 100%;
+                height: 45vh;
+                order: 1;
+            }
             
-            /* Tightened padding significantly to pull content up */
-            .hero-text-side { width: 100%; padding: 50px 5% 40px; text-align: center; order: 2; background-color: var(--navy); }
+            .hero-text-side {
+                width: 100%;
+                /* top padding = badge radius (55px) + 24px gap so text clears badge */
+                padding: 79px 7% 50px;
+                text-align: center;
+                order: 2;
+                background-color: var(--navy);
+            }
             
-            /* Recalculated position: 70px nav + 45vh image */
+            /*
+             * Badge: 110px diameter. Centered horizontally (left:50%).
+             * Vertically centered on the image/text seam.
+             */
             .hero-logo-badge {
-                width: 120px; /* Slightly smaller to fit tight space */
-                height: 120px;
+                width: 110px;
+                height: 110px;
                 left: 50%;
-                top: calc(70px + 45vh); 
+                top: calc(70px + 45vh);
+                /* translate(-50%, -50%) = badge is centered on the seam point */
+                transform: translate(-50%, -50%);
             }
 
             .hero-content { animation: none; opacity: 1; transform: none; }
@@ -494,7 +526,6 @@
             .hero-content h1 { font-size: 32px; margin-bottom: 25px; line-height: 1.15; }
             .hero-content .btn { padding: 14px 28px; }
             
-            /* Spacing & Typography Fixes for Mobile Sections */
             .definition-section { padding: 60px 5% 50px; }
             .def-box { text-align: left; }
             .def-word { font-size: 36px; margin-bottom: 5px; }
@@ -519,6 +550,7 @@
             .instagram-showcase { padding: 70px 5%; }
             .ig-header { flex-direction: column; align-items: flex-start; gap: 20px; margin-bottom: 35px; }
             .ig-title h2 { font-size: 34px; }
+            /* 2-col on mobile — still shows all 6, just in 3 rows */
             .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
             
             footer { padding: 60px 5% 40px; }
@@ -571,7 +603,7 @@
         
         <div class="hero-text-side">
             <div class="hero-content">
-                <p class="eyebrow">Interior Design & Remodeling in DFW</p>
+                <p class="eyebrow">Interior Design &amp; Remodeling in DFW</p>
                 <h1 class="serif">Creating spaces where <br><em>life happens</em> beautifully.</h1>
                 <a href="#contact" class="btn">Start Your Project</a>
             </div>
@@ -594,7 +626,7 @@
         </div>
         <div class="about-text reveal">
             <h2 class="serif">Thirty years of <br><em>heartfelt design.</em></h2>
-            <p>Hi, I’m Bonnie! After 30 years of helping friends and family design their spaces, I decided to step out and start my business officially. I have had a love for design and hospitality since I was a little girl.</p>
+            <p>Hi, I'm Bonnie! After 30 years of helping friends and family design their spaces, I decided to step out and start my business officially. I have had a love for design and hospitality since I was a little girl.</p>
             <p>I was once told that I "changed the atmosphere" in a client's home, and that feeling is one of the best in the world. My desire is that you love your home more, not only because it is more beautiful, but because it is a reflection of who you are and what you love.</p>
             <p>From the first dream board to the very last final detail, let me help set your table and create well-loved places to gather with your loved ones.</p>
             <div class="signature serif">Bonnie Roden</div>
@@ -615,7 +647,7 @@
                 <p>Bringing new joy into your home through kitchen and bath renovations. We manage the construction process so you don't have to.</p>
             </div>
             <div class="service-card">
-                <h3 class="serif">Styling & Hospitality</h3>
+                <h3 class="serif">Styling &amp; Hospitality</h3>
                 <p>Setting the table and transforming your space with intentional decor, creating environments ready for family dinners and lifelong memories.</p>
             </div>
         </div>
@@ -657,7 +689,7 @@
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 88</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" alt="Interior Detail">
+                <img src="IG6.jpeg" alt="Instagram Showcase 6">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 104</span></div></div>
             </a>
         </div>
@@ -678,14 +710,9 @@
     </footer>
 
     <script>
-        // Nav Shrink & Mobile Menu Toggle
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
         const mobileMenu = document.getElementById('mobile-menu');
@@ -696,25 +723,19 @@
             mobileMenu.classList.toggle('open');
         });
 
-        const navItems = document.querySelectorAll('.nav-links a');
-        navItems.forEach(item => {
+        document.querySelectorAll('.nav-links a').forEach(item => {
             item.addEventListener('click', () => {
                 navLinks.classList.remove('open');
                 mobileMenu.classList.remove('open');
             });
         });
 
-        // Cinematic Scroll Reveals
         function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 100;
-                if (elementTop < windowHeight - elementVisible) {
-                    reveals[i].classList.add("active");
+            document.querySelectorAll(".reveal").forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+                    el.classList.add("active");
                 }
-            }
+            });
         }
         window.addEventListener("scroll", reveal);
         reveal(); 
