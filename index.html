@@ -77,9 +77,9 @@
             position: fixed;
             top: 0; width: 100%;
             display: flex;
-            justify-content: flex-end; /* Align hamburger to the right */
+            justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
+            padding: 0 5%;
             z-index: 1000;
             transition: var(--transition);
             background-color: var(--white); 
@@ -88,6 +88,44 @@
         nav.scrolled {
             box-shadow: 0 4px 20px rgba(0,0,0,0.04);
             height: 70px;
+        }
+
+        /* Nav Brand Area (Logo + Icons) */
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .nav-logo img {
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            transition: var(--transition);
+        }
+        nav.scrolled .nav-logo img {
+            height: 40px;
+            width: 40px;
+        }
+        .nav-socials {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .nav-socials a {
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+        .nav-socials a:hover {
+            color: var(--gold);
+        }
+        .nav-socials svg {
+            width: 22px;
+            height: 22px;
+            stroke-width: 1.5;
         }
         
         .nav-links { display: flex; gap: 40px; align-items: center; }
@@ -125,19 +163,20 @@
             position: relative; 
         }
 
-        /* Floating Center Logo Badge - BIGGER & CLEARER */
+        /* Floating Center Logo Badge - Sized down, forced to fill border */
         .hero-logo-badge {
             position: absolute;
             z-index: 10;
-            width: 180px; /* Increased size */
-            height: auto;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 4px solid var(--white); /* White ring for clarity */
+            border: 4px solid var(--white); 
             background-color: var(--navy);
             box-shadow: 0 12px 40px rgba(0,0,0,0.2);
             left: 45%; 
             top: 50%;
             transform: translate(-50%, -50%);
+            object-fit: cover; /* Forces image to flush against white border perfectly */
         }
         
         .hero-text-side {
@@ -384,8 +423,10 @@
 
         @media (max-width: 768px) {
             
-            nav { padding: 15px 5%; height: 60px; }
-            nav.scrolled { height: 60px; }
+            nav { height: 70px; }
+            nav.scrolled { height: 70px; }
+            .nav-logo img { height: 40px; width: 40px; }
+            .nav-socials svg { width: 20px; height: 20px; }
 
             .menu-toggle { display: flex; }
             .nav-links {
@@ -418,15 +459,16 @@
             .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
             /* Mobile Hero Adjustments */
-            .hero { flex-direction: column; height: auto; padding-top: 60px; }
+            .hero { flex-direction: column; height: auto; padding-top: 70px; }
             .hero-image-side { width: 100%; height: 55vh; order: 1; }
             .hero-text-side { width: 100%; padding: 80px 5% 60px; text-align: center; order: 2; background-color: var(--navy); }
             
             /* Center badge directly on the horizontal split */
             .hero-logo-badge {
-                width: 150px;
+                width: 125px;
+                height: 125px;
                 left: 50%;
-                top: calc(60px + 55vh); 
+                top: calc(70px + 55vh); 
             }
 
             .hero-content { animation: none; opacity: 1; transform: none; }
@@ -469,6 +511,27 @@
 <body>
 
     <nav id="navbar">
+        <div class="nav-brand">
+            <a href="#" class="nav-logo">
+                <img src="HHI.1.png" alt="Hearten Home Interiors Logo">
+            </a>
+            <div class="nav-socials">
+                <a href="mailto:bonnie@heartenhome.com" aria-label="Email Bonnie">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
         <div class="menu-toggle" id="mobile-menu">
             <span></span>
             <span></span>
@@ -549,7 +612,7 @@
         
         <div class="ig-grid reveal">
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="IG1.jpeg" alt="Kitchen Remodel">
+                <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&q=80&w=1000" alt="Kitchen Remodel">
                 <div class="ig-overlay">
                     <div class="ig-stats">
                         <span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 218</span>
@@ -558,19 +621,19 @@
                 </div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="IG2.jpeg" alt="Living Room Styling">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800" alt="Living Room Styling">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 131</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="IG3.jpeg" alt="Dining Table Setup">
+                <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&q=80&w=800" alt="Dining Table Setup">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 94</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="IG4.jpeg" alt="Bedroom Details">
+                <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=800" alt="Bedroom Details">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 112</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="IG5.jpeg" alt="Home Decor">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800" alt="Home Decor">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 88</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
