@@ -94,15 +94,16 @@
             gap: 20px;
         }
         
-        /* Nav Logo */
         .nav-logo {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            position: relative; /* Setup for absolute inner image */
             overflow: hidden;
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             transition: var(--transition);
+            position: relative;
         }
         nav.scrolled .nav-logo {
             width: 40px;
@@ -110,10 +111,10 @@
         }
         .nav-logo img {
             position: absolute;
-            top: 55%; /* Nudges the graphic down slightly */
+            top: 55%; 
             left: 50%;
-            width: 100%;
-            height: 100%;
+            width: 115%; 
+            height: 115%;
             object-fit: contain;
             transform: translate(-50%, -50%) scale(1.3);
         }
@@ -234,7 +235,6 @@
             color: var(--gold); 
         }
 
-        /* Utility class for perfectly timed text breaking */
         .break-mobile { display: none; }
 
         .hero-text-side .btn {
@@ -405,7 +405,6 @@
             text-align: center;
         }
 
-        /* Footer Logo */
         .footer-logo {
             width: 100px;
             height: 100px;
@@ -490,34 +489,37 @@
                 padding-top: 70px;
             }
             
+            /* PULLING EVERYTHING UP: Reduced image height */
             .hero-image-side {
                 width: 100%;
-                height: 45vh;
+                height: 42vh; 
                 order: 1;
             }
             
             .hero-text-side {
                 width: 100%;
-                padding: 79px 7% 50px;
+                padding: 75px 7% 40px; /* Reduced top padding */
                 text-align: center;
                 order: 2;
                 background-color: var(--navy);
             }
             
             .hero-logo-badge {
-                width: 125px;
-                height: 125px;
+                width: 120px; /* Shrunk slightly to save space */
+                height: 120px;
                 left: 50%;
-                top: calc(70px + 45vh);
+                top: calc(70px + 42vh); /* Matches new image height */
                 transform: translate(-50%, -50%);
             }
 
             .hero-content { animation: none; opacity: 1; transform: none; }
-            .hero-content p.eyebrow { font-size: 10px; margin-bottom: 15px; }
+            .hero-content p.eyebrow { font-size: 10px; margin-bottom: 12px; } /* Tighter margin */
             
-            /* Text scaling utility class for Mobile breaks */
             .break-mobile { display: initial; }
-            .hero-content h1 { font-size: 32px; margin-bottom: 25px; line-height: 1.25; }
+            
+            /* Tighter sizing and line-height for mobile text */
+            .hero-content h1 { font-size: 32px; margin-bottom: 20px; line-height: 1.15; }
+            
             .hero-content .btn { padding: 14px 28px; }
             
             .definition-section { padding: 60px 5% 50px; }
@@ -598,8 +600,8 @@
             <div class="hero-content">
                 <p class="eyebrow">Interior Design &amp; Remodeling in DFW</p>
                 <h1 class="serif">
-                    Creating <br class="break-mobile"><em>beautiful spaces</em> <br>
-                    where <em>great memories</em> <br class="break-mobile">
+                    Creating <br class="break-mobile"><em>beautiful&nbsp;spaces</em> <br>
+                    where <em>great&nbsp;memories</em> <br class="break-mobile">
                     happen.
                 </h1>
                 <a href="#contact" class="btn">Start Your Project</a>
