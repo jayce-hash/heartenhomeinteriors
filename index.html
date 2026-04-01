@@ -94,15 +94,14 @@
             gap: 20px;
         }
         
-        /* Bulletproof Nav Logo Container */
+        /* Nav Logo */
         .nav-logo {
             width: 50px;
             height: 50px;
             border-radius: 50%;
+            position: relative; /* Setup for absolute inner image */
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: block;
             transition: var(--transition);
         }
         nav.scrolled .nav-logo {
@@ -110,10 +109,13 @@
             height: 40px;
         }
         .nav-logo img {
-            width: 130%; 
-            height: 130%;
-            flex-shrink: 0; 
-            object-fit: cover;
+            position: absolute;
+            top: 55%; /* Nudges the graphic down slightly */
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transform: translate(-50%, -50%) scale(1.3);
         }
 
         .nav-socials {
@@ -168,7 +170,6 @@
             position: relative; 
         }
 
-        /* Floating Center Logo Badge */
         .hero-logo-badge {
             position: absolute;
             z-index: 10;
@@ -221,10 +222,9 @@
             font-weight: 500;
         }
         
-        /* Adjusted font sizing and margin for new text */
         .hero-content h1 {
-            font-size: clamp(32px, 3.5vw, 48px);
-            line-height: 1.3;
+            font-size: clamp(34px, 3.8vw, 52px);
+            line-height: 1.25;
             margin-bottom: 35px;
             color: var(--white); 
         }
@@ -233,6 +233,9 @@
             font-style: italic; 
             color: var(--gold); 
         }
+
+        /* Utility class for perfectly timed text breaking */
+        .break-mobile { display: none; }
 
         .hero-text-side .btn {
             border-color: var(--white);
@@ -402,22 +405,23 @@
             text-align: center;
         }
 
-        /* Bulletproof Footer Logo */
+        /* Footer Logo */
         .footer-logo {
             width: 100px;
             height: 100px;
             border-radius: 50%;
             margin: 0 auto 25px auto; 
+            position: relative;
             overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         .footer-logo img {
-            width: 130%;
-            height: 130%;
-            flex-shrink: 0;
-            object-fit: cover;
+            position: absolute;
+            top: 55%; 
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transform: translate(-50%, -50%) scale(1.3);
         }
 
         .footer-links { margin-bottom: 40px; }
@@ -511,9 +515,9 @@
             .hero-content { animation: none; opacity: 1; transform: none; }
             .hero-content p.eyebrow { font-size: 10px; margin-bottom: 15px; }
             
-            /* Adjusted size for longer text on mobile */
-            .hero-content h1 { font-size: 28px; margin-bottom: 25px; line-height: 1.3; }
-            
+            /* Text scaling utility class for Mobile breaks */
+            .break-mobile { display: initial; }
+            .hero-content h1 { font-size: 32px; margin-bottom: 25px; line-height: 1.25; }
             .hero-content .btn { padding: 14px 28px; }
             
             .definition-section { padding: 60px 5% 50px; }
@@ -593,7 +597,11 @@
         <div class="hero-text-side">
             <div class="hero-content">
                 <p class="eyebrow">Interior Design &amp; Remodeling in DFW</p>
-                <h1 class="serif">Creating <br><em>beautiful spaces</em> where <br><em>great memories</em> happen.</h1>
+                <h1 class="serif">
+                    Creating <br class="break-mobile"><em>beautiful spaces</em> <br>
+                    where <em>great memories</em> <br class="break-mobile">
+                    happen.
+                </h1>
                 <a href="#contact" class="btn">Start Your Project</a>
             </div>
         </div>
@@ -678,7 +686,7 @@
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 88</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="IG6.jpeg" alt="Interior Detail">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" alt="Interior Detail">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 104</span></div></div>
             </a>
         </div>
