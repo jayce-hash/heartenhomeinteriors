@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hearten Home Interiors | Bonnie Roden</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- DESIGN SYSTEM & VARIABLES --- */
+        :root {
+            --navy: #1C2F6E;
+            --navy-light: #2A408A;
+            --gold: #C4A96B;
+            --warm-white: #FCFBF9;
+            --cream: #F4EFEA;
+            --text-dark: #2D2D2D;
+            --text-light: #666666;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background-color: var(--warm-white); 
+            color: var(--text-dark);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .serif { 
+            font-family: 'Cormorant Garamond', serif; 
+            font-weight: 400; 
+            color: var(--navy);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background-color: transparent;
+            border: 1px solid var(--navy);
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: var(--navy);
+            color: var(--warm-white);
+        }
+        .btn-gold {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+        .btn-gold:hover {
+            background-color: var(--gold);
+            color: #fff;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 5%;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: transparent;
+        }
+        nav.scrolled {
+            background-color: rgba(252, 251, 249, 0.98);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            padding: 15px 5%;
+        }
+        nav.scrolled .logo, nav.scrolled .nav-links a { color: var(--navy); }
+        
+        .logo { 
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            letter-spacing: 2px;
+            color: var(--warm-white);
+            transition: var(--transition);
+        }
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { 
+            color: var(--warm-white); 
+            font-size: 11px; 
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; width: 0; height: 1px;
+            bottom: -4px; left: 0; background-color: var(--gold);
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+        }
+        .hero::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(28, 47, 110, 0.4), rgba(0,0,0,0.1));
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: var(--warm-white);
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        .hero-content p {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        .hero-content h1 {
+            color: var(--warm-white);
+            font-size: clamp(50px, 8vw, 90px);
+            line-height: 1.1;
+            margin-bottom: 40px;
+        }
+        .hero-content em { font-style: italic; color: var(--gold); }
+
+        /* --- DEFINITION BREAK --- */
+        .definition-section {
+            padding: 100px 5%;
+            background-color: var(--cream);
+            display: flex;
+            justify-content: center;
+        }
+        .def-box {
+            border: 1px solid rgba(196, 169, 107, 0.5); /* Soft gold border */
+            padding: 60px 40px;
+            text-align: center;
+            max-width: 700px;
+            background-color: var(--warm-white);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+        }
+        .def-word { font-size: 48px; margin-bottom: 10px; }
+        .def-phonetic { font-size: 14px; color: var(--text-light); letter-spacing: 2px; margin-bottom: 30px; font-style: italic;}
+        .def-text { font-size: 20px; font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--navy); line-height: 1.5; }
+
+        /* --- ABOUT BONNIE --- */
+        .about {
+            padding: 120px 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .about-image {
+            position: relative;
+        }
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .about-image::after {
+            content: '';
+            position: absolute;
+            top: 30px; left: -30px; width: 100%; height: 100%;
+            border: 1px solid var(--navy);
+            z-index: -1;
+        }
+        .about-text h2 { font-size: 50px; margin-bottom: 20px; line-height: 1.1; }
+        .about-text p { color: var(--text-light); margin-bottom: 25px; font-size: 15px; }
+        .signature { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-style: italic; color: var(--gold); margin-top: 30px; }
+
+        /* --- SERVICES OVERVIEW --- */
+        .services {
+            padding: 120px 5%;
+            background-color: var(--cream);
+            text-align: center;
+        }
+        .services-header { margin-bottom: 60px; }
+        .services-header h2 { font-size: 46px; }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background-color: var(--warm-white);
+            padding: 50px 30px;
+            border-top: 3px solid transparent;
+            transition: var(--transition);
+        }
+        .service-card:hover {
+            border-top-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .service-card h3 { font-size: 26px; margin-bottom: 15px; }
+        .service-card p { font-size: 14px; color: var(--text-light); }
+
+        /* --- INSTAGRAM SHOWCASE (The Core Portfolio) --- */
+        .instagram-showcase {
+            padding: 120px 5%;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .ig-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .ig-title h2 { font-size: 46px; margin-bottom: 10px; }
+        .ig-title p { font-size: 14px; color: var(--text-light); letter-spacing: 1px; }
+        
+        /* The Grid */
+        .ig-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        .ig-item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background-color: var(--cream);
+            cursor: pointer;
+        }
+        /* Make the first item larger for masonry feel */
+        .ig-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        
+        .ig-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+        .ig-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(28, 47, 110, 0.6); /* Navy tint */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .ig-item:hover img { transform: scale(1.05); }
+        .ig-item:hover .ig-overlay { opacity: 1; }
+        
+        /* Simulated IG stats on hover */
+        .ig-stats {
+            color: #fff;
+            display: flex;
+            gap: 20px;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        .ig-stats span { display: flex; align-items: center; gap: 8px; }
+        .ig-stats svg { width: 20px; height: 20px; fill: currentColor; }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--navy);
+            color: var(--warm-white);
+            padding: 80px 5% 40px;
+            text-align: center;
+        }
+        .footer-logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+        .footer-links {
+            margin-bottom: 40px;
+        }
+        .footer-links a {
+            margin: 0 15px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            transition: var(--transition);
+        }
+        .footer-links a:hover { color: var(--gold); }
+        .copyright { font-size: 12px; color: rgba(255,255,255,0.4); border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .about { gap: 40px; }
+            .ig-grid { grid-template-columns: repeat(3, 1fr); }
+            .ig-item:nth-child(1) { grid-column: span 1; grid-row: span 1; } /* Remove masonry on smaller screens */
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Add hamburger menu in production */
+            .about { grid-template-columns: 1fr; padding: 80px 5%; }
+            .about-image::after { display: none; }
+            .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .ig-header { flex-direction: column; align-items: flex-start; }
+            .def-word { font-size: 36px; }
+            .def-box { padding: 40px 20px; }
+            h1 { font-size: 40px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#" class="logo">Hearten Home</a>
+        <div class="nav-links">
+            <a href="#about">Meet Bonnie</a>
+            <a href="#services">Expertise</a>
+            <a href="#portfolio">Latest Work</a>
+            <a href="#contact">Inquire</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <p>Interior Design & Remodeling in DFW</p>
+            <h1>Creating spaces where <em>life happens</em> beautifully.</h1>
+            <a href="#contact" class="btn btn-gold">Start Your Project</a>
+        </div>
+    </header>
+
+    <section class="definition-section">
+        <div class="def-box">
+            <h2 class="def-word">Hearten</h2>
+            <div class="def-phonetic">[har-ten] verb.</div>
+            <p class="def-text">"To make someone feel happier and more positive about a situation... to make cheerful or encourage."</p>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000" alt="Bonnie Roden - Interior Designer">
+        </div>
+        <div class="about-text">
+            <h2>Thirty years of <br><em>heartfelt design.</em></h2>
+            <p>Hi, I’m Bonnie! After 30 years of helping friends and family design their spaces, I decided to step out and start my business officially. I have had a love for design and hospitality since I was a little girl.</p>
+            <p>I was once told that I "changed the atmosphere" in a client's home, and that feeling is one of the best in the world. My desire is that you love your home more, not only because it is more beautiful, but because it is a reflection of who you are and what you love.</p>
+            <p>From the first dream board to the very last final detail, let me help set your table and create well-loved places to gather with your loved ones.</p>
+            <div class="signature">Bonnie Roden</div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="services-header">
+            <h2>How I Can Help</h2>
+            <p style="color: var(--text-light); margin-top: 10px;">A turn-key experience tailored to your home.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Full-Service Design</h3>
+                <p>Comprehensive interior design spanning from initial spatial planning and material selection to the final installation of curated furnishings.</p>
+            </div>
+            <div class="service-card">
+                <h3>Turn-Key Remodeling</h3>
+                <p>Bringing new joy into your home through kitchen and bath renovations. We manage the construction process so you don't have to.</p>
+            </div>
+            <div class="service-card">
+                <h3>Styling & Hospitality</h3>
+                <p>Setting the table and transforming your space with intentional decor, creating environments ready for family dinners and lifelong memories.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="instagram-showcase" id="portfolio">
+        <div class="ig-header">
+            <div class="ig-title">
+                <h2>From the Journal</h2>
+                <p>Follow along @heartenhomeinteriors for daily inspiration, in-progress remodels, and final details.</p>
+            </div>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="btn">View Instagram</a>
+        </div>
+        
+        <div class="ig-grid">
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
+                <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&q=80&w=1000" alt="Kitchen Remodel">
+                <div class="ig-overlay">
+                    <div class="ig-stats">
+                        <span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 218</span>
+                        <span><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 53</span>
+                    </div>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800" alt="Living Room Styling">
+                <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 131</span></div></div>
+            </a>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
+                <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&q=80&w=800" alt="Dining Table Setup">
+                <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 94</span></div></div>
+            </a>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
+                <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=800" alt="Bedroom Details">
+                <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 112</span></div></div>
+            </a>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800" alt="Home Decor">
+                <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 88</span></div></div>
+            </a>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-logo">Hearten Home Interiors</div>
+        <p style="margin-bottom: 30px; font-size: 14px; color: rgba(255,255,255,0.7);">Based in Colleyville, TX • Serving the DFW Area</p>
+        <div class="footer-links">
+            <a href="mailto:bonnie@heartenhome.com">bonnie@heartenhome.com</a>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank">Instagram</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Hearten Home Interiors. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+
+</body>
+</html>
