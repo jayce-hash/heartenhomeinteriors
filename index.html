@@ -93,19 +93,31 @@
             align-items: center;
             gap: 20px;
         }
-        .nav-logo img {
-            height: 50px;
+        
+        /* BULLETPROOF NAV LOGO */
+        .nav-logo {
             width: 50px;
+            height: 50px;
             border-radius: 50%;
-            object-fit: cover;
-            transform: scale(1.05); /* Fixes white edges from image file */
+            position: relative;
+            overflow: hidden;
             display: block;
             transition: var(--transition);
         }
-        nav.scrolled .nav-logo img {
-            height: 40px;
+        nav.scrolled .nav-logo {
             width: 40px;
+            height: 40px;
         }
+        .nav-logo img {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 115%; /* Scales image up to push white edges out */
+            height: 115%;
+            max-width: none;
+            transform: translate(-50%, -50%); /* Pins to dead center */
+            object-fit: cover;
+        }
+
         .nav-socials {
             display: flex;
             gap: 15px;
@@ -158,6 +170,7 @@
             position: relative; 
         }
 
+        /* BULLETPROOF HERO LOGO BADGE */
         .hero-logo-badge {
             position: absolute;
             z-index: 10;
@@ -169,21 +182,20 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.2);
             left: 45%;
             top: 50%;
+            /* Centers the wrapper itself on the split */
             transform: translate(-50%, -50%);
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         
-        /* PERFECT LOGO FIX */
         .hero-logo-badge img {
-            width: 100%;
-            height: 100%;
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 115%; /* Scales image up to push white edges out */
+            height: 115%;
+            max-width: none;
+            /* Pins the image to the dead center of the wrapper */
+            transform: translate(-50%, -50%);
             object-fit: cover;
-            object-position: center;
-            transform: scale(1.05); /* Slightly zooms to crop the white corners from your JPG */
-            display: block;
         }
         
         .hero-text-side {
@@ -391,15 +403,27 @@
             padding: 80px 5% 40px;
             text-align: center;
         }
-        .footer-logo img {
-            height: 100px;
+
+        /* BULLETPROOF FOOTER LOGO */
+        .footer-logo {
             width: 100px;
+            height: 100px;
             border-radius: 50%;
-            object-fit: cover;
-            transform: scale(1.05); /* Fixes white edges */
+            position: relative;
+            overflow: hidden;
             margin: 0 auto 25px auto; 
             display: block;
         }
+        .footer-logo img {
+            position: absolute;
+            top: 50%; left: 50%;
+            width: 115%;
+            height: 115%;
+            max-width: none;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
         .footer-links { margin-bottom: 40px; }
         .footer-links a {
             margin: 0 15px;
@@ -427,7 +451,7 @@
         @media (max-width: 768px) {
             nav { height: 70px; }
             nav.scrolled { height: 70px; }
-            .nav-logo img { height: 40px; width: 40px; }
+            .nav-logo { width: 40px; height: 40px; }
             .nav-socials svg { width: 20px; height: 20px; }
 
             .menu-toggle { display: flex; }
@@ -481,11 +505,11 @@
             }
             
             .hero-logo-badge {
-                width: 110px;
-                height: 110px;
+                width: 125px;
+                height: 125px;
                 left: 50%;
                 top: calc(70px + 45vh);
-                transform: translate(-50%, -50%);
+                /* transform: translate(-50%, -50%) inherits from desktop CSS */
             }
 
             .hero-content { animation: none; opacity: 1; transform: none; }
@@ -520,7 +544,7 @@
             .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
             
             footer { padding: 60px 5% 40px; }
-            .footer-logo img { height: 80px; width: 80px; }
+            .footer-logo { height: 80px; width: 80px; }
         }
     </style>
 </head>
@@ -655,7 +679,7 @@
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 88</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" alt="Instagram Showcase 6">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" alt="Interior Detail">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 104</span></div></div>
             </a>
         </div>
