@@ -92,6 +92,22 @@
             letter-spacing: 2px;
             color: var(--warm-white);
             transition: var(--transition);
+
+            /* Sizes the logo in the top navigation */
+.logo img {
+    height: 60px; /* Adjust this number to make it bigger or smaller */
+    width: auto;
+    border-radius: 50%; /* Ensures the edges stay perfectly round */
+    display: block;
+}
+
+/* Sizes the logo in the footer */
+.footer-logo img {
+    height: 100px;
+    width: auto;
+    border-radius: 50%;
+    margin: 0 auto 15px auto; /* Centers the logo and adds space below it */
+}
         }
         .nav-links { display: flex; gap: 40px; }
         .nav-links a { 
@@ -333,7 +349,7 @@
 
     <nav id="navbar">
         <a href="#" class="logo">
-    <img src="HHI1.jpeg" alt="Hearten Home Interiors Logo">
+    <img src="HHI.1.png" alt="Hearten Home Interiors Logo">
 </a>
         <div class="nav-links">
             <a href="#about">Meet Bonnie</a>
@@ -432,7 +448,9 @@
     </section>
 
     <footer id="contact">
-        <div class="footer-logo">Hearten Home Interiors</div>
+        <div class="footer-logo">
+    <img src="HHI.1.png" alt="Hearten Home Interiors Logo">
+</div>
         <p style="margin-bottom: 30px; font-size: 14px; color: rgba(255,255,255,0.7);">Based in Colleyville, TX • Serving the DFW Area</p>
         <div class="footer-links">
             <a href="mailto:bonnie@heartenhome.com">bonnie@heartenhome.com</a>
