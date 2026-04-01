@@ -17,8 +17,8 @@
             --off-white: #F8F9FA; 
             --accent-gray: #E5E7EB; 
             --text-main: #2D2D2D;
-            --text-light: #6B7280;
-            --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            --text-light: #555A64;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -27,7 +27,7 @@
             font-family: 'Inter', sans-serif; 
             background-color: var(--white); 
             color: var(--text-main);
-            line-height: 1.8;
+            line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
@@ -36,6 +36,7 @@
             font-family: 'Playfair Display', serif; 
             font-weight: 400; 
             color: var(--navy);
+            line-height: 1.2;
         }
 
         a { text-decoration: none; color: inherit; }
@@ -43,13 +44,13 @@
         /* --- BUTTONS --- */
         .btn {
             display: inline-block;
-            padding: 18px 45px;
+            padding: 16px 40px;
             background-color: transparent;
             border: 1px solid var(--navy);
             color: var(--navy);
             text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 10px;
+            letter-spacing: 2.5px;
+            font-size: 11px;
             font-weight: 500;
             transition: var(--transition);
             cursor: pointer;
@@ -63,8 +64,8 @@
         /* --- SCROLL ANIMATIONS --- */
         .reveal {
             opacity: 0;
-            transform: translateY(40px);
-            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transform: translateY(30px);
+            transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .reveal.active {
             opacity: 1;
@@ -76,33 +77,24 @@
             position: fixed;
             top: 0; width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end; /* Align hamburger to the right */
             align-items: center;
-            padding: 25px 5%;
+            padding: 20px 5%;
             z-index: 1000;
             transition: var(--transition);
             background-color: var(--white); 
+            height: 80px;
         }
         nav.scrolled {
-            padding: 15px 5%;
-            border-bottom: 1px solid var(--accent-gray);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            height: 70px;
         }
         
-        /* New Text Logo in Header */
-        .logo-text {
-            font-size: 26px;
-            color: var(--navy);
-            transition: var(--transition);
-            letter-spacing: 0.5px;
-        }
-        nav.scrolled .logo-text { font-size: 22px; }
-        
-        .nav-links { display: flex; gap: 45px; align-items: center; }
+        .nav-links { display: flex; gap: 40px; align-items: center; }
         .nav-links a { 
             color: var(--navy); 
-            font-size: 10px; 
-            letter-spacing: 2.5px; 
+            font-size: 11px; 
+            letter-spacing: 2px; 
             text-transform: uppercase; 
             transition: var(--transition);
         }
@@ -112,14 +104,14 @@
         .menu-toggle {
             display: none; 
             flex-direction: column;
-            gap: 6px;
+            gap: 5px;
             cursor: pointer;
             z-index: 1001;
         }
         .menu-toggle span {
             display: block;
-            width: 25px;
-            height: 1px;
+            width: 24px;
+            height: 1.5px;
             background-color: var(--navy);
             transition: var(--transition);
         }
@@ -128,22 +120,23 @@
         .hero {
             display: flex;
             height: 100vh;
-            padding-top: 110px; 
+            padding-top: 80px; 
             background-color: var(--navy);
-            position: relative; /* For absolute positioning of the badge */
+            position: relative; 
         }
 
-        /* Floating Center Logo Badge */
+        /* Floating Center Logo Badge - BIGGER & CLEARER */
         .hero-logo-badge {
             position: absolute;
             z-index: 10;
-            width: 140px;
+            width: 180px; /* Increased size */
             height: auto;
             border-radius: 50%;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            /* Centered exactly on the vertical split line on desktop */
+            border: 4px solid var(--white); /* White ring for clarity */
+            background-color: var(--navy);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.2);
             left: 45%; 
-            top: 55%;
+            top: 50%;
             transform: translate(-50%, -50%);
         }
         
@@ -155,9 +148,9 @@
         }
 
         .hero-content {
-            animation: slideUpFade 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+            animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
             width: 100%;
         }
         
@@ -165,24 +158,17 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .hero-content h2.company-name {
-            font-size: 32px;
-            color: var(--white);
-            margin-bottom: 10px;
-        }
-
         .hero-content p.eyebrow {
-            font-size: 10px;
-            letter-spacing: 4px;
+            font-size: 11px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             color: var(--gold);
             font-weight: 500;
         }
         
         .hero-content h1 {
             font-size: clamp(36px, 4vw, 56px);
-            line-height: 1.2;
             margin-bottom: 40px;
             color: var(--white); 
         }
@@ -209,32 +195,32 @@
 
         /* --- THE HEARTEN DEFINITION --- */
         .definition-section {
-            padding: 120px 5%;
+            padding: 100px 5%;
             background-color: var(--white);
             display: flex;
             justify-content: center;
         }
         .def-box {
             text-align: center;
-            max-width: 800px;
+            max-width: 700px;
         }
-        .def-word { font-size: 54px; margin-bottom: 5px; color: var(--navy); }
-        .def-phonetic { font-size: 12px; color: var(--text-light); letter-spacing: 3px; margin-bottom: 40px; text-transform: uppercase;}
-        .def-text { font-size: 26px; font-style: italic; color: var(--text-main); line-height: 1.5; }
+        .def-word { font-size: 46px; margin-bottom: 5px; color: var(--navy); }
+        .def-phonetic { font-size: 11px; color: var(--text-light); letter-spacing: 3px; margin-bottom: 30px; text-transform: uppercase;}
+        .def-text { font-size: 22px; font-style: italic; color: var(--text-main); line-height: 1.6; }
 
         /* --- ABOUT BONNIE --- */
         .about {
-            padding: 120px 10%;
+            padding: 100px 10%;
             background-color: var(--off-white);
             display: grid;
-            grid-template-columns: 5fr 6fr;
-            gap: 100px;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
             align-items: center;
         }
         .about-image {
             position: relative;
-            padding-bottom: 60px; 
-            padding-right: 40px;
+            padding-bottom: 50px; 
+            padding-right: 30px;
         }
         .about-image .main-img {
             width: 90%; 
@@ -250,64 +236,64 @@
             width: 55%; 
             height: auto;
             border: 8px solid var(--off-white); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.08); 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
             z-index: 2;
         }
         .about-image::before {
             content: '';
             position: absolute;
-            top: -20px; left: -20px; 
+            top: -15px; left: -15px; 
             width: 80%; height: 80%;
             background-color: var(--navy); 
             z-index: 0;
         }
-        .about-text h2 { font-size: 56px; margin-bottom: 30px; line-height: 1.1; }
-        .about-text p { color: var(--text-light); margin-bottom: 25px; font-size: 14px; }
+        .about-text h2 { font-size: 46px; margin-bottom: 25px; }
+        .about-text p { color: var(--text-light); margin-bottom: 20px; font-size: 15px; }
         .signature { 
-            font-size: 32px; 
+            font-size: 28px; 
             font-style: italic; 
             color: var(--navy);
-            margin-top: 40px; 
+            margin-top: 30px; 
         }
 
         /* --- EXPERTISE (SERVICES) --- */
         .services {
-            padding: 150px 5%;
+            padding: 120px 5%;
             background-color: var(--navy); 
             color: var(--white);
         }
-        .services-header { text-align: center; margin-bottom: 80px; }
-        .services-header h2 { font-size: 50px; color: var(--white); }
+        .services-header { text-align: center; margin-bottom: 60px; }
+        .services-header h2 { font-size: 42px; color: var(--white); }
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 60px;
-            max-width: 1400px;
+            gap: 50px;
+            max-width: 1200px;
             margin: 0 auto;
         }
         .service-card {
             border-top: 1px solid var(--gold);
-            padding-top: 40px;
+            padding-top: 30px;
         }
-        .service-card h3 { font-size: 30px; margin-bottom: 20px; color: var(--white); }
+        .service-card h3 { font-size: 26px; margin-bottom: 15px; color: var(--white); }
         .service-card p { font-size: 14px; color: var(--accent-gray); } 
 
         /* --- PORTFOLIO (INSTAGRAM SHOWCASE) --- */
         .instagram-showcase {
-            padding: 120px 5%;
+            padding: 100px 5%;
             background-color: var(--white);
         }
         .ig-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
             max-width: 1600px;
             margin-left: auto;
             margin-right: auto;
         }
-        .ig-title h2 { font-size: 50px; margin-bottom: 10px; }
-        .ig-title p { font-size: 13px; color: var(--text-light); letter-spacing: 2px; text-transform: uppercase; }
+        .ig-title h2 { font-size: 42px; margin-bottom: 10px; }
+        .ig-title p { font-size: 12px; color: var(--text-light); letter-spacing: 2px; text-transform: uppercase; }
         
         .ig-grid {
             display: grid;
@@ -328,7 +314,7 @@
         .ig-item img {
             width: 100%; height: 100%;
             object-fit: cover;
-            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .ig-overlay {
             position: absolute;
@@ -346,35 +332,35 @@
         .ig-stats {
             color: var(--navy);
             display: flex;
-            gap: 25px;
-            font-size: 22px;
+            gap: 20px;
+            font-size: 18px;
             font-style: italic;
         }
-        .ig-stats span { display: flex; align-items: center; gap: 8px; }
-        .ig-stats svg { width: 18px; height: 18px; fill: var(--gold); }
+        .ig-stats span { display: flex; align-items: center; gap: 6px; }
+        .ig-stats svg { width: 16px; height: 16px; fill: var(--gold); }
 
         /* --- FOOTER --- */
         footer {
             background-color: var(--navy);
-            padding: 100px 5% 50px;
+            padding: 80px 5% 40px;
             text-align: center;
         }
         
         .footer-logo img {
-            height: 120px;
+            height: 100px;
             width: auto;
             clip-path: circle(47% at 50% 50%);
-            margin: 0 auto 30px auto; 
+            margin: 0 auto 25px auto; 
             display: block;
         }
         
         .footer-links {
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
         .footer-links a {
-            margin: 0 20px;
+            margin: 0 15px;
             font-size: 10px;
-            letter-spacing: 3px;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
             color: var(--white); 
             transition: var(--transition);
@@ -389,20 +375,17 @@
 
         /* --- RESPONSIVE / MOBILE OPTIMIZATION --- */
         @media (max-width: 1024px) {
-            .about { grid-template-columns: 1fr; padding: 100px 5%; gap: 60px; }
-            .about-image { max-width: 600px; margin: 0 auto; }
+            .about { grid-template-columns: 1fr; padding: 80px 5%; gap: 50px; }
+            .about-image { max-width: 500px; margin: 0 auto; }
             .services-grid { grid-template-columns: repeat(2, 1fr); }
             .ig-grid { grid-template-columns: repeat(3, 1fr); }
             .ig-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
         }
 
         @media (max-width: 768px) {
-            h1, h2, h3, h4, .serif { font-size: 32px !important; }
             
-            nav { padding: 15px 5%; }
-            .logo-text { font-size: 22px; }
-            nav.scrolled { padding: 10px 5%; }
-            nav.scrolled .logo-text { font-size: 20px; }
+            nav { padding: 15px 5%; height: 60px; }
+            nav.scrolled { height: 60px; }
 
             .menu-toggle { display: flex; }
             .nav-links {
@@ -412,7 +395,7 @@
                 top: 0; left: 0; width: 100%; height: 100vh;
                 background-color: rgba(255, 255, 255, 0.98);
                 padding: 100px 5% 0;
-                gap: 40px;
+                gap: 30px;
                 transition: var(--transition);
                 transform: translateY(-100%); 
                 align-items: flex-start;
@@ -423,66 +406,69 @@
                 pointer-events: all;
             }
             .nav-links a {
-                font-size: 12px;
-                letter-spacing: 3px;
+                font-size: 13px;
+                letter-spacing: 2px;
                 text-align: left;
                 width: 100%;
-                padding-bottom: 10px;
+                padding-bottom: 15px;
                 border-bottom: 1px solid var(--accent-gray);
             }
-            .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4px, 4px); }
             .menu-toggle.open span:nth-child(2) { opacity: 0; }
             .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
             /* Mobile Hero Adjustments */
-            .hero { flex-direction: column; height: auto; padding-top: 80px; background-color: var(--white); }
+            .hero { flex-direction: column; height: auto; padding-top: 60px; }
+            .hero-image-side { width: 100%; height: 55vh; order: 1; }
+            .hero-text-side { width: 100%; padding: 80px 5% 60px; text-align: center; order: 2; background-color: var(--navy); }
             
-            /* Center badge exactly on the horizontal seam between image and navy box */
+            /* Center badge directly on the horizontal split */
             .hero-logo-badge {
+                width: 150px;
                 left: 50%;
-                /* 80px nav padding + 50vh image height */
-                top: calc(80px + 50vh); 
-                width: 110px;
+                top: calc(60px + 55vh); 
             }
 
-            .hero-text-side { width: 100%; padding: 70px 5% 50px; text-align: center; order: 2; background-color: var(--navy); }
-            .hero-image-side { width: 100%; height: 50vh; order: 1; }
             .hero-content { animation: none; opacity: 1; transform: none; }
-            
-            .hero-content h2.company-name { font-size: 28px; margin-bottom: 8px; }
             .hero-content p.eyebrow { font-size: 10px; margin-bottom: 20px; }
-            .hero-content h1 { font-size: 32px !important; line-height: 1.2; margin-bottom: 25px; }
-            .hero-content .btn { padding: 15px 35px; }
+            .hero-content h1 { font-size: 34px; margin-bottom: 30px; }
+            .hero-content .btn { padding: 14px 30px; }
             
-            .definition-section { padding: 60px 5% 40px; }
+            /* Spacing & Typography Fixes for Mobile Sections */
+            .definition-section { padding: 60px 5% 50px; }
             .def-box { text-align: left; }
-            .def-word { font-size: 36px !important; margin-bottom: 3px; }
+            .def-word { font-size: 36px; margin-bottom: 5px; }
             .def-phonetic { margin-bottom: 15px; }
             .def-text { font-size: 18px; margin-top: 15px; }
 
             .about { padding: 60px 5%; gap: 40px; }
             .about-image { padding-bottom: 30px; padding-right: 20px; }
-            .about-text h2 { margin-bottom: 15px; }
-            .about-text p { margin-bottom: 15px; font-size: 13px; line-height: 1.6; }
-            .signature { font-size: 24px; margin-top: 25px; }
+            .about-text h2 { font-size: 34px; margin-bottom: 20px; }
+            .about-text p { margin-bottom: 15px; font-size: 14px; }
+            .signature { font-size: 24px; margin-top: 20px; }
 
-            .services { padding: 60px 5%; }
-            .services-header { margin-bottom: 30px; }
+            .services { padding: 70px 5%; }
+            .services-header { margin-bottom: 40px; }
+            .services-header h2 { font-size: 34px; }
             .services-grid { grid-template-columns: 1fr; gap: 40px; }
-            .service-card { border-top: none; padding-top: 25px; border-bottom: 1px solid var(--gold); padding-bottom: 25px; }
-            .service-card h3 { font-size: 26px !important; margin-bottom: 10px; }
-            .service-card p { font-size: 13px; }
+            .service-card { padding-top: 25px; border-bottom: 1px solid rgba(191, 161, 95, 0.3); padding-bottom: 25px; border-top: none; }
+            .service-card:first-child { border-top: 1px solid var(--gold); }
+            .service-card h3 { font-size: 24px; margin-bottom: 10px; }
+            .service-card p { font-size: 14px; }
             
+            .instagram-showcase { padding: 70px 5%; }
+            .ig-header { flex-direction: column; align-items: flex-start; gap: 20px; margin-bottom: 35px; }
+            .ig-title h2 { font-size: 34px; }
             .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
-            .ig-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+            
+            footer { padding: 60px 5% 40px; }
+            .footer-logo img { height: 80px; }
         }
     </style>
 </head>
 <body>
 
     <nav id="navbar">
-        <a href="#" class="logo-text serif">Hearten Home Interiors</a>
-        
         <div class="menu-toggle" id="mobile-menu">
             <span></span>
             <span></span>
@@ -502,7 +488,6 @@
         
         <div class="hero-text-side">
             <div class="hero-content">
-                <h2 class="company-name serif">Hearten Home Interiors</h2>
                 <p class="eyebrow">Interior Design & Remodeling in DFW</p>
                 <h1 class="serif">Creating spaces where <br><em>life happens</em> beautifully.</h1>
                 <a href="#contact" class="btn">Start Your Project</a>
@@ -589,7 +574,7 @@
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 88</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="https://images.unsplash.com/photo-1599809275671-b39414ef1917?auto=format&fit=crop&q=80&w=1000" alt="Kitchen Detail">
+                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" alt="Interior Detail">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 104</span></div></div>
             </a>
         </div>
