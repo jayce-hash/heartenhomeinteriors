@@ -78,15 +78,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 5%;
+            padding: 25px 5%;
             z-index: 1000;
             transition: var(--transition);
-            background-color: transparent;
+            background-color: var(--white); /* Solid white for a clean split layout */
         }
         nav.scrolled {
-            background-color: rgba(255, 255, 255, 0.98);
             padding: 15px 5%;
             border-bottom: 1px solid var(--sand);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
         }
         
         .logo img {
@@ -100,50 +100,33 @@
         
         .nav-links { display: flex; gap: 45px; align-items: center; }
         .nav-links a { 
-            color: var(--white); 
+            color: var(--navy); 
             font-size: 10px; 
             letter-spacing: 2.5px; 
             text-transform: uppercase; 
             transition: var(--transition);
         }
-        nav.scrolled .nav-links a { color: var(--navy); }
         .nav-links a:hover { color: var(--gold); }
 
-        /* --- EDITORIAL HERO SECTION --- */
+        /* --- EDITORIAL SPLIT HERO SECTION --- */
         .hero {
-            position: relative;
-            height: 100vh; /* Full screen height */
             display: flex;
-            align-items: center; /* Centers the text vertically */
-            justify-content: flex-start; /* Aligns text to the left */
+            height: 100vh;
+            padding-top: 110px; /* Accounts for the fixed nav */
+            background-color: var(--linen);
         }
         
-        /* Full-bleed background image */
-        .hero-bg {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100vh;
-            background: url('Home.jpeg') center/cover no-repeat;
-            z-index: 1;
+        .hero-text-side {
+            width: 45%;
+            display: flex;
+            align-items: center;
+            padding: 0 5% 0 8%;
         }
-        
-        /* The Expensive Navy Gradient Overlay */
-        .hero-bg::after {
-            content: ''; 
-            position: absolute; 
-            top: 0; left: 0; width: 100%; height: 100%;
-            /* Deep navy on the left for perfect legibility, fading slightly to reveal more of the image on the right */
-            background: linear-gradient(to right, rgba(20, 32, 64, 0.85) 0%, rgba(20, 32, 64, 0.4) 100%);
-        }
-        
-        /* The Content Structure */
+
         .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 0 10%;
-            max-width: 1000px;
-            animation: slideUpFade 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s;
+            animation: slideUpFade 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(30px);
         }
         
         @keyframes slideUpFade {
@@ -155,30 +138,26 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-bottom: 30px;
-            color: var(--gold); /* Gold pops brilliantly against navy */
+            color: var(--gold);
             font-weight: 500;
         }
         
         .hero-content h1 {
-            font-size: clamp(48px, 6vw, 72px);
+            font-size: clamp(40px, 4.5vw, 64px);
             line-height: 1.15;
             margin-bottom: 40px;
-            color: var(--white); /* Pure white for maximum contrast */
+            color: var(--navy);
         }
         
         .hero-content h1 em { 
             font-style: italic; 
-            color: var(--sand); /* Softer than bright gold for the large text */
+            color: var(--gold); 
         }
 
-        /* Hero-specific Button Styling for Dark Background */
-        .hero-content .btn {
-            border-color: var(--white);
-            color: var(--white);
-        }
-        .hero-content .btn:hover {
-            background-color: var(--white);
-            color: var(--navy);
+        .hero-image-side {
+            width: 55%;
+            background: url('Home.jpeg') center/cover no-repeat;
+            height: 100%;
         }
 
         /* --- THE HEARTEN DEFINITION --- */
@@ -223,8 +202,8 @@
             right: 0;
             width: 55%; 
             height: auto;
-            border: 8px solid var(--white); 
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+            border: 8px solid var(--linen); /* Matches background to blend beautifully */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08); 
             z-index: 2;
         }
         .about-image::before {
@@ -280,7 +259,7 @@
         .ig-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2px; /* Super tight grid for editorial look */
+            gap: 2px;
             max-width: 1600px;
             margin: 0 auto;
         }
@@ -298,7 +277,6 @@
             object-fit: cover;
             transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        /* Light, bright hover effect */
         .ig-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -368,8 +346,9 @@
         @media (max-width: 768px) {
             .nav-links { display: none; } /* Add hamburger later */
             
-            .hero { justify-content: center; text-align: center; }
-            .hero-content { padding: 0 5%; }
+            .hero { flex-direction: column; height: auto; padding-top: 110px; }
+            .hero-text-side { width: 100%; padding: 60px 5%; text-align: center; order: 2; }
+            .hero-image-side { width: 100%; height: 50vh; order: 1; }
             .hero-content h1 { font-size: 40px; }
             
             .services-grid { grid-template-columns: 1fr; }
@@ -396,12 +375,14 @@
     </nav>
 
     <header class="hero">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <p class="eyebrow">Interior Design & Remodeling in DFW</p>
-            <h1>Creating spaces where <br><em>life happens</em> beautifully.</h1>
-            <a href="#contact" class="btn">Start Your Project</a>
+        <div class="hero-text-side">
+            <div class="hero-content">
+                <p class="eyebrow">Interior Design & Remodeling in DFW</p>
+                <h1>Creating spaces where <br><em>life happens</em> beautifully.</h1>
+                <a href="#contact" class="btn">Start Your Project</a>
+            </div>
         </div>
+        <div class="hero-image-side"></div>
     </header>
 
     <section class="definition-section reveal">
