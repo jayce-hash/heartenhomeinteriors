@@ -112,35 +112,35 @@
         /* --- EDITORIAL HERO SECTION --- */
         .hero {
             position: relative;
-            height: 100vh;
+            height: 100vh; /* Full screen height */
             display: flex;
-            align-items: flex-end;
-            background-color: var(--linen);
+            align-items: center; /* Centers the text vertically */
+            justify-content: flex-start; /* Aligns text to the left */
         }
-        /* Pure, unfiltered background image */
+        
+        /* Full-bleed background image */
         .hero-bg {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 90vh; /* Leaves a gap at the bottom */
+            top: 0; left: 0; width: 100%; height: 100vh;
             background: url('Home.jpeg') center/cover no-repeat;
             z-index: 1;
         }
-        /* Gradient for nav bar legibility ONLY at the very top */
+        
+        /* The Expensive Navy Gradient Overlay */
         .hero-bg::after {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 200px;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 100%);
+            content: ''; 
+            position: absolute; 
+            top: 0; left: 0; width: 100%; height: 100%;
+            /* Deep navy on the left for perfect legibility, fading slightly to reveal more of the image on the right */
+            background: linear-gradient(to right, rgba(20, 32, 64, 0.85) 0%, rgba(20, 32, 64, 0.4) 100%);
         }
         
-        /* The Editorial Card */
-        .hero-card {
+        /* The Content Structure */
+        .hero-content {
             position: relative;
             z-index: 2;
-            background-color: var(--white);
-            padding: 70px 80px;
-            max-width: 800px;
-            margin-left: 10%;
-            margin-bottom: 0; /* Sits on the bottom line */
-            border: 1px solid var(--sand);
-            border-bottom: none;
+            padding: 0 10%;
+            max-width: 1000px;
             animation: slideUpFade 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.5s;
             opacity: 0;
             transform: translateY(50px);
@@ -150,21 +150,36 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .hero-card p.eyebrow {
+        .hero-content p.eyebrow {
             font-size: 11px;
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-bottom: 30px;
-            color: var(--gold);
+            color: var(--gold); /* Gold pops brilliantly against navy */
             font-weight: 500;
         }
-        .hero-card h1 {
+        
+        .hero-content h1 {
             font-size: clamp(48px, 6vw, 72px);
             line-height: 1.15;
             margin-bottom: 40px;
+            color: var(--white); /* Pure white for maximum contrast */
+        }
+        
+        .hero-content h1 em { 
+            font-style: italic; 
+            color: var(--sand); /* Softer than bright gold for the large text */
+        }
+
+        /* Hero-specific Button Styling for Dark Background */
+        .hero-content .btn {
+            border-color: var(--white);
+            color: var(--white);
+        }
+        .hero-content .btn:hover {
+            background-color: var(--white);
             color: var(--navy);
         }
-        .hero-card h1 em { font-style: italic; color: var(--gold); }
 
         /* --- THE HEARTEN DEFINITION --- */
         .definition-section {
@@ -192,19 +207,33 @@
         }
         .about-image {
             position: relative;
+            padding-bottom: 60px; 
+            padding-right: 40px;
         }
-        .about-image img {
-            width: 100%;
+        .about-image .main-img {
+            width: 90%; 
             height: auto;
             display: block;
+            position: relative;
+            z-index: 1;
         }
-        /* Offset background square for high-end feel */
+        .about-image .family-img {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 55%; 
+            height: auto;
+            border: 8px solid var(--white); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1); 
+            z-index: 2;
+        }
         .about-image::before {
             content: '';
             position: absolute;
-            top: -30px; left: -30px; width: 100%; height: 100%;
+            top: -20px; left: -20px; 
+            width: 80%; height: 80%;
             background-color: var(--sand);
-            z-index: -1;
+            z-index: 0;
         }
         .about-text h2 { font-size: 56px; margin-bottom: 30px; line-height: 1.1; }
         .about-text p { color: var(--text-light); margin-bottom: 25px; font-size: 14px; }
@@ -269,7 +298,7 @@
             object-fit: cover;
             transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        /* Light, bright hover effect instead of dark blue */
+        /* Light, bright hover effect */
         .ig-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -339,10 +368,9 @@
         @media (max-width: 768px) {
             .nav-links { display: none; } /* Add hamburger later */
             
-            .hero-bg { height: 100vh; }
-            .hero { align-items: center; }
-            .hero-card { margin: 0 5%; padding: 50px 30px; text-align: center; }
-            .hero-card h1 { font-size: 40px; }
+            .hero { justify-content: center; text-align: center; }
+            .hero-content { padding: 0 5%; }
+            .hero-content h1 { font-size: 40px; }
             
             .services-grid { grid-template-columns: 1fr; }
             .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
@@ -369,7 +397,7 @@
 
     <header class="hero">
         <div class="hero-bg"></div>
-        <div class="hero-card">
+        <div class="hero-content">
             <p class="eyebrow">Interior Design & Remodeling in DFW</p>
             <h1>Creating spaces where <br><em>life happens</em> beautifully.</h1>
             <a href="#contact" class="btn">Start Your Project</a>
@@ -386,7 +414,8 @@
 
     <section class="about" id="about">
         <div class="about-image reveal">
-            <img src="Bonnie1.jpeg" alt="Bonnie Roden - Interior Designer">
+            <img src="Bonnie1.jpeg" alt="Bonnie Roden - Interior Designer" class="main-img">
+            <img src="Family.jpeg" alt="The Roden Family" class="family-img">
         </div>
         <div class="about-text reveal">
             <h2>Thirty years of <br><em>heartfelt design.</em></h2>
