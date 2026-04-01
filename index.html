@@ -84,17 +84,18 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.03);
             padding: 15px 5%;
         }
-        nav.scrolled .logo, nav.scrolled .nav-links a { color: var(--navy); }
+        nav.scrolled .nav-links a { color: var(--navy); }
         
-        .logo { 
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
-            letter-spacing: 2px;
-            color: var(--warm-white);
-            transition: var(--transition);
-
+        /* LOGO SIZING */
+        .logo img {
+            height: 60px; 
+            width: auto;
+            border-radius: 50%; 
+            display: block;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Adds a tiny shadow so it pops off the background */
         }
-        .nav-links { display: flex; gap: 40px; }
+        
+        .nav-links { display: flex; gap: 40px; align-items: center; }
         .nav-links a { 
             color: var(--warm-white); 
             font-size: 11px; 
@@ -154,7 +155,7 @@
             justify-content: center;
         }
         .def-box {
-            border: 1px solid rgba(196, 169, 107, 0.5); /* Soft gold border */
+            border: 1px solid rgba(196, 169, 107, 0.5);
             padding: 60px 40px;
             text-align: center;
             max-width: 700px;
@@ -223,7 +224,7 @@
         .service-card h3 { font-size: 26px; margin-bottom: 15px; }
         .service-card p { font-size: 14px; color: var(--text-light); }
 
-        /* --- INSTAGRAM SHOWCASE (The Core Portfolio) --- */
+        /* --- INSTAGRAM SHOWCASE --- */
         .instagram-showcase {
             padding: 120px 5%;
             max-width: 1600px;
@@ -240,7 +241,6 @@
         .ig-title h2 { font-size: 46px; margin-bottom: 10px; }
         .ig-title p { font-size: 14px; color: var(--text-light); letter-spacing: 1px; }
         
-        /* The Grid */
         .ig-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -253,7 +253,6 @@
             background-color: var(--cream);
             cursor: pointer;
         }
-        /* Make the first item larger for masonry feel */
         .ig-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
         
         .ig-item img {
@@ -264,7 +263,7 @@
         .ig-overlay {
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(28, 47, 110, 0.6); /* Navy tint */
+            background-color: rgba(28, 47, 110, 0.6);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -274,7 +273,6 @@
         .ig-item:hover img { transform: scale(1.05); }
         .ig-item:hover .ig-overlay { opacity: 1; }
         
-        /* Simulated IG stats on hover */
         .ig-stats {
             color: #fff;
             display: flex;
@@ -292,12 +290,16 @@
             padding: 80px 5% 40px;
             text-align: center;
         }
-        .footer-logo {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: var(--gold);
+        
+        /* FOOTER LOGO SIZING */
+        .footer-logo img {
+            height: 100px;
+            width: auto;
+            border-radius: 50%;
+            margin: 0 auto 20px auto; 
+            display: block;
         }
+        
         .footer-links {
             margin-bottom: 40px;
         }
@@ -316,10 +318,10 @@
         @media (max-width: 1024px) {
             .about { gap: 40px; }
             .ig-grid { grid-template-columns: repeat(3, 1fr); }
-            .ig-item:nth-child(1) { grid-column: span 1; grid-row: span 1; } /* Remove masonry on smaller screens */
+            .ig-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
         }
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* Add hamburger menu in production */
+            .nav-links { display: none; }
             .about { grid-template-columns: 1fr; padding: 80px 5%; }
             .about-image::after { display: none; }
             .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -334,8 +336,8 @@
 
     <nav id="navbar">
         <a href="#" class="logo">
-    <img src="HHI.1.png" alt="Hearten Home Interiors Logo">
-</a>
+            <img src="IMG_5591.jpeg" alt="Hearten Home Interiors Logo">
+        </a>
         <div class="nav-links">
             <a href="#about">Meet Bonnie</a>
             <a href="#services">Expertise</a>
@@ -362,7 +364,7 @@
 
     <section class="about" id="about">
         <div class="about-image">
-            <img src="Bonnie1.jpeg" alt="Bonnie Roden - Interior Designer">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=1000" alt="Bonnie Roden - Interior Designer">
         </div>
         <div class="about-text">
             <h2>Thirty years of <br><em>heartfelt design.</em></h2>
@@ -434,8 +436,8 @@
 
     <footer id="contact">
         <div class="footer-logo">
-    <img src="HHI.1.png" alt="Hearten Home Interiors Logo">
-</div>
+            <img src="IMG_5591.jpeg" alt="Hearten Home Interiors Logo">
+        </div>
         <p style="margin-bottom: 30px; font-size: 14px; color: rgba(255,255,255,0.7);">Based in Colleyville, TX • Serving the DFW Area</p>
         <div class="footer-links">
             <a href="mailto:bonnie@heartenhome.com">bonnie@heartenhome.com</a>
