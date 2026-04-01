@@ -9,13 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* --- $100M DESIGN SYSTEM (NAVY & CRISP WHITE) --- */
+        /* --- $100M DESIGN SYSTEM --- */
         :root {
             --navy: #142040; 
             --gold: #BFA15F; 
             --white: #FFFFFF;
-            --off-white: #F8F9FA; /* Crisper, cool off-white replaces the warm linen */
-            --accent-gray: #E5E7EB; /* Replaces the sand color for subtle lines */
+            --off-white: #F8F9FA; 
+            --accent-gray: #E5E7EB; 
             --text-main: #2D2D2D;
             --text-light: #6B7280;
             --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
@@ -96,7 +96,6 @@
             display: block;
             transition: var(--transition);
         }
-        nav.scrolled .logo img { height: 50px; }
         
         .nav-links { display: flex; gap: 45px; align-items: center; }
         .nav-links a { 
@@ -108,12 +107,28 @@
         }
         .nav-links a:hover { color: var(--gold); }
 
+        /* Mobile Hamburger Icon */
+        .menu-toggle {
+            display: none; /* Hidden on desktop */
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 1px;
+            background-color: var(--navy);
+            transition: var(--transition);
+        }
+
         /* --- EDITORIAL SPLIT HERO SECTION --- */
         .hero {
             display: flex;
             height: 100vh;
             padding-top: 110px; /* Accounts for the fixed nav */
-            background-color: var(--navy); /* Changed to Navy */
+            background-color: var(--navy);
         }
         
         .hero-text-side {
@@ -146,7 +161,7 @@
             font-size: clamp(40px, 4.5vw, 64px);
             line-height: 1.15;
             margin-bottom: 40px;
-            color: var(--white); /* White text against Navy */
+            color: var(--white); 
         }
         
         .hero-content h1 em { 
@@ -221,17 +236,23 @@
             position: absolute;
             top: -20px; left: -20px; 
             width: 80%; height: 80%;
-            background-color: var(--navy); /* Deep navy block instead of beige */
+            background-color: var(--navy); 
             z-index: 0;
         }
         .about-text h2 { font-size: 56px; margin-bottom: 30px; line-height: 1.1; }
         .about-text p { color: var(--text-light); margin-bottom: 25px; font-size: 14px; }
-        .signature { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-style: italic; color: var(--gold); margin-top: 40px; }
+        .signature { 
+            font-family: 'Cormorant Garamond', serif; 
+            font-size: 32px; 
+            font-style: italic; 
+            color: var(--navy); /* Changed to Navy from gold */
+            margin-top: 40px; 
+        }
 
         /* --- EXPERTISE (SERVICES) --- */
         .services {
             padding: 150px 5%;
-            background-color: var(--navy); /* Bold navy section */
+            background-color: var(--navy); 
             color: var(--white);
         }
         .services-header { text-align: center; margin-bottom: 80px; }
@@ -248,7 +269,7 @@
             padding-top: 40px;
         }
         .service-card h3 { font-size: 30px; margin-bottom: 20px; color: var(--white); }
-        .service-card p { font-size: 14px; color: var(--accent-gray); } /* Lighter gray text for legibility */
+        .service-card p { font-size: 14px; color: var(--accent-gray); } 
 
         /* --- PORTFOLIO (INSTAGRAM SHOWCASE) --- */
         .instagram-showcase {
@@ -354,20 +375,84 @@
             .ig-grid { grid-template-columns: repeat(3, 1fr); }
             .ig-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
         }
+
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* Add hamburger later */
+            /* MOBILE SPACING & HEADERS SURGERY */
             
-            .hero { flex-direction: column; height: auto; padding-top: 110px; }
-            .hero-text-side { width: 100%; padding: 60px 5%; text-align: center; order: 2; }
+            /* Tighten general serif heads */
+            h1, h2, h3, h4, .serif { font-size: 32px !important; }
+            
+            /* Tighten Header & mobile logo */
+            nav { padding: 15px 5%; }
+            .logo img { height: 50px; }
+            nav.scrolled { padding: 10px 5%; }
+            nav.scrolled .logo img { height: 40px; }
+
+            /* Mobile Hamburger & Drawer */
+            .menu-toggle { display: flex; }
+            .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0; left: 0; width: 100%; height: 100vh;
+                background-color: rgba(255, 255, 255, 0.98);
+                padding: 120px 5% 0;
+                gap: 40px;
+                transition: var(--transition);
+                transform: translateY(-100%); /* Drawer moves up */
+                align-items: flex-start;
+                pointer-events: none;
+            }
+            .nav-links.open {
+                transform: translateY(0);
+                pointer-events: all;
+            }
+            .nav-links a {
+                font-size: 12px;
+                letter-spacing: 3px;
+                text-align: left;
+                width: 100%;
+                padding-bottom: 10px;
+                border-bottom: 1px solid var(--accent-gray);
+            }
+            .menu-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+            .menu-toggle.open span:nth-child(2) { opacity: 0; }
+            .menu-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+            /* Tighten Hero for Mobile */
+            .hero { flex-direction: column; height: auto; padding-top: 100px; background-color: var(--white); /* White top for mobile stack */ }
+            .hero-text-side { width: 100%; padding: 40px 5%; text-align: center; order: 2; background-color: var(--navy); /* Deep navy block below image */ }
             .hero-image-side { width: 100%; height: 50vh; order: 1; }
-            .hero-content h1 { font-size: 40px; }
+            .hero-content { animation: none; opacity: 1; transform: none; }
+            .hero-content p.eyebrow { font-size: 10px; letter-spacing: 3px; margin-bottom: 15px; }
+            .hero-content h1 { font-size: 36px; line-height: 1.1; margin-bottom: 25px; margin-top: 0; }
+            .hero-content .btn { padding: 15px 35px; }
             
-            .services-grid { grid-template-columns: 1fr; }
+            /* Tighten Hearten definition block */
+            .definition-section { padding: 60px 5% 40px; }
+            .def-box { text-align: left; }
+            .def-word { font-size: 36px; margin-bottom: 3px; }
+            .def-phonetic { margin-bottom: 15px; }
+            .def-text { font-size: 18px; margin-top: 15px; }
+
+            /* Tighten About for Mobile */
+            .about { padding: 60px 5%; gap: 40px; }
+            .about-image { padding-bottom: 30px; padding-right: 20px; }
+            .about-text h2 { margin-bottom: 15px; }
+            .about-text p { margin-bottom: 15px; font-size: 13px; line-height: 1.6; }
+            .signature { font-size: 24px; margin-top: 25px; }
+
+            /* Tighten Our Expertise for Mobile */
+            .services { padding: 60px 5%; }
+            .services-header { margin-bottom: 30px; }
+            .services-grid { grid-template-columns: 1fr; gap: 40px; }
+            .service-card { border-top: none; padding-top: 25px; border-bottom: 1px solid var(--gold); padding-bottom: 25px; }
+            .service-card h3 { font-size: 26px; margin-bottom: 10px; }
+            .service-card p { font-size: 13px; }
+            
+            /* Tighten Instagram for Mobile */
             .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
             .ig-header { flex-direction: column; align-items: flex-start; gap: 20px; }
-            
-            .def-word { font-size: 40px; }
-            .def-text { font-size: 20px; }
         }
     </style>
 </head>
@@ -377,7 +462,12 @@
         <a href="#" class="logo">
             <img src="HHI.1.png" alt="Hearten Home Interiors Logo">
         </a>
-        <div class="nav-links">
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="nav-links">
             <a href="#about">Meet Bonnie</a>
             <a href="#services">Expertise</a>
             <a href="#portfolio">Latest Work</a>
@@ -398,7 +488,7 @@
 
     <section class="definition-section reveal">
         <div class="def-box">
-            <h2 class="def-word">Hearten</h2>
+            <h2 class="def-word serif">Hearten</h2>
             <div class="def-phonetic">[har-ten] verb.</div>
             <p class="def-text">"To make someone feel happier and more positive about a situation... to make cheerful or encourage."</p>
         </div>
@@ -410,7 +500,7 @@
             <img src="Family.jpeg" alt="The Roden Family" class="family-img">
         </div>
         <div class="about-text reveal">
-            <h2>Thirty years of <br><em>heartfelt design.</em></h2>
+            <h2 class="serif">Thirty years of <br><em>heartfelt design.</em></h2>
             <p>Hi, I’m Bonnie! After 30 years of helping friends and family design their spaces, I decided to step out and start my business officially. I have had a love for design and hospitality since I was a little girl.</p>
             <p>I was once told that I "changed the atmosphere" in a client's home, and that feeling is one of the best in the world. My desire is that you love your home more, not only because it is more beautiful, but because it is a reflection of who you are and what you love.</p>
             <p>From the first dream board to the very last final detail, let me help set your table and create well-loved places to gather with your loved ones.</p>
@@ -420,19 +510,19 @@
 
     <section class="services" id="services">
         <div class="services-header reveal">
-            <h2>Our Expertise</h2>
+            <h2 class="serif">Our Expertise</h2>
         </div>
         <div class="services-grid reveal">
             <div class="service-card">
-                <h3>Full-Service Design</h3>
+                <h3 class="serif">Full-Service Design</h3>
                 <p>Comprehensive interior design spanning from initial spatial planning and material selection to the final installation of curated furnishings.</p>
             </div>
             <div class="service-card">
-                <h3>Turn-Key Remodeling</h3>
+                <h3 class="serif">Turn-Key Remodeling</h3>
                 <p>Bringing new joy into your home through kitchen and bath renovations. We manage the construction process so you don't have to.</p>
             </div>
             <div class="service-card">
-                <h3>Styling & Hospitality</h3>
+                <h3 class="serif">Styling & Hospitality</h3>
                 <p>Setting the table and transforming your space with intentional decor, creating environments ready for family dinners and lifelong memories.</p>
             </div>
         </div>
@@ -441,7 +531,7 @@
     <section class="instagram-showcase" id="portfolio">
         <div class="ig-header reveal">
             <div class="ig-title">
-                <h2>From the Journal</h2>
+                <h2 class="serif">From the Journal</h2>
                 <p>Follow along @heartenhomeinteriors for daily inspiration.</p>
             </div>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="btn">View Instagram</a>
@@ -449,7 +539,7 @@
         
         <div class="ig-grid reveal">
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="IG4.jpeg" alt="Kitchen Remodel">
+                <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&q=80&w=1000" alt="Kitchen Remodel">
                 <div class="ig-overlay">
                     <div class="ig-stats">
                         <span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 218</span>
@@ -458,20 +548,24 @@
                 </div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="IG1.jpeg" alt="Living Room Styling">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800" alt="Living Room Styling">
                 <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 131</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="IG2.jpeg" alt="Dining Table Setup">
+                <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&q=80&w=800" alt="Dining Table Setup">
                 <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 94</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="IG3.jpeg" alt="Bedroom Details">
+                <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=800" alt="Bedroom Details">
                 <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 112</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="IG5.jpeg" alt="Home Decor">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800" alt="Home Decor">
                 <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 88</span></div></div>
+            </a>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
+                <img src="https://images.unsplash.com/photo-1599809275671-b39414ef1917?auto=format&fit=crop&q=80&w=1000" alt="Kitchen Detail">
+                <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 104</span></div></div>
             </a>
         </div>
     </section>
@@ -491,7 +585,7 @@
     </footer>
 
     <script>
-        // Nav Shrink on Scroll
+        // Nav Shrink & Mobile Menu Toggle
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -499,6 +593,23 @@
             } else {
                 navbar.classList.remove('scrolled');
             }
+        });
+
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        // Close mobile menu when a link is clicked
+        const navItems = document.querySelectorAll('.nav-links a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
         });
 
         // Cinematic Scroll Reveals
