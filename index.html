@@ -9,15 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* --- $100M DESIGN SYSTEM --- */
+        /* --- $100M DESIGN SYSTEM (NAVY & CRISP WHITE) --- */
         :root {
-            --navy: #142040; /* Richer, deeper navy */
-            --gold: #BFA15F; /* Muted, elegant brass/gold */
+            --navy: #142040; 
+            --gold: #BFA15F; 
             --white: #FFFFFF;
-            --linen: #F7F5F0; /* Warm, high-end editorial background */
-            --sand: #EAE5DB;
+            --off-white: #F8F9FA; /* Crisper, cool off-white replaces the warm linen */
+            --accent-gray: #E5E7EB; /* Replaces the sand color for subtle lines */
             --text-main: #2D2D2D;
-            --text-light: #7A7A7A;
+            --text-light: #6B7280;
             --transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -35,6 +35,490 @@
         h1, h2, h3, h4, .serif { 
             font-family: 'Cormorant Garamond', serif; 
             font-weight: 400; 
+            color: var(--navy);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 18px 45px;
+            background-color: transparent;
+            border: 1px solid var(--navy);
+            color: var(--navy);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 10px;
+            font-weight: 500;
+            transition: var(--transition);
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn:hover {
+            background-color: var(--navy);
+            color: var(--white);
+        }
+
+        /* --- SCROLL ANIMATIONS --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 5%;
+            z-index: 1000;
+            transition: var(--transition);
+            background-color: var(--white); 
+        }
+        nav.scrolled {
+            padding: 15px 5%;
+            border-bottom: 1px solid var(--accent-gray);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+        }
+        
+        .logo img {
+            height: 60px; 
+            width: auto;
+            clip-path: circle(47% at 50% 50%); 
+            display: block;
+            transition: var(--transition);
+        }
+        nav.scrolled .logo img { height: 50px; }
+        
+        .nav-links { display: flex; gap: 45px; align-items: center; }
+        .nav-links a { 
+            color: var(--navy); 
+            font-size: 10px; 
+            letter-spacing: 2.5px; 
+            text-transform: uppercase; 
+            transition: var(--transition);
+        }
+        .nav-links a:hover { color: var(--gold); }
+
+        /* --- EDITORIAL SPLIT HERO SECTION --- */
+        .hero {
+            display: flex;
+            height: 100vh;
+            padding-top: 110px; /* Accounts for the fixed nav */
+            background-color: var(--navy); /* Changed to Navy */
+        }
+        
+        .hero-text-side {
+            width: 45%;
+            display: flex;
+            align-items: center;
+            padding: 0 5% 0 8%;
+        }
+
+        .hero-content {
+            animation: slideUpFade 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        @keyframes slideUpFade {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-content p.eyebrow {
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 30px;
+            color: var(--gold);
+            font-weight: 500;
+        }
+        
+        .hero-content h1 {
+            font-size: clamp(40px, 4.5vw, 64px);
+            line-height: 1.15;
+            margin-bottom: 40px;
+            color: var(--white); /* White text against Navy */
+        }
+        
+        .hero-content h1 em { 
+            font-style: italic; 
+            color: var(--gold); 
+        }
+
+        /* Hero Button override for dark background */
+        .hero-text-side .btn {
+            border-color: var(--white);
+            color: var(--white);
+        }
+        .hero-text-side .btn:hover {
+            background-color: var(--white);
+            color: var(--navy);
+        }
+
+        .hero-image-side {
+            width: 55%;
+            background: url('Home.jpeg') center/cover no-repeat;
+            height: 100%;
+        }
+
+        /* --- THE HEARTEN DEFINITION --- */
+        .definition-section {
+            padding: 120px 5%;
+            background-color: var(--white);
+            display: flex;
+            justify-content: center;
+        }
+        .def-box {
+            text-align: center;
+            max-width: 800px;
+        }
+        .def-word { font-size: 54px; margin-bottom: 5px; color: var(--navy); }
+        .def-phonetic { font-size: 12px; color: var(--text-light); letter-spacing: 3px; margin-bottom: 40px; text-transform: uppercase;}
+        .def-text { font-size: 26px; font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--text-main); line-height: 1.5; }
+
+        /* --- ABOUT BONNIE --- */
+        .about {
+            padding: 120px 10%;
+            background-color: var(--off-white);
+            display: grid;
+            grid-template-columns: 5fr 6fr;
+            gap: 100px;
+            align-items: center;
+        }
+        .about-image {
+            position: relative;
+            padding-bottom: 60px; 
+            padding-right: 40px;
+        }
+        .about-image .main-img {
+            width: 90%; 
+            height: auto;
+            display: block;
+            position: relative;
+            z-index: 1;
+        }
+        .about-image .family-img {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 55%; 
+            height: auto;
+            border: 8px solid var(--off-white); 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08); 
+            z-index: 2;
+        }
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px; left: -20px; 
+            width: 80%; height: 80%;
+            background-color: var(--navy); /* Deep navy block instead of beige */
+            z-index: 0;
+        }
+        .about-text h2 { font-size: 56px; margin-bottom: 30px; line-height: 1.1; }
+        .about-text p { color: var(--text-light); margin-bottom: 25px; font-size: 14px; }
+        .signature { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-style: italic; color: var(--gold); margin-top: 40px; }
+
+        /* --- EXPERTISE (SERVICES) --- */
+        .services {
+            padding: 150px 5%;
+            background-color: var(--navy); /* Bold navy section */
+            color: var(--white);
+        }
+        .services-header { text-align: center; margin-bottom: 80px; }
+        .services-header h2 { font-size: 50px; color: var(--white); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .service-card {
+            border-top: 1px solid var(--gold);
+            padding-top: 40px;
+        }
+        .service-card h3 { font-size: 30px; margin-bottom: 20px; color: var(--white); }
+        .service-card p { font-size: 14px; color: var(--accent-gray); } /* Lighter gray text for legibility */
+
+        /* --- PORTFOLIO (INSTAGRAM SHOWCASE) --- */
+        .instagram-showcase {
+            padding: 120px 5%;
+            background-color: var(--white);
+        }
+        .ig-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+            max-width: 1600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .ig-title h2 { font-size: 50px; margin-bottom: 10px; }
+        .ig-title p { font-size: 13px; color: var(--text-light); letter-spacing: 2px; text-transform: uppercase; }
+        
+        .ig-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .ig-item {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+            background-color: var(--accent-gray);
+            cursor: pointer;
+        }
+        .ig-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        
+        .ig-item img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .ig-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255, 255, 255, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .ig-item:hover img { transform: scale(1.05); }
+        .ig-item:hover .ig-overlay { opacity: 1; }
+        
+        .ig-stats {
+            color: var(--navy);
+            display: flex;
+            gap: 25px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 22px;
+            font-style: italic;
+        }
+        .ig-stats span { display: flex; align-items: center; gap: 8px; }
+        .ig-stats svg { width: 18px; height: 18px; fill: var(--gold); }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--navy);
+            padding: 100px 5% 50px;
+            text-align: center;
+        }
+        
+        .footer-logo img {
+            height: 120px;
+            width: auto;
+            clip-path: circle(47% at 50% 50%);
+            margin: 0 auto 30px auto; 
+            display: block;
+        }
+        
+        .footer-links {
+            margin-bottom: 50px;
+        }
+        .footer-links a {
+            margin: 0 20px;
+            font-size: 10px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--white); 
+            transition: var(--transition);
+        }
+        .footer-links a:hover { color: var(--gold); }
+        .copyright { 
+            font-size: 11px; 
+            color: rgba(255,255,255,0.4); 
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* --- RESPONSIVE / MOBILE OPTIMIZATION --- */
+        @media (max-width: 1024px) {
+            .about { grid-template-columns: 1fr; padding: 100px 5%; gap: 60px; }
+            .about-image { max-width: 600px; margin: 0 auto; }
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .ig-grid { grid-template-columns: repeat(3, 1fr); }
+            .ig-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+        }
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Add hamburger later */
+            
+            .hero { flex-direction: column; height: auto; padding-top: 110px; }
+            .hero-text-side { width: 100%; padding: 60px 5%; text-align: center; order: 2; }
+            .hero-image-side { width: 100%; height: 50vh; order: 1; }
+            .hero-content h1 { font-size: 40px; }
+            
+            .services-grid { grid-template-columns: 1fr; }
+            .ig-grid { grid-template-columns: repeat(2, 1fr); gap: 2px; }
+            .ig-header { flex-direction: column; align-items: flex-start; gap: 20px; }
+            
+            .def-word { font-size: 40px; }
+            .def-text { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar">
+        <a href="#" class="logo">
+            <img src="HHI.1.png" alt="Hearten Home Interiors Logo">
+        </a>
+        <div class="nav-links">
+            <a href="#about">Meet Bonnie</a>
+            <a href="#services">Expertise</a>
+            <a href="#portfolio">Latest Work</a>
+            <a href="#contact">Inquire</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-text-side">
+            <div class="hero-content">
+                <p class="eyebrow">Interior Design & Remodeling in DFW</p>
+                <h1>Creating spaces where <br><em>life happens</em> beautifully.</h1>
+                <a href="#contact" class="btn">Start Your Project</a>
+            </div>
+        </div>
+        <div class="hero-image-side"></div>
+    </header>
+
+    <section class="definition-section reveal">
+        <div class="def-box">
+            <h2 class="def-word">Hearten</h2>
+            <div class="def-phonetic">[har-ten] verb.</div>
+            <p class="def-text">"To make someone feel happier and more positive about a situation... to make cheerful or encourage."</p>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-image reveal">
+            <img src="Bonnie1.jpeg" alt="Bonnie Roden - Interior Designer" class="main-img">
+            <img src="Family.jpeg" alt="The Roden Family" class="family-img">
+        </div>
+        <div class="about-text reveal">
+            <h2>Thirty years of <br><em>heartfelt design.</em></h2>
+            <p>Hi, I’m Bonnie! After 30 years of helping friends and family design their spaces, I decided to step out and start my business officially. I have had a love for design and hospitality since I was a little girl.</p>
+            <p>I was once told that I "changed the atmosphere" in a client's home, and that feeling is one of the best in the world. My desire is that you love your home more, not only because it is more beautiful, but because it is a reflection of who you are and what you love.</p>
+            <p>From the first dream board to the very last final detail, let me help set your table and create well-loved places to gather with your loved ones.</p>
+            <div class="signature">Bonnie Roden</div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="services-header reveal">
+            <h2>Our Expertise</h2>
+        </div>
+        <div class="services-grid reveal">
+            <div class="service-card">
+                <h3>Full-Service Design</h3>
+                <p>Comprehensive interior design spanning from initial spatial planning and material selection to the final installation of curated furnishings.</p>
+            </div>
+            <div class="service-card">
+                <h3>Turn-Key Remodeling</h3>
+                <p>Bringing new joy into your home through kitchen and bath renovations. We manage the construction process so you don't have to.</p>
+            </div>
+            <div class="service-card">
+                <h3>Styling & Hospitality</h3>
+                <p>Setting the table and transforming your space with intentional decor, creating environments ready for family dinners and lifelong memories.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="instagram-showcase" id="portfolio">
+        <div class="ig-header reveal">
+            <div class="ig-title">
+                <h2>From the Journal</h2>
+                <p>Follow along @heartenhomeinteriors for daily inspiration.</p>
+            </div>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="btn">View Instagram</a>
+        </div>
+        
+        <div class="ig-grid reveal">
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
+                <img src="https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&q=80&w=1000" alt="Kitchen Remodel">
+                <div class="ig-overlay">
+                    <div class="ig-stats">
+                        <span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 218</span>
+                        <span><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> 53</span>
+                    </div>
+                </div>
+            </a>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
+                <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&q=80&w=800" alt="Living Room Styling">
+                <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 131</span></div></div>
+            </a>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
+                <img src="https://images.unsplash.com/photo-1544457070-4cd773b4d71e?auto=format&fit=crop&q=80&w=800" alt="Dining Table Setup">
+                <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 94</span></div></div>
+            </a>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
+                <img src="https://images.unsplash.com/photo-1615529182904-14819c35db37?auto=format&fit=crop&q=80&w=800" alt="Bedroom Details">
+                <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 112</span></div></div>
+            </a>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
+                <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&q=80&w=800" alt="Home Decor">
+                <div class="ig-overlay"><div class="ig-stats"><span><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 88</span></div></div>
+            </a>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-logo">
+            <img src="HHI.1.png" alt="Hearten Home Interiors Logo">
+        </div>
+        <p style="margin-bottom: 30px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.7);">Based in Colleyville, TX • Serving the DFW Area</p>
+        <div class="footer-links">
+            <a href="mailto:bonnie@heartenhome.com">bonnie@heartenhome.com</a>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank">Instagram</a>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Hearten Home Interiors. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Nav Shrink on Scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Cinematic Scroll Reveals
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 100;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        reveal(); // Trigger on load
+    </script>
+
+</body>
+</html>            font-weight: 400; 
             color: var(--navy);
         }
 
