@@ -110,9 +110,9 @@
             height: 40px;
         }
         .nav-logo img {
-            width: 130%; /* Forces the image to bleed past the edges */
+            width: 130%; 
             height: 130%;
-            flex-shrink: 0; /* Prevents flexbox from squeezing it */
+            flex-shrink: 0; 
             object-fit: cover;
         }
 
@@ -180,20 +180,17 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.2);
             left: 45%;
             top: 50%;
-            /* Centering the whole box on the horizontal split seam */
             transform: translate(-50%, -50%);
-            overflow: hidden; /* This hides the overflowing image padding */
+            overflow: hidden; 
         }
 
-        /* Centering and Scaling the inner image to move it down 'a hair' */
         .hero-logo-badge img {
             position: absolute;
-            top: 55%; /* Changing from 50% to 55% moves the image content down within the box */
+            top: 55%; 
             left: 50%;
             width: 100%;
             height: 100%;
             object-fit: contain;
-            /* translate(-50%, -50%) centers it, scale(1.3) crops out built-in white padding */
             transform: translate(-50%, -50%) scale(1.3);
         }
         
@@ -224,9 +221,11 @@
             font-weight: 500;
         }
         
+        /* Adjusted font sizing and margin for new text */
         .hero-content h1 {
-            font-size: clamp(36px, 4vw, 56px);
-            margin-bottom: 40px;
+            font-size: clamp(32px, 3.5vw, 48px);
+            line-height: 1.3;
+            margin-bottom: 35px;
             color: var(--white); 
         }
         
@@ -511,7 +510,10 @@
 
             .hero-content { animation: none; opacity: 1; transform: none; }
             .hero-content p.eyebrow { font-size: 10px; margin-bottom: 15px; }
-            .hero-content h1 { font-size: 32px; margin-bottom: 25px; line-height: 1.15; }
+            
+            /* Adjusted size for longer text on mobile */
+            .hero-content h1 { font-size: 28px; margin-bottom: 25px; line-height: 1.3; }
+            
             .hero-content .btn { padding: 14px 28px; }
             
             .definition-section { padding: 60px 5% 50px; }
@@ -676,7 +678,7 @@
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 88</span></div></div>
             </a>
             <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="ig-item">
-                <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" alt="Interior Detail">
+                <img src="IG6.jpeg" alt="Interior Detail">
                 <div class="ig-overlay"><div class="ig-stats"><span class="serif"><svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> 104</span></div></div>
             </a>
         </div>
