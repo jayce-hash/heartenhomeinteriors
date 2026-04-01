@@ -175,20 +175,22 @@
             box-shadow: 0 12px 40px rgba(0,0,0,0.2);
             left: 45%; 
             top: 50%;
+            /* This centers the whole badge on the screen split */
             transform: translate(-50%, -50%);
             overflow: hidden; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         
-        /* Fixed centering and scaling */
+        /* Bulletproof Image Centering */
         .hero-logo-badge img {
+            position: absolute;
             width: 100%; 
             height: 100%;
             object-fit: contain;
-            object-position: center; /* Locks image to dead center */
-            transform: scale(1.3); /* Uniformly zooms in to eliminate padding */
+            /* Anchors the image to the dead center of the circle */
+            top: 50%;
+            left: 50%;
+            /* translate(-50%, -50%) centers it, scale(1.3) crops out the padding */
+            transform: translate(-50%, -50%) scale(1.3); 
         }
         
         .hero-text-side {
