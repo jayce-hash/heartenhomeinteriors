@@ -366,11 +366,12 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
 }
 
 /* --- REVISED HOME PAGE LAYOUT --- */
+/* --- REVISED HOME PAGE LAYOUT --- */
 .home-hero-clean {
-    height: 100vh;
+    height: 65vh; /* This stops the image right around where your red line is */
     width: 100%;
-    /* Update this URL to whatever dominant image you choose */
-    background: url('Home.jpeg') center/cover no-repeat;
+    /* Added a high-quality Unsplash luxury interior placeholder */
+    background: url('https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?q=80&w=2574&auto=format&fit=crop') center/cover no-repeat;
     background-color: var(--accent-gray);
 }
 
