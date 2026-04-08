@@ -345,3 +345,18 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
     
     .footer-links a { margin: 0 10px 15px; }
 }
+
+/* --- INNER PAGE NAVIGATION FIX --- */
+#navbar.inner-nav .nav-text-logo {
+    color: var(--navy) !important;
+}
+#navbar.inner-nav .nav-links a {
+    color: var(--navy);
+}
+/* Ensure the active gold link stays gold */
+#navbar.inner-nav .nav-links a[style*="color: var(--gold)"] {
+    color: var(--gold) !important;
+}
+#navbar.inner-nav .menu-toggle span {
+    background-color: var(--navy) !important;
+}
