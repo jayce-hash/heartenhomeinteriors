@@ -111,9 +111,9 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 /* --- HOME PAGE HERO --- */
 .home-hero-clean {
     position: relative;
-    height: 55vh; /* Bumped up slightly to account for the image sliding under the header */
+    height: 55vh; 
     width: 100%;
-    margin-top: 0 !important; /* This absolutely forces the gap to 0 */
+    margin-top: 0 !important; 
     background: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2670&auto=format&fit=crop') center/cover no-repeat;
     background-color: var(--accent-gray);
 }
@@ -125,10 +125,10 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 }
 .home-about-grid { 
     display: grid; 
-    grid-template-columns: 4fr 6fr; /* Shrinks the photo column, gives the text more room */
+    grid-template-columns: 4fr 6fr; 
     gap: 80px; 
     align-items: center; 
-    max-width: 1100px; /* Brought in from 1400px so it scales down beautifully */
+    max-width: 1100px; 
     margin: 0 auto; 
 }
 .home-about-img {
@@ -137,7 +137,7 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 }
 .home-about-img img { 
     width: 100%; 
-    aspect-ratio: 3/4; /* Changed from 4/5 to a slightly shorter, classic portrait size */
+    aspect-ratio: 3/4; /* Set to 3/4 */
     object-fit: cover; 
     display: block;
     background-color: var(--accent-gray); 
@@ -150,7 +150,7 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 .portfolio { padding: 80px 5% 140px; background-color: var(--white); }
 .portfolio-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; max-width: 1400px; margin: 0 auto 60px; }
 .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; max-width: 1400px; margin: 0 auto; }
-.portfolio-item { position: relative; aspect-ratio: 4/5; overflow: hidden; background-color: var(--accent-gray); display: block; }
+.portfolio-item { position: relative; aspect-ratio: 3/4; overflow: hidden; background-color: var(--accent-gray); display: block; } /* Set to 3/4 */
 .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s ease; }
 .portfolio-item:hover img { transform: scale(1.05); }
 .portfolio-overlay {
@@ -228,7 +228,7 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
 }
 .about-image img { 
     width: 100%; 
-    aspect-ratio: 4/5; 
+    aspect-ratio: 3/4; /* Set to 3/4 */
     object-fit: cover; 
     background-color: var(--accent-gray); 
 }
@@ -248,7 +248,7 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
 .service-block:last-child { margin-bottom: 0; }
 .service-block.reverse { direction: rtl; }
 .service-block.reverse > * { direction: ltr; }
-.service-image { position: relative; width: 100%; aspect-ratio: 4/5; background-color: var(--accent-gray); overflow: hidden; }
+.service-image { position: relative; width: 100%; aspect-ratio: 3/4; background-color: var(--accent-gray); overflow: hidden; } /* Set to 3/4 */
 .service-image img { width: 100%; height: 100%; object-fit: cover; }
 .service-content h2 { margin-bottom: 24px; font-size: clamp(32px, 4vw, 44px); }
 .service-content p { color: var(--text-light); margin-bottom: 18px; }
@@ -338,7 +338,7 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
 .project-hero {
     height: 55vh; 
     width: 100%;
-    margin-top: 0 !important; /* Eliminates the gap here too */
+    margin-top: 0 !important; 
     background-color: var(--accent-gray);
     background-position: center;
     background-size: cover;
@@ -375,7 +375,7 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
 /* Room by Room Gallery (Tightened Editorial Layout) */
 .project-gallery-section {
     padding: 0 5% 100px;
-    max-width: 1000px; /* Brought this in from 1400px so the photos aren't massive */
+    max-width: 1000px; 
     margin: 0 auto;
 }
 
@@ -400,8 +400,8 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
 .gallery-grid img {
     width: 100%;
     height: auto;
-    max-height: 80vh; /* Forces the image to never be taller than 80% of your screen */
-    object-fit: cover; /* Ensures the image doesn't stretch weirdly if it hits the max height */
+    max-height: 80vh; 
+    object-fit: cover; 
     display: block;
     background-color: var(--accent-gray);
 }
