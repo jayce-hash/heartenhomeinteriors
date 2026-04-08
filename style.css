@@ -305,3 +305,10 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
     .process-grid { grid-template-columns: 1fr; gap: 40px; }
     .contact-grid { grid-template-columns: 1fr; gap: 60px; }
 }
+
+/* --- INSTAGRAM WIDGET CONTAINER --- */
+.widget-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
