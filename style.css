@@ -111,10 +111,9 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 /* --- HOME PAGE HERO --- */
 .home-hero-clean {
     position: relative;
-    display: inline-block; /* This single line fixes the white gap quirk! */
-    height: 45vh; 
+    height: 55vh; /* Bumped up slightly to account for the image sliding under the header */
     width: 100%;
-    margin-top: 100px; 
+    margin-top: 0 !important; /* This absolutely forces the gap to 0 */
     background: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2670&auto=format&fit=crop') center/cover no-repeat;
     background-color: var(--accent-gray);
 }
