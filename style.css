@@ -472,4 +472,12 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
 @media (max-width: 768px) {
     .project-hero { height: 50vh; }
     .gallery-2-col { grid-template-columns: 1fr; } /* Stacks photos on phones */
+   /* Hero Mobile Adjustments */
+    .hero { flex-direction: column; height: auto; padding-top: 80px; }
+    .hero-image-side { width: 100%; height: 42vh; order: 1; }
+    .hero-text-side { width: 100%; padding: 80px 7% 50px; text-align: center; order: 2; background-color: var(--navy); }
+    .hero-logo-badge { width: 115px; height: 115px; left: 50%; top: calc(80px + 42vh); transform: translate(-50%, -50%); }
+    .hero-content { animation: none; opacity: 1; transform: none; }
+    .hero-content h1 { font-size: 34px; margin-bottom: 12px; }
+    .break-mobile { display: initial; }
 }
