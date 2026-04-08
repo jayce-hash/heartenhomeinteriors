@@ -372,10 +372,10 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
     line-height: 1.8;
 }
 
-/* Room by Room Gallery */
+/* Room by Room Gallery (Tightened Editorial Layout) */
 .project-gallery-section {
     padding: 0 5% 100px;
-    max-width: 1400px;
+    max-width: 1000px; /* Brought this in from 1400px so the photos aren't massive */
     margin: 0 auto;
 }
 
@@ -400,6 +400,8 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
 .gallery-grid img {
     width: 100%;
     height: auto;
+    max-height: 80vh; /* Forces the image to never be taller than 80% of your screen */
+    object-fit: cover; /* Ensures the image doesn't stretch weirdly if it hits the max height */
     display: block;
     background-color: var(--accent-gray);
 }
