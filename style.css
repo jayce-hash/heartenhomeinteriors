@@ -364,3 +364,52 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
 #navbar.inner-nav .menu-toggle span {
     background-color: var(--navy) !important;
 }
+
+/* --- REVISED HOME PAGE LAYOUT --- */
+.home-hero-clean {
+    height: 100vh;
+    width: 100%;
+    /* Update this URL to whatever dominant image you choose */
+    background: url('Home.jpeg') center/cover no-repeat;
+    background-color: var(--accent-gray);
+}
+
+.home-about-section {
+    padding: 140px 5%;
+    background-color: var(--white);
+}
+
+.home-about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.home-about-img img {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    background-color: var(--accent-gray);
+}
+
+.home-services-section {
+    padding: 140px 5%;
+    background-color: var(--cream);
+    text-align: center;
+}
+
+.home-services-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Ensure mobile stacking looks correct */
+@media (max-width: 768px) {
+    .home-about-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
