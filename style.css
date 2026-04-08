@@ -336,9 +336,9 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
    INDIVIDUAL PROJECT PAGES (Editorial Layout)
 ============================================= */
 .project-hero {
-    height: 75vh;
+    height: 45vh; /* Reduced from 75vh so the text pulls right up into view */
     width: 100%;
-    margin-top: 100px; /* Offset for the solid white nav */
+    margin-top: 100px; 
     background-color: var(--accent-gray);
     background-position: center;
     background-size: cover;
