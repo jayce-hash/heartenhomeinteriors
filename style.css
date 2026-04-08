@@ -111,9 +111,9 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 /* --- HOME PAGE HERO --- */
 .home-hero-clean {
     position: relative;
-    height: 65vh; 
+    height: 45vh; /* Changed to 45vh to match your project banners exactly */
     width: 100%;
-    margin-top: 100px; /* Pushes image down below solid white header */
+    margin-top: 100px; /* Keeps it snug right beneath the solid white header */
     background: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2670&auto=format&fit=crop') center/cover no-repeat;
     background-color: var(--accent-gray);
 }
