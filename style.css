@@ -125,10 +125,10 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 }
 .home-about-grid { 
     display: grid; 
-    grid-template-columns: 1fr 1fr; 
+    grid-template-columns: 4fr 6fr; /* Shrinks the photo column, gives the text more room */
     gap: 80px; 
     align-items: center; 
-    max-width: 1400px; 
+    max-width: 1100px; /* Brought in from 1400px so it scales down beautifully */
     margin: 0 auto; 
 }
 .home-about-img {
@@ -137,7 +137,7 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 }
 .home-about-img img { 
     width: 100%; 
-    aspect-ratio: 4/5; 
+    aspect-ratio: 3/4; /* Changed from 4/5 to a slightly shorter, classic portrait size */
     object-fit: cover; 
     display: block;
     background-color: var(--accent-gray); 
