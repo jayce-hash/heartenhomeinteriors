@@ -111,12 +111,11 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 /* --- HOME PAGE HERO --- */
 .home-hero-clean {
     position: relative;
-    height: 65vh; /* Stops the image right where you wanted it */
+    height: 65vh; 
     width: 100%;
-    margin-top: 0;
-    /* Top gradient protects the white logo text, bottom is pure image */
-    background: linear-gradient(to bottom, rgba(20,32,64,0.4) 0%, transparent 15%), 
-                url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2670&auto=format&fit=crop') center/cover no-repeat;
+    margin-top: 100px; /* This pushes the image down below the solid white header */
+    /* Pure image, no more dark shadow at the top! */
+    background: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2670&auto=format&fit=crop') center/cover no-repeat;
     background-color: var(--accent-gray);
 }
 
