@@ -113,38 +113,34 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
     position: relative;
     height: 65vh; 
     width: 100%;
-    margin-top: 100px; /* This pushes the image down below the solid white header */
-    /* Pure image, no more dark shadow at the top! */
+    margin-top: 100px; /* Pushes image down below solid white header */
     background: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2670&auto=format&fit=crop') center/cover no-repeat;
     background-color: var(--accent-gray);
 }
 
 /* --- HOME SECTIONS --- */
-.home-about-section { padding: 140px 5%; background-color: var(--white); }
-.home-about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; max-width: 1400px; margin: 0 auto; }
-/* --- OVERLAPPING ABOUT IMAGES --- */
-.home-about-img { 
-    position: relative; 
-    padding-bottom: 40px; 
-    padding-right: 40px; 
+.home-about-section { 
+    padding: 80px 5% 100px; 
+    background-color: var(--white); 
 }
-.home-about-img .main-img { 
-    width: 85%; 
+.home-about-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 80px; 
+    align-items: center; 
+    max-width: 1400px; 
+    margin: 0 auto; 
+}
+.home-about-img {
+    position: relative;
+    padding: 0;
+}
+.home-about-img img { 
+    width: 100%; 
     aspect-ratio: 4/5; 
     object-fit: cover; 
     display: block;
     background-color: var(--accent-gray); 
-}
-.home-about-img .family-img { 
-    position: absolute; 
-    bottom: 0; 
-    right: 0; 
-    width: 60%; 
-    aspect-ratio: 3/4; 
-    object-fit: cover; 
-    border: 12px solid var(--white); 
-    box-shadow: 0 10px 40px rgba(20,32,64,0.08); 
-    background-color: var(--cream);
 }
 
 .home-services-section { padding: 140px 5%; background-color: var(--cream); text-align: center; }
@@ -334,11 +330,4 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
-}
-
-/* Mobile adjustments for overlapping photos */
-@media (max-width: 768px) {
-    .home-about-img { padding-bottom: 30px; padding-right: 20px; }
-    .home-about-img .main-img { width: 85%; }
-    .home-about-img .family-img { width: 65%; border-width: 8px; }
 }
