@@ -346,12 +346,16 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
     .footer-links a { margin: 0 10px 15px; }
 }
 
-/* --- INNER PAGE NAVIGATION FIX --- */
+/* --- INNER PAGE NAVIGATION FIX (Solid Bar) --- */
+#navbar.inner-nav {
+    background-color: var(--white) !important; /* Locks in the light background */
+    box-shadow: 0 4px 30px rgba(0,0,0,0.03); /* Adds a very subtle shadow for separation */
+}
 #navbar.inner-nav .nav-text-logo {
     color: var(--navy) !important;
 }
 #navbar.inner-nav .nav-links a {
-    color: var(--navy);
+    color: var(--navy) !important;
 }
 /* Ensure the active gold link stays gold */
 #navbar.inner-nav .nav-links a[style*="color: var(--gold)"] {
