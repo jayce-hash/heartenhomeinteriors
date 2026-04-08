@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquire | Hearten Home Interiors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav id="navbar" class="scrolled">
+        <div class="nav-brand">
+            <a href="index.html" class="nav-text-logo">Hearten Home Interiors</a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="decorations.html">Decorations</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html" style="color: var(--gold);">Contact</a>
+        </div>
+    </nav>
+
+    <header class="inner-hero reveal">
+        <span class="eyebrow">Connect</span>
+        <h1>Begin Your <em>Story</em></h1>
+        <p>We would love to hear about your home and how we can help.</p>
+    </header>
+
+    <section class="contact-section reveal">
+        <div class="contact-grid">
+            
+            <div class="contact-info">
+                <h2>Let's talk about<br><em>your space.</em></h2>
+                <p>Based in Colleyville, TX.<br>Serving the greater Dallas / Fort Worth area.</p>
+                <div class="contact-methods">
+                    <a href="mailto:bonnie@heartenhome.com">bonnie@heartenhome.com</a>
+                    <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank">@heartenhomeinteriors</a>
+                </div>
+            </div>
+
+            <div class="contact-form-container">
+                <form action="#" class="editorial-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project">Project Type</label>
+                        <select id="project" name="project">
+                            <option value="remodel">Turn-Key Remodel</option>
+                            <option value="design">Full-Service Design</option>
+                            <option value="decor">Decorating & Styling</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell us about your home</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-navy">Submit Inquiry</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo-placeholder">[ Logo ]</div>
+        <p class="footer-tagline">Where beautiful spaces become beloved homes.</p>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="decorations.html">Decorations</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="copyright">&copy; 2026 Hearten Home Interiors. Based in Colleyville, TX.</div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
