@@ -69,7 +69,6 @@ a { text-decoration: none; color: inherit; transition: var(--transition); }
 /* =============================================
    NAVIGATION (THE FIX)
 ============================================= */
-/* 1. Default Homepage Nav (Transparent, White Text) */
 nav {
     position: fixed; top: 0; width: 100%;
     display: flex; justify-content: space-between; align-items: center;
@@ -91,13 +90,11 @@ nav {
 .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; }
 .menu-toggle span { display: block; width: 28px; height: 1px; background-color: var(--white); transition: var(--transition); }
 
-/* 2. Scrolled Homepage Nav (White Bar, Navy Text) */
 nav.scrolled { background-color: var(--white); height: 75px; box-shadow: 0 4px 30px rgba(0,0,0,0.04); }
 nav.scrolled .nav-text-logo, nav.scrolled .nav-links a { color: var(--navy); text-shadow: none; }
 nav.scrolled .nav-links a[style*="color: var(--gold)"] { color: var(--gold); }
 nav.scrolled .menu-toggle span { background-color: var(--navy); }
 
-/* 3. Inner Page Nav (Always White Bar, Navy Text) */
 nav.inner-nav { background-color: var(--white); height: 100px; box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
 nav.inner-nav.scrolled { height: 75px; }
 nav.inner-nav .nav-text-logo, nav.inner-nav .nav-links a { color: var(--navy); text-shadow: none; }
@@ -108,42 +105,34 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
    PAGE LAYOUTS
 ============================================= */
 
-/* --- HOME PAGE HERO (Restored Split Layout) --- */
+/* --- HOME PAGE HERO (Updated Light Layout) --- */
 .hero {
-    display: flex; 
-    height: 100vh;
-    padding-top: 100px; /* Adjusts for your current navigation bar */
-    background-color: var(--navy);
+    display: flex;
+    height: 55vh; 
+    width: 100%;
+    margin-top: 0 !important; /* Eliminates the gap */
+    background-color: transparent; 
     position: relative;
-}
-.hero-logo-badge {
-    position: absolute; z-index: 10;
-    width: 148px; height: 148px;
-    border-radius: 50%;
-    border: 4px solid var(--white);
-    background-color: var(--navy);
-    box-shadow: 0 16px 50px rgba(0,0,0,0.25);
-    left: 45%; top: 50%;
-    transform: translate(-50%, -50%);
     overflow: hidden;
 }
-.hero-logo-badge img {
-    position: absolute; top: 55%; left: 50%;
-    width: 100%; height: 100%;
-    object-fit: contain;
-    transform: translate(-50%, -50%) scale(1.3);
+.hero-text-side {
+    width: 45%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 5% 0 8%;
+    background-color: var(--cream); /* Light cream background */
 }
-.hero-text-side { width: 45%; display: flex; align-items: center; padding: 0 5% 0 8%; }
 .hero-content {
     animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
     opacity: 0; transform: translateY(24px); width: 100%;
 }
 @keyframes slideUpFade { to { opacity: 1; transform: translateY(0); } }
-.hero-content h1 { color: var(--white); font-weight: 300; margin-bottom: 14px; }
-.hero-content h1 em { font-style: italic; color: var(--gold); }
+.hero-content h1 { color: var(--navy); font-weight: 300; margin-bottom: 14px; } /* Navy Font */
+.hero-content h1 em { font-style: italic; color: var(--navy); } /* Navy Font */
 .hero-sub {
     font-size: var(--text-sm);
-    color: rgba(255,255,255,0.5);
+    color: var(--text-main); /* Standard Dark Font */
     margin-bottom: 40px;
     font-weight: 300;
 }
@@ -153,14 +142,10 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
     background: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2670&auto=format&fit=crop') center/cover no-repeat;
     position: relative;
 }
-.hero-image-side::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(to right, rgba(20,32,64,0.15), transparent);
-}
 
-/* White Button Style for Hero */
-.btn-white { color: var(--white); border-color: var(--white); }
-.btn-white:hover { background-color: var(--white); color: var(--navy); }
+/* Button Style for Light Hero */
+.btn-navy-on-light { color: var(--navy); border-color: var(--navy); }
+.btn-navy-on-light:hover { background-color: var(--navy); color: var(--white); }
 
 /* --- HOME SECTIONS --- */
 .home-about-section { 
@@ -175,13 +160,10 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
     max-width: 1100px; 
     margin: 0 auto; 
 }
-.home-about-img {
-    position: relative;
-    padding: 0;
-}
+.home-about-img { position: relative; padding: 0; }
 .home-about-img img { 
     width: 100%; 
-    aspect-ratio: 3/4; /* Set to 3/4 */
+    aspect-ratio: 3/4; 
     object-fit: cover; 
     display: block;
     background-color: var(--accent-gray); 
@@ -194,7 +176,7 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 .portfolio { padding: 80px 5% 140px; background-color: var(--white); }
 .portfolio-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; max-width: 1400px; margin: 0 auto 60px; }
 .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; max-width: 1400px; margin: 0 auto; }
-.portfolio-item { position: relative; aspect-ratio: 3/4; overflow: hidden; background-color: var(--accent-gray); display: block; } /* Set to 3/4 */
+.portfolio-item { position: relative; aspect-ratio: 3/4; overflow: hidden; background-color: var(--accent-gray); display: block; } 
 .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s ease; }
 .portfolio-item:hover img { transform: scale(1.05); }
 .portfolio-overlay {
@@ -248,6 +230,18 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
     .portfolio-grid { grid-template-columns: 1fr; }
     .home-about-grid { grid-template-columns: 1fr; gap: 40px; }
     .footer-links a { margin: 0 10px 15px; }
+
+    /* Hero Mobile Adjustments */
+    .hero { flex-direction: column; height: auto; padding-top: 0; }
+    .hero-image-side { width: 100%; height: 42vh; order: 1; }
+    .hero-text-side { 
+        width: 100%; padding: 80px 7% 50px; text-align: center; order: 2; 
+        background-color: var(--cream); 
+        padding-top: 100px; 
+    }
+    .hero-content { animation: none; opacity: 1; transform: none; }
+    .hero-content h1 { font-size: 34px; margin-bottom: 12px; }
+    .break-mobile { display: initial; }
 }
 
 /* =============================================
@@ -272,7 +266,7 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
 }
 .about-image img { 
     width: 100%; 
-    aspect-ratio: 3/4; /* Set to 3/4 */
+    aspect-ratio: 3/4; 
     object-fit: cover; 
     background-color: var(--accent-gray); 
 }
@@ -292,7 +286,7 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
 .service-block:last-child { margin-bottom: 0; }
 .service-block.reverse { direction: rtl; }
 .service-block.reverse > * { direction: ltr; }
-.service-image { position: relative; width: 100%; aspect-ratio: 3/4; background-color: var(--accent-gray); overflow: hidden; } /* Set to 3/4 */
+.service-image { position: relative; width: 100%; aspect-ratio: 3/4; background-color: var(--accent-gray); overflow: hidden; } 
 .service-image img { width: 100%; height: 100%; object-fit: cover; }
 .service-content h2 { margin-bottom: 24px; font-size: clamp(32px, 4vw, 44px); }
 .service-content p { color: var(--text-light); margin-bottom: 18px; }
@@ -472,12 +466,4 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
 @media (max-width: 768px) {
     .project-hero { height: 50vh; }
     .gallery-2-col { grid-template-columns: 1fr; } /* Stacks photos on phones */
-   /* Hero Mobile Adjustments */
-    .hero { flex-direction: column; height: auto; padding-top: 80px; }
-    .hero-image-side { width: 100%; height: 42vh; order: 1; }
-    .hero-text-side { width: 100%; padding: 80px 7% 50px; text-align: center; order: 2; background-color: var(--navy); }
-    .hero-logo-badge { width: 115px; height: 115px; left: 50%; top: calc(80px + 42vh); transform: translate(-50%, -50%); }
-    .hero-content { animation: none; opacity: 1; transform: none; }
-    .hero-content h1 { font-size: 34px; margin-bottom: 12px; }
-    .break-mobile { display: initial; }
 }
