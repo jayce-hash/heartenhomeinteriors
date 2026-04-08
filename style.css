@@ -105,47 +105,54 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
    PAGE LAYOUTS
 ============================================= */
 
-/* --- HOME PAGE HERO (Updated Light Layout) --- */
-.hero {
-    display: flex;
-    height: 55vh; 
-    width: 100%;
-    margin-top: 0 !important; /* Eliminates the gap */
-    background-color: transparent; 
+/* --- HOME PAGE HERO (Centered Column) --- */
+.hero-clean {
     position: relative;
+    height: 60vh; 
+    width: 100%;
+    margin-top: 0 !important; 
+    background-color: var(--cream); 
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
     overflow: hidden;
 }
-.hero-text-side {
-    width: 45%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    padding: 0 5% 0 8%;
-    background-color: var(--cream); /* Light cream background */
-}
-.hero-content {
-    animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
-    opacity: 0; transform: translateY(24px); width: 100%;
-}
-@keyframes slideUpFade { to { opacity: 1; transform: translateY(0); } }
-.hero-content h1 { color: var(--navy); font-weight: 300; margin-bottom: 14px; } /* Navy Font */
-.hero-content h1 em { font-style: italic; color: var(--navy); } /* Navy Font */
-.hero-sub {
-    font-size: var(--text-sm);
-    color: var(--text-main); /* Standard Dark Font */
-    margin-bottom: 40px;
-    font-weight: 300;
-}
-.break-mobile { display: none; }
-.hero-image-side {
-    width: 55%; height: 100%;
-    background: url('https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=2670&auto=format&fit=crop') center/cover no-repeat;
-    position: relative;
+
+.hero-clean-inner {
+    width: 100%;
+    max-width: 900px; 
+    padding: 0 5%; 
+    text-align: center; 
 }
 
-/* Button Style for Light Hero */
-.btn-navy-on-light { color: var(--navy); border-color: var(--navy); }
-.btn-navy-on-light:hover { background-color: var(--navy); color: var(--white); }
+.hero-content {
+    animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
+    opacity: 0;
+    transform: translateY(24px);
+}
+@keyframes slideUpFade { to { opacity: 1; transform: translateY(0); } }
+
+.hero-content h1 { color: var(--navy); margin-bottom: 24px; }
+.hero-content h1 em { font-style: italic; color: var(--navy) !important; }
+
+.hero-sub {
+    font-size: var(--text-sm);
+    color: var(--text-light);
+    max-width: 600px; 
+    margin: 0 auto 40px; 
+    font-weight: 300;
+}
+
+.btn-navy-on-light {
+    color: var(--navy);
+    border-color: var(--navy);
+}
+.btn-navy-on-light:hover {
+    background-color: var(--navy);
+    color: var(--white);
+}
+
+.break-mobile { display: none; }
 
 /* --- HOME SECTIONS --- */
 .home-about-section { 
@@ -225,20 +232,13 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
     .nav-links.open { transform: translateY(0); pointer-events: all; }
     .nav-links a { color: var(--navy); text-shadow: none; }
     
-    .home-hero-clean { height: 50vh; }
     .portfolio-header { flex-direction: column; align-items: flex-start; gap: 20px; }
     .portfolio-grid { grid-template-columns: 1fr; }
     .home-about-grid { grid-template-columns: 1fr; gap: 40px; }
     .footer-links a { margin: 0 10px 15px; }
 
     /* Hero Mobile Adjustments */
-    .hero { flex-direction: column; height: auto; padding-top: 0; }
-    .hero-image-side { width: 100%; height: 42vh; order: 1; }
-    .hero-text-side { 
-        width: 100%; padding: 80px 7% 50px; text-align: center; order: 2; 
-        background-color: var(--cream); 
-        padding-top: 100px; 
-    }
+    .hero-clean { height: auto; padding: 100px 5% 80px; } 
     .hero-content { animation: none; opacity: 1; transform: none; }
     .hero-content h1 { font-size: 34px; margin-bottom: 12px; }
     .break-mobile { display: initial; }
