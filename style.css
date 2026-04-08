@@ -105,39 +105,19 @@ nav.inner-nav .menu-toggle span { background-color: var(--navy); }
    PAGE LAYOUTS
 ============================================= */
 
-/* --- HOME PAGE HERO (Centered Column) --- */
+/* --- HOME PAGE HERO (Centered Column, matching inner pages) --- */
 .hero-clean {
-    position: relative;
-    height: 60vh; 
-    width: 100%;
-    margin-top: 0 !important; 
+    padding: 200px 5% 120px; 
     background-color: var(--cream); 
-    display: flex;
-    align-items: center; 
-    justify-content: center; 
-    overflow: hidden;
+    text-align: center;
+    margin-top: 0 !important; 
 }
-
-.hero-clean-inner {
-    width: 100%;
-    max-width: 900px; 
-    padding: 0 5%; 
-    text-align: center; 
-}
-
-.hero-content {
-    animation: slideUpFade 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.2s;
-    opacity: 0;
-    transform: translateY(24px);
-}
-@keyframes slideUpFade { to { opacity: 1; transform: translateY(0); } }
-
-.hero-content h1 { color: var(--navy); margin-bottom: 24px; }
-.hero-content h1 em { font-style: italic; color: var(--navy) !important; }
+.hero-clean h1 { color: var(--navy); margin-bottom: 24px; }
+.hero-clean h1 em { font-style: italic; color: var(--navy); }
 
 .hero-sub {
-    font-size: var(--text-sm);
-    color: var(--text-light);
+    font-size: 18px; 
+    color: var(--text-main);
     max-width: 600px; 
     margin: 0 auto 40px; 
     font-weight: 300;
@@ -238,9 +218,8 @@ footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: cen
     .footer-links a { margin: 0 10px 15px; }
 
     /* Hero Mobile Adjustments */
-    .hero-clean { height: auto; padding: 100px 5% 80px; } 
-    .hero-content { animation: none; opacity: 1; transform: none; }
-    .hero-content h1 { font-size: 34px; margin-bottom: 12px; }
+    .hero-clean { padding: 140px 5% 80px; } 
+    .hero-clean h1 { font-size: 34px; margin-bottom: 12px; }
     .break-mobile { display: initial; }
 }
 
