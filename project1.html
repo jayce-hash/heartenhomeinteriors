@@ -336,13 +336,32 @@
             .project-nav { flex-direction: column; gap: 20px; text-align: center; }
             .project-cta { padding: 80px 5%; }
         }
-    </style>
+    
+
+        /* PROJECT HERO WATERMARK */
+        .project-hero-wrap { position: relative; }
+        .project-watermark {
+            position: absolute;
+            bottom: 24px;
+            right: 32px;
+            width: 72px;
+            opacity: 0.55;
+            pointer-events: none;
+        }
+
+        /* LOGO STYLES */
+        .nav-logo-img { display: flex; align-items: center; }
+        .nav-logo-img img { height: 44px; width: auto; transition: var(--transition); }
+        .footer-logo-img { margin: 0 auto 32px; }
+        .footer-logo-img img { width: 140px; height: auto; display: block; margin: 0 auto; }
+
+        </style>
 </head>
 <body>
 
     <nav id="navbar" class="inner-nav">
         <div class="nav-brand">
-            <a href="index.html" class="nav-text-logo">Hearten Home Interiors</a>
+            <a href="index.html" class="nav-logo-img"><img src="Final_Logo__2_.png" alt="Hearten Home Interiors"></a>
         </div>
         <div class="menu-toggle" id="mobile-menu">
             <span></span><span></span><span></span>
@@ -361,7 +380,10 @@
          Replace URL with the best hero photo for this project.
          Aim for a wide, well-lit room shot — not a detail shot.
     ============================================= -->
+    <div class="project-hero-wrap">
     <header class="project-hero" style="background-image: url('YOUR-HERO-IMAGE.jpg');"></header>
+    <img src="Final_Logo_Navy__2_.png" alt="" class="project-watermark">
+</div>
 
     <!-- ============================================
          PROJECT INTRO
@@ -500,7 +522,7 @@
          FOOTER
     ============================================= -->
     <footer>
-        <div class="footer-logo-placeholder">[ Logo ]</div>
+        <div class="footer-logo-img"><img src="Final_Logo.png" alt="Hearten Home Interiors"></div>
         <p class="footer-tagline">Where beautiful spaces become beloved homes.</p>
         <div class="footer-links">
             <a href="about.html">About</a>
