@@ -90,13 +90,20 @@
             .portfolio-grid { grid-template-columns: 1fr; }
             .projects-cta { padding: 80px 5%; }
         }
-    </style>
+    
+        /* LOGO STYLES */
+        .nav-logo-img { display: flex; align-items: center; }
+        .nav-logo-img img { height: 44px; width: auto; transition: var(--transition); }
+        .footer-logo-img { margin: 0 auto 32px; }
+        .footer-logo-img img { width: 140px; height: auto; display: block; margin: 0 auto; }
+
+        </style>
 </head>
 <body>
 
     <nav id="navbar" class="inner-nav">
         <div class="nav-brand">
-            <a href="index.html" class="nav-text-logo">Hearten Home Interiors</a>
+            <a href="index.html" class="nav-logo-img"><img src="Final_Logo__2_.png" alt="Hearten Home Interiors"></a>
         </div>
         <div class="menu-toggle" id="mobile-menu">
             <span></span><span></span><span></span>
@@ -151,7 +158,7 @@
     </section>
 
     <footer>
-        <div class="footer-logo-placeholder">[ Logo ]</div>
+        <div class="footer-logo-img"><img src="Final_Logo.png" alt="Hearten Home Interiors"></div>
         <p class="footer-tagline">Where beautiful spaces become beloved homes.</p>
         <div class="footer-links">
             <a href="about.html">About</a>
