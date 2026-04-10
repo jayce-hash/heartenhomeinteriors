@@ -78,7 +78,7 @@
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         /* =============================================
-           NAVIGATION (THE FIX)
+           NAVIGATION
         ============================================= */
         nav {
             position: fixed; top: 0; width: 100%;
@@ -116,7 +116,7 @@
            PAGE LAYOUTS
         ============================================= */
 
-        /* --- HOME PAGE HERO (Centered Column, matching inner pages) --- */
+        /* --- HOME PAGE HERO --- */
         .hero-clean {
             padding: 200px 5% 120px; 
             background-color: var(--cream); 
@@ -169,6 +169,27 @@
 
         .home-services-section { padding: 140px 5%; background-color: var(--cream); text-align: center; }
         .home-services-content { max-width: 700px; margin: 0 auto; }
+
+        /* --- BELIEF STRIP --- */
+        .belief-strip {
+            padding: 100px 5%;
+            background-color: var(--navy);
+            text-align: center;
+        }
+        .belief-strip blockquote {
+            font-family: var(--font-serif);
+            font-size: clamp(22px, 3vw, 32px);
+            font-style: italic;
+            color: var(--white);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+        .belief-strip blockquote em {
+            color: var(--gold);
+            font-style: italic;
+        }
 
         /* --- PORTFOLIO GALLERY --- */
         .portfolio { padding: 80px 5% 140px; background-color: var(--white); }
@@ -228,23 +249,22 @@
             .home-about-grid { grid-template-columns: 1fr; gap: 40px; }
             .footer-links a { margin: 0 10px 15px; }
 
-            /* Hero Mobile Adjustments */
             .hero-clean { padding: 140px 5% 80px; } 
             .hero-clean h1 { font-size: 34px; margin-bottom: 12px; }
             .break-mobile { display: initial; }
+
+            .belief-strip { padding: 80px 5%; }
         }
 
         /* =============================================
            RESTORED INNER PAGE STYLES
         ============================================= */
 
-        /* --- STATEMENT SECTION (About Page) --- */
         .statement { padding: 140px 5%; background-color: var(--white); text-align: center; }
         .statement-box { max-width: 800px; margin: 0 auto; }
         .statement p { font-family: var(--font-serif); font-size: clamp(24px, 3vw, 36px); line-height: 1.4; color: var(--navy); }
         .statement p em { font-style: italic; color: var(--gold); }
 
-        /* --- ABOUT PAGE --- */
         .about-section { 
             padding: 100px 5% 140px; 
             display: grid; 
@@ -270,7 +290,6 @@
             margin-top: 40px; 
         }
 
-        /* --- SERVICES & DECORATIONS PAGES --- */
         .service-page-section { padding: 120px 5%; background-color: var(--white); max-width: 1400px; margin: 0 auto; }
         .service-block { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: center; margin-bottom: 140px; }
         .service-block:last-child { margin-bottom: 0; }
@@ -281,7 +300,6 @@
         .service-content h2 { margin-bottom: 24px; font-size: clamp(32px, 4vw, 44px); }
         .service-content p { color: var(--text-light); margin-bottom: 18px; }
 
-        /* --- THE PROCESS --- */
         .process-section { padding: 140px 5%; background-color: var(--cream); }
         .process-header { text-align: center; margin-bottom: 80px; }
         .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; max-width: 1400px; margin: 0 auto; text-align: center; }
@@ -296,7 +314,6 @@
         .process-step h3 { margin-bottom: 12px; font-size: 22px; }
         .process-step p { color: var(--text-light); font-size: 14px; }
 
-        /* --- CONTACT PAGE --- */
         .contact-section { padding: 120px 5% 160px; background-color: var(--white); }
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; max-width: 1200px; margin: 0 auto; }
         .contact-info h2 { margin-bottom: 24px; font-size: clamp(36px, 4vw, 50px); }
@@ -337,7 +354,6 @@
         .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-bottom-color: var(--gold); }
         .editorial-form button { margin-top: 20px; align-self: flex-start; }
 
-        /* --- RESPONSIVE FIXES FOR INNER PAGES --- */
         @media (max-width: 1024px) {
             .about-section, .service-block, .contact-grid { gap: 60px; }
         }
@@ -345,24 +361,18 @@
         @media (max-width: 768px) {
             .about-section { grid-template-columns: 1fr; padding: 60px 5% 80px; gap: 40px; }
             .about-image img { aspect-ratio: auto; height: 60vh; }
-            
             .service-block, .service-block.reverse { grid-template-columns: 1fr; gap: 40px; direction: ltr; margin-bottom: 80px; }
             .service-image img { aspect-ratio: auto; height: 50vh; }
-            
             .process-grid { grid-template-columns: 1fr; gap: 40px; }
             .contact-grid { grid-template-columns: 1fr; gap: 60px; }
         }
 
-        /* --- INSTAGRAM WIDGET CONTAINER --- */
         .widget-container {
             max-width: 1400px;
             margin: 0 auto;
             width: 100%;
         }
 
-        /* =============================================
-           INDIVIDUAL PROJECT PAGES (Editorial Layout)
-        ============================================= */
         .project-hero {
             height: 55vh; 
             width: 100%;
@@ -400,7 +410,6 @@
             line-height: 1.8;
         }
 
-        /* Room by Room Gallery (Tightened Editorial Layout) */
         .project-gallery-section {
             padding: 0 5% 100px;
             max-width: 1000px; 
@@ -434,7 +443,6 @@
             background-color: var(--accent-gray);
         }
 
-        /* Pagination at the bottom of a project */
         .project-nav {
             display: flex;
             justify-content: space-between;
@@ -479,55 +487,82 @@
         </div>
     </nav>
 
-  <header class="hero-clean reveal">
-        <span class="eyebrow">Interior Design & Remodeling — DFW</span>
+    <!-- ============================================
+         HERO
+    ============================================= -->
+    <header class="hero-clean reveal">
+        <span class="eyebrow">Interior Design &amp; Renovation — Dallas / Fort Worth</span>
         <h1>
             Live <em>beautifully.</em><br class="break-mobile">
             Gather <em>joyfully.</em><br>
             Come home.
         </h1>
-        <p class="hero-sub">Timeless interiors crafted for the way you actually live.</p>
+        <p class="hero-sub">Designed for the life you actually live — not the one that looks good in a photograph.</p>
         <a href="contact.html" class="btn btn-navy-on-light">Begin Your Story</a>
     </header>
-        
+
+    <!-- ============================================
+         MEET BONNIE
+    ============================================= -->
     <section class="home-about-section reveal">
         <div class="home-about-grid">
             <div class="home-about-img">
-                <img src="Bonnie1.jpeg" alt="Bonnie Roden - Lead Designer">
+                <img src="Bonnie1.jpeg" alt="Bonnie Roden - Interior Designer, Hearten Home Interiors">
             </div>
             <div class="home-about-text">
                 <span class="eyebrow">The Designer</span>
                 <h2 style="margin-bottom: 24px; font-size: clamp(36px, 4vw, 50px);">Meet <em>Bonnie</em></h2>
-                <p style="color: var(--text-light); margin-bottom: 32px; max-width: 500px;">With three decades of heartfelt design experience, Bonnie crafts spaces that are as intentional as they are beautiful. Her desire is that you love your home more—not only because it is visually stunning, but because it is a true reflection of your family's story.</p>
+                <p style="color: var(--text-light); margin-bottom: 16px; max-width: 500px;">For thirty years, Bonnie Roden was the friend everyone called — the one who could walk into a home and see what it was trying to become.</p>
+                <p style="color: var(--text-light); margin-bottom: 32px; max-width: 500px;">In 2024, she finally put her name on a door. Hearten Home Interiors is the business she spent three decades building without knowing it — and her goal is as simple as it is rare: to make you love your home more. Not just because it's beautiful, but because it's finally, truly yours.</p>
                 <a href="about.html" class="btn btn-navy">Read Her Story</a>
             </div>
         </div>
     </section>
 
+    <!-- ============================================
+         BELIEF STRIP
+    ============================================= -->
+    <section class="belief-strip reveal">
+        <blockquote>
+            A home is not a showroom. It is the stage for your family's story —<br>
+            and it should be designed for the life you <em>actually</em> live.
+        </blockquote>
+    </section>
+
+    <!-- ============================================
+         SERVICES
+    ============================================= -->
     <section class="home-services-section reveal">
         <div class="home-services-content">
             <span class="eyebrow">Our Offerings</span>
             <h2 style="margin-bottom: 24px; font-size: clamp(36px, 4vw, 50px);">Design &amp; <em>Renovation</em></h2>
-            <p style="color: var(--text-light); margin-bottom: 40px;">From turn-key, full-scale remodeling to intentional room styling and holiday readiness, we guide the creative direction from the very first blueprint to the final walk-through. Every detail is handled so you can simply step into your new space.</p>
+            <p style="color: var(--text-light); margin-bottom: 16px;">From full-scale renovations to intentional room styling and holiday readiness, Bonnie guides the creative direction from the very first mood board to the final walk-through.</p>
+            <p style="color: var(--text-light); margin-bottom: 40px;">Every detail is handled — the contractors, the timelines, the decisions — so you can simply step into your new space.</p>
             <a href="services.html" class="btn btn-navy">Explore Services</a>
         </div>
     </section>
 
+    <!-- ============================================
+         RECENT WORK / INSTAGRAM JOURNAL
+    ============================================= -->
     <section class="portfolio">
         <div class="portfolio-header reveal">
             <div>
-                <span class="eyebrow">The Journal</span>
-                <h2>Recent Projects</h2>
+                <span class="eyebrow">Recent Work</span>
+                <h2>A Few Beloved Homes</h2>
             </div>
-            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="btn btn-navy">Follow on Instagram</a>
+            <a href="https://www.instagram.com/heartenhomeinteriors" target="_blank" class="btn btn-navy">Follow Along</a>
         </div>
         
         <div class="widget-container reveal">
-                <script src="https://elfsightcdn.com/platform.js" async></script>
-                <div class="elfsight-app-4862540f-9cc3-4184-a09c-367a1cf52b3f" data-elfsight-app-lazy></div>
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div class="elfsight-app-4862540f-9cc3-4184-a09c-367a1cf52b3f" data-elfsight-app-lazy></div>
         </div>
     </section>
 
+    <!-- ============================================
+         FOOTER
+    ============================================= -->
     <footer>
         <div class="footer-logo-placeholder">
             [ Logo ]
@@ -546,7 +581,6 @@
 
     <script src="main.js"></script>
     <script>
-        // Inline JS backup just in case main.js is missing
         window.addEventListener('scroll', function () {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
