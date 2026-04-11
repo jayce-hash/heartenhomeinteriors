@@ -234,21 +234,28 @@
         }
 
         @media (max-width: 768px) {
-            /* 1. Stack the Nav Bar */
+            /* 1. Stack the Nav Container (Brand top, Links bottom) */
             nav, nav.inner-nav, nav.scrolled, nav.inner-nav.scrolled { 
                 height: auto !important; 
                 flex-direction: column; 
-                padding: 24px 5% 16px; 
+                padding: 16px 5% 12px; 
                 background-color: var(--white); 
             } 
             
-            .nav-brand { margin-bottom: 16px; width: 100%; display: flex; justify-content: center; }
-            .nav-logo-link { flex-direction: column; gap: 8px; }
+            /* 2. Logo and Title on the SAME LINE, perfectly centered */
+            .nav-brand { margin-bottom: 12px; width: 100%; display: flex; justify-content: center; }
+            .nav-logo-link { 
+                display: flex; 
+                flex-direction: row !important; /* Forces them side-by-side */
+                align-items: center; 
+                justify-content: center; 
+                gap: 12px; 
+            }
             
-            nav .nav-logo-text { font-size: 26px; } 
-            .nav-logo-img img { height: 65px; } 
+            nav .nav-logo-text { font-size: 22px; color: var(--navy); text-shadow: none; } 
+            .nav-logo-img img { height: 45px; } 
             
-            /* 2. Secondary Horizontal Nav Bar */
+            /* 3. Secondary Horizontal Nav Bar */
             .nav-links {
                 position: relative; 
                 top: 0; left: 0;
@@ -260,21 +267,21 @@
                 flex-wrap: wrap; 
                 justify-content: center; 
                 align-items: center; 
-                gap: 16px; 
-                padding: 16px 0 0;
+                gap: 12px; 
+                padding: 12px 0 0;
                 margin: 0;
                 border-top: 1px solid rgba(20, 32, 64, 0.1); 
                 z-index: 1000;
             }
             .nav-links a { 
                 color: var(--navy); 
-                font-size: 12px; 
-                letter-spacing: 2px;
+                font-size: 11px; 
+                letter-spacing: 1px;
                 text-shadow: none; 
             }
             
-            /* 3. Adjust the Hero down slightly to account for the taller nav */
-            .hero-clean { padding: 200px 5% 80px; } 
+            /* 4. Push Hero down to prevent cutoff */
+            .hero-clean { padding: 180px 5% 80px !important; } 
             .hero-clean h1 { font-size: 34px; margin-bottom: 12px; }
             .break-mobile { display: initial; }
 
