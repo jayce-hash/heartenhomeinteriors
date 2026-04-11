@@ -133,7 +133,7 @@
         .portfolio-item { 
             position: relative; aspect-ratio: 3/4; overflow: hidden; 
             background-color: var(--accent-gray); display: block; 
-            border: 1px solid var(--navy); /* NAVY OUTLINE ADDED */
+            border: 1px solid var(--navy);
         }
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s ease; }
         .portfolio-item:hover img { transform: scale(1.05); }
@@ -182,26 +182,25 @@
             nav, nav.inner-nav, nav.scrolled, nav.inner-nav.scrolled { 
                 height: auto !important; 
                 flex-direction: column; 
-                align-items: center;
-                padding: 24px 5% 16px; 
+                padding: 16px 5% 12px; 
                 background-color: var(--white); 
             } 
             
-            .nav-brand { margin-bottom: 16px; width: 100%; display: flex; justify-content: center; }
-            
-            /* Bring logo and text closer and perfectly center them */
+            /* 2. Logo and Title on the SAME LINE, perfectly centered */
+            .nav-brand { margin-bottom: 12px; width: 100%; display: flex; justify-content: center; }
             .nav-logo-link { 
                 display: flex; 
                 flex-direction: row !important; 
                 align-items: center; 
                 justify-content: center; 
-                gap: 8px; 
+                gap: 12px; 
             }
             
-            nav .nav-logo-text { color: var(--navy); text-shadow: none; font-size: 26px; } 
-            .nav-logo-img img { height: 65px; } 
+            /* CORRECTED SMALLER SIZES */
+            nav .nav-logo-text { font-size: 22px; color: var(--navy); text-shadow: none; } 
+            .nav-logo-img img { height: 45px; } 
             
-            /* 2. Secondary Horizontal Nav Bar */
+            /* 3. Secondary Horizontal Nav Bar */
             .nav-links {
                 position: relative; 
                 top: 0; left: 0;
@@ -214,21 +213,22 @@
                 justify-content: center; 
                 align-items: center; 
                 gap: 16px; 
-                padding: 16px 0 0;
+                padding: 12px 0 0;
                 margin: 0;
                 border-top: 1px solid rgba(20, 32, 64, 0.1); 
                 z-index: 1000;
             }
             .nav-links a { 
                 color: var(--navy); 
-                font-size: 12px; 
+                font-size: 11px; 
                 letter-spacing: 2px;
                 text-shadow: none; 
             }
 
-            /* 3. Adjust the Hero down slightly to account for the taller nav */
+            /* 4. Push Hero down to prevent cutoff */
             .inner-hero { padding: 180px 5% 80px !important; } 
 
+            /* Rest of your mobile layout */
             .portfolio { padding: 60px 5% 80px; }
             .portfolio-grid { grid-template-columns: 1fr; }
             .projects-cta { padding: 80px 5%; }
