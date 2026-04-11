@@ -81,7 +81,7 @@
            NAVIGATION
         ============================================= */
         nav {
-            position: fixed; top: 0; width: 100%;
+            position: fixed; top: 0; left: 0; width: 100%;
             display: flex; justify-content: space-between; align-items: center;
             padding: 0 5%; z-index: 1000;
             transition: background-color 0.4s ease, height 0.4s ease, box-shadow 0.4s ease;
@@ -94,37 +94,34 @@
         .nav-logo-img img { height: 85px; width: auto; transition: var(--transition); }
         .nav-logo-text {
             font-family: var(--font-serif); font-size: clamp(20px, 3vw, 26px);
-            color: var(--navy); /* Setting default to navy since hero is now white */
+            color: var(--navy); 
             letter-spacing: 1px; transition: var(--transition);
             white-space: nowrap;
         }
 
         .nav-links { display: flex; gap: 40px; align-items: center; }
         .nav-links a {
-            color: var(--navy); /* Changed to navy since hero is white */
+            color: var(--navy); 
             font-size: var(--text-xs); letter-spacing: var(--tracking-wide);
-            text-transform: uppercase; 
+            text-transform: uppercase; transition: var(--transition);
         }
-        .nav-links a:hover { opacity: 0.6; }
+        .nav-links a:hover { color: var(--gold); }
         
         .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; position: relative; }
         .menu-toggle span { display: block; width: 28px; height: 1px; background-color: var(--navy); transition: var(--transition); }
         
         /* Hamburger X Animation */
-        .menu-toggle.open span { background-color: var(--navy) !important; }
+        .menu-toggle.open span { background-color: var(--navy); }
         .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
         .menu-toggle.open span:nth-child(2) { opacity: 0; }
         .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
+        /* Scrolled State */
         nav.scrolled { background-color: var(--white); height: 75px; box-shadow: 0 4px 30px rgba(0,0,0,0.04); }
-        nav.scrolled .nav-logo-text, nav.scrolled .nav-links a { color: var(--navy); text-shadow: none; }
-        nav.scrolled .menu-toggle span { background-color: var(--navy); }
 
+        /* Inner Pages */
         nav.inner-nav { background-color: var(--white); height: 100px; box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
         nav.inner-nav.scrolled { height: 75px; }
-        nav.inner-nav .nav-logo-text, nav.inner-nav .nav-links a { color: var(--navy); text-shadow: none; }
-        nav.inner-nav .nav-links a[style*="color: var(--gold)"] { color: var(--gold); }
-        nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 
         /* =============================================
            PAGE LAYOUTS
@@ -133,11 +130,11 @@
         /* --- HOME PAGE HERO --- */
         .hero-clean {
             padding: 200px 5% 120px; 
-            background-color: var(--white); /* Updated to White */
+            background-color: var(--white); 
             text-align: center;
             margin-top: 0 !important; 
         }
-        .hero-clean h1 { color: var(--navy); margin-bottom: 24px; }
+        .hero-clean h1 { color: var(--navy); margin-bottom: 24px; line-height: 1.1; }
         .hero-clean h1 em { font-style: italic; color: var(--navy); }
 
         .hero-sub {
@@ -162,7 +159,7 @@
         /* --- HOME SECTIONS --- */
         .home-about-section { 
             padding: 80px 5% 100px; 
-            background-color: var(--cream); /* Updated to Cream */
+            background-color: var(--cream); 
         }
         .home-about-grid { 
             display: grid; 
@@ -205,14 +202,14 @@
         /* --- SERVICES --- */
         .home-services-section { 
             padding: 140px 5%; 
-            background-color: var(--white); /* Updated to White */
+            background-color: var(--white); 
             text-align: center; 
         }
         .home-services-content { max-width: 700px; margin: 0 auto; }
 
 
         /* --- PORTFOLIO GALLERY --- */
-        .portfolio { padding: 80px 5% 140px; background-color: var(--cream); /* Updated to Cream */ }
+        .portfolio { padding: 80px 5% 140px; background-color: var(--cream); }
         .portfolio-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; max-width: 1400px; margin: 0 auto 60px; }
         .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; max-width: 1400px; margin: 0 auto; }
         .portfolio-item { position: relative; aspect-ratio: 3/4; overflow: hidden; background-color: var(--accent-gray); display: block; } 
@@ -227,14 +224,19 @@
         .portfolio-location { font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--text-light); }
 
         /* --- FOOTER --- */
-        footer { background-color: var(--white); padding: 100px 5% 60px; text-align: center; } /* Updated to White */
+        footer { background-color: var(--white); padding: 100px 5% 60px; text-align: center; border-top: 1px solid var(--accent-gray); }
         .footer-tagline { font-family: var(--font-serif); font-size: var(--text-md); font-style: italic; color: var(--navy); margin-bottom: 40px; }
         .footer-links { margin-bottom: 40px; }
         .footer-links a { margin: 0 20px; font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--navy); font-weight: 400; display: inline-block; margin-bottom: 10px;}
         .footer-links a:hover { color: var(--gold); }
         .copyright { font-size: var(--text-xs); color: var(--text-light); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
 
-/* =============================================
+        .widget-container { max-width: 1400px; margin: 0 auto; width: 100%; }
+        .footer-logo-img { margin: 0 auto 32px; }
+        .footer-logo-img img { width: 300px; height: auto; display: block; margin: 0 auto; }
+
+
+        /* =============================================
            MOBILE RESPONSIVENESS
         ============================================= */
         @media (max-width: 1024px) {
@@ -243,68 +245,54 @@
         }
 
         @media (max-width: 768px) {
-            nav, nav.inner-nav { height: 80px; background-color: var(--white); }
-            nav .nav-logo-text { color: var(--navy); text-shadow: none; font-size: 20px; }
-            nav .menu-toggle span { background-color: var(--navy); }
-            .nav-logo-img img { height: 50px; }
-
-            /* 1. Force logo and hamburger to the absolute top layer */
-            .menu-toggle { display: flex; z-index: 9999; position: relative; }
-            .nav-brand { z-index: 9999; position: relative; }
-
-            /* 2. Slide-In Menu (Like The Reserve) */
+            /* Fix the Nav Bar */
+            nav, nav.inner-nav { height: 80px; background-color: var(--white); } 
+            nav .nav-logo-text { font-size: 20px; } 
+            .nav-logo-img img { height: 50px; } 
+            
+            /* Hamburger & Logo Layering */
+            .menu-toggle { display: flex; z-index: 10000; position: relative; }
+            .nav-brand { z-index: 10000; position: relative; }
+            
+            /* The Reserve's Slide-In Menu */
             .nav-links {
-                position: fixed;
-                top: 0;
-                right: -100%; /* Hidden off the right side */
-                left: auto;
-                width: 100%;
+                position: fixed; 
+                top: 0; 
+                right: -100%; /* Hidden off screen */
+                width: 100%; 
                 height: 100vh;
-                background-color: var(--white);
+                background-color: var(--white); 
                 display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                flex-direction: column; 
+                justify-content: center; 
+                align-items: center; 
                 gap: 40px;
                 padding: 0;
                 margin: 0;
                 transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-                z-index: 9998;
+                z-index: 9999; /* Sits directly below the hamburger */
             }
-
-            .nav-links.open {
-                right: 0; /* Slides in! */
+            .nav-links.open { 
+                right: 0; /* Slides into view */
             }
-
-            .nav-links a {
-                color: var(--navy);
-                font-size: 24px;
-                text-shadow: none;
+            .nav-links a { 
+                color: var(--navy); 
+                font-size: 24px; 
+                text-shadow: none; 
             }
-
-            /* Rest of your mobile layout */
+            
+            /* Section Adjustments */
             .portfolio-header { flex-direction: column; align-items: flex-start; gap: 20px; }
             .portfolio-grid { grid-template-columns: 1fr; }
             .home-about-grid { grid-template-columns: 1fr; gap: 40px; }
             .footer-links a { margin: 0 10px 15px; }
 
-            .hero-clean { padding: 140px 5% 80px; }
+            .hero-clean { padding: 140px 5% 80px; } 
             .hero-clean h1 { font-size: 34px; margin-bottom: 12px; }
             .break-mobile { display: initial; }
 
             .belief-strip { padding: 80px 5%; }
         }
-
-        .widget-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            width: 100%;
-        }
-
-        /* LOGO STYLES */
-        .footer-logo-img { margin: 0 auto 32px; }
-        .footer-logo-img img { width: 300px; height: auto; display: block; margin: 0 auto; }
-
     </style>
 </head>
 <body>
@@ -317,16 +305,16 @@
             </a>
         </div>
 
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span><span></span><span></span>
-        </div>
-
         <div class="nav-links" id="nav-links">
             <a href="index.html" style="color: var(--gold);">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="projects.html">Projects</a>
             <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="menu-toggle" id="mobile-menu">
+            <span></span><span></span><span></span>
         </div>
     </nav>
 
@@ -335,7 +323,7 @@
         <h1>
             Live <em>Beautifully.</em><br class="break-mobile">
             Gather <em>Joyfully.</em><br>
-            Welcome <em>Home.</em><br>
+            Welcome <em>Home.</em>
         </h1>
         <p class="hero-sub">Designed for the life you actually live — not the one that looks good in a photograph.</p>
         <a href="contact.html" class="btn btn-navy-on-light">Begin Your Story</a>
@@ -407,18 +395,22 @@
         window.addEventListener('scroll', function () {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
+        
         const mobileMenu = document.getElementById('mobile-menu');
         const navLinks = document.getElementById('nav-links');
+        
         mobileMenu.addEventListener('click', () => {
             navLinks.classList.toggle('open');
             mobileMenu.classList.toggle('open');
         });
+        
         document.querySelectorAll('.nav-links a').forEach(item => {
             item.addEventListener('click', () => {
                 navLinks.classList.remove('open');
                 mobileMenu.classList.remove('open');
             });
         });
+        
         function reveal() {
             document.querySelectorAll('.reveal').forEach(el => {
                 if (el.getBoundingClientRect().top < window.innerHeight - 90) {
@@ -426,6 +418,7 @@
                 }
             });
         }
+        
         window.addEventListener('scroll', reveal);
         reveal();
     </script>
