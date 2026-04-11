@@ -90,7 +90,7 @@
         
         .nav-brand { position: relative; z-index: 1001; }
         
-        .nav-logo-img { display: flex; align-items: center; gap: 16px; }
+        .nav-logo-link { display: flex; align-items: center; gap: 16px; }
         .nav-logo-img img { height: 85px; width: auto; transition: var(--transition); }
         .nav-logo-text {
             font-family: var(--font-serif); font-size: clamp(20px, 3vw, 26px);
@@ -238,13 +238,15 @@
             nav, nav.inner-nav, nav.scrolled, nav.inner-nav.scrolled { 
                 height: auto !important; 
                 flex-direction: column; 
-                padding: 24px 5% 16px; /* Added breathing room */
+                padding: 24px 5% 16px; 
                 background-color: var(--white); 
             } 
             
-            .nav-brand { margin-bottom: 16px; } /* Space between logo and links */
-            nav .nav-logo-text { font-size: 26px; } /* Increased from 20px */
-            .nav-logo-img img { height: 65px; } /* Increased from 50px */
+            .nav-brand { margin-bottom: 16px; width: 100%; display: flex; justify-content: center; }
+            .nav-logo-link { flex-direction: column; gap: 8px; }
+            
+            nav .nav-logo-text { font-size: 26px; } 
+            .nav-logo-img img { height: 65px; } 
             
             /* 2. Secondary Horizontal Nav Bar */
             .nav-links {
@@ -266,8 +268,9 @@
             }
             .nav-links a { 
                 color: var(--navy); 
-                font-size: 12px; /* Bumped slightly for legibility */
+                font-size: 12px; 
                 letter-spacing: 2px;
+                text-shadow: none; 
             }
             
             /* 3. Adjust the Hero down slightly to account for the taller nav */
@@ -290,8 +293,8 @@
 
     <nav id="navbar" class="inner-nav">
         <div class="nav-brand">
-            <a href="index.html" class="nav-logo-img">
-                <img src="Final_Logo_Monogram_Navy.png" alt="Hearten Home Interiors Logo">
+            <a href="index.html" class="nav-logo-link">
+                <div class="nav-logo-img"><img src="Final_Logo_Monogram_Navy.png" alt="Hearten Home Interiors Logo"></div>
                 <span class="nav-logo-text">Hearten Home Interiors</span>
             </a>
         </div>
