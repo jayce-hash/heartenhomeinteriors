@@ -73,25 +73,41 @@
             transition: background-color 0.4s ease, height 0.4s ease, box-shadow 0.4s ease;
             background-color: transparent; height: 100px;
         }
-        .nav-text-logo {
+        
+        .nav-brand { position: relative; z-index: 1001; }
+        
+        .nav-logo-img { display: flex; align-items: center; gap: 16px; }
+        .nav-logo-img img { height: 85px; width: auto; transition: var(--transition); }
+        .nav-logo-text {
             font-family: var(--font-serif); font-size: clamp(20px, 3vw, 26px);
             color: var(--white); letter-spacing: 1px; transition: var(--transition);
             text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            white-space: nowrap;
         }
+
         .nav-links { display: flex; gap: 40px; align-items: center; }
         .nav-links a {
             color: var(--white); font-size: var(--text-xs); letter-spacing: var(--tracking-wide);
             text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         .nav-links a:hover { opacity: 0.6; }
-        .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; }
+        
+        .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; position: relative; }
         .menu-toggle span { display: block; width: 28px; height: 1px; background-color: var(--white); transition: var(--transition); }
+        
+        /* Hamburger X Animation */
+        .menu-toggle.open span { background-color: var(--navy) !important; }
+        .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .menu-toggle.open span:nth-child(2) { opacity: 0; }
+        .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
         nav.scrolled { background-color: var(--white); height: 75px; box-shadow: 0 4px 30px rgba(0,0,0,0.04); }
-        nav.scrolled .nav-text-logo, nav.scrolled .nav-links a { color: var(--navy); text-shadow: none; }
+        nav.scrolled .nav-logo-text, nav.scrolled .nav-links a { color: var(--navy); text-shadow: none; }
         nav.scrolled .menu-toggle span { background-color: var(--navy); }
+        
         nav.inner-nav { background-color: var(--white); height: 100px; box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
         nav.inner-nav.scrolled { height: 75px; }
-        nav.inner-nav .nav-text-logo, nav.inner-nav .nav-links a { color: var(--navy); text-shadow: none; }
+        nav.inner-nav .nav-logo-text, nav.inner-nav .nav-links a { color: var(--navy); text-shadow: none; }
         nav.inner-nav .nav-links a[style*="color: var(--gold)"] { color: var(--gold); }
         nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 
@@ -252,11 +268,6 @@
            FOOTER
         ============================================= */
         footer { background-color: var(--cream); padding: 100px 5% 60px; text-align: center; border-top: 1px solid var(--accent-gray); }
-        .footer-logo-placeholder { 
-            width: 80px; height: 80px; margin: 0 auto 30px; border: 1px dashed rgba(20, 32, 64, 0.3); 
-            display: flex; align-items: center; justify-content: center; font-size: 10px; color: var(--text-light); 
-            letter-spacing: 2px; text-transform: uppercase;
-        }
         .footer-tagline { font-family: var(--font-serif); font-size: var(--text-md); font-style: italic; color: var(--navy); margin-bottom: 40px; }
         .footer-links { margin-bottom: 40px; }
         .footer-links a { margin: 0 20px; font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--navy); font-weight: 400; display: inline-block; margin-bottom: 10px;}
@@ -271,13 +282,16 @@
         }
         @media (max-width: 768px) {
             nav, nav.inner-nav { height: 80px; background-color: var(--white); }
-            nav .nav-text-logo { color: var(--navy); text-shadow: none; }
+            nav .nav-logo-text { color: var(--navy); text-shadow: none; font-size: 20px; } 
             nav .menu-toggle span { background-color: var(--navy); }
+            .nav-logo-img img { height: 50px; } /* Scales down so text fits */
+
             .menu-toggle { display: flex; }
             .nav-links {
                 flex-direction: column; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
                 background-color: var(--white); padding: 120px 5% 0; gap: 30px;
                 transform: translateY(-100%); pointer-events: none; transition: var(--transition);
+                z-index: 999;
             }
             .nav-links.open { transform: translateY(0); pointer-events: all; }
             .nav-links a { color: var(--navy); text-shadow: none; }
@@ -288,13 +302,20 @@
             .contact-grid { grid-template-columns: 1fr; gap: 60px; }
             .closing-strip { padding: 80px 5%; }
         }
+        
+        /* LOGO STYLES */
+        .footer-logo-img { margin: 0 auto 32px; }
+        .footer-logo-img img { width: 300px; height: auto; display: block; margin: 0 auto; }
     </style>
 </head>
 <body>
 
     <nav id="navbar" class="inner-nav">
         <div class="nav-brand">
-            <a href="index.html" class="nav-text-logo">Hearten Home Interiors</a>
+            <a href="index.html" class="nav-logo-img">
+                <img src="Final_Logo_Monogram_Navy.png" alt="Hearten Home Interiors Logo">
+                <span class="nav-logo-text">Hearten Home Interiors</span>
+            </a>
         </div>
         <div class="menu-toggle" id="mobile-menu">
             <span></span><span></span><span></span>
@@ -308,22 +329,15 @@
         </div>
     </nav>
 
-    <!-- ============================================
-         HERO
-    ============================================= -->
     <header class="inner-hero reveal">
         <span class="eyebrow">Let's Begin</span>
         <h1>Begin Your <em>Story</em></h1>
         <p>Every beloved home starts with a single conversation. We would love to hear about yours.</p>
     </header>
 
-    <!-- ============================================
-         CONTACT GRID
-    ============================================= -->
     <section class="contact-section">
         <div class="contact-grid">
 
-            <!-- Left: Info -->
             <div class="contact-info reveal">
                 <h2>Tell us about<br><em>your home.</em></h2>
 
@@ -352,7 +366,6 @@
                 </div>
             </div>
 
-            <!-- Right: Form -->
             <div class="contact-form-container reveal">
                 <form action="#" class="editorial-form">
                     <div class="form-group">
@@ -386,9 +399,6 @@
         </div>
     </section>
 
-    <!-- ============================================
-         CLOSING STRIP
-    ============================================= -->
     <section class="closing-strip reveal">
         <p>
             Your home has a story.<br>
@@ -396,11 +406,8 @@
         </p>
     </section>
 
-    <!-- ============================================
-         FOOTER
-    ============================================= -->
     <footer>
-        <div class="footer-logo-placeholder">[ Logo ]</div>
+        <div class="footer-logo-img"><img src="Final_Logo_Wordmark_Navy.png" alt="Hearten Home Interiors"></div>
         <p class="footer-tagline">Where beautiful spaces become beloved homes.</p>
         <div class="footer-links">
             <a href="about.html">About</a>
