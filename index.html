@@ -247,41 +247,46 @@
             nav .menu-toggle span { background-color: var(--navy); }
             .nav-logo-img img { height: 50px; } 
             
-            /* 1. Force the logo and hamburger to the very top layer */
-            .menu-toggle { display: flex !important; z-index: 1005 !important; }
-            .nav-brand { z-index: 1005 !important; }
-            
-            /* 2. The Reserve's Slide-In Method */
+  /* 1. Ensure logo and hamburger stay on top */
+            .menu-toggle { display: flex; z-index: 1001; }
+            .nav-brand { z-index: 1001; }
+
+            /* 2. The Reserve's Bulletproof Slide-In Menu */
             .nav-links {
-                position: fixed !important; 
-                top: 0 !important; 
-                right: -100% !important; /* Starts hidden off-screen to the right */
-                left: auto !important;
-                width: 100% !important; 
-                height: 100vh !important;
-                background-color: var(--white) !important; 
-                display: flex !important;
-                flex-direction: column !important; 
-                justify-content: center !important; 
-                align-items: center !important;
-                padding: 0 !important; 
-                gap: 40px !important;
-                transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important; /* Smooth slide */
-                z-index: 999 !important; 
+                position: fixed;
+                top: 0;
+                right: -100%; /* Start hidden off-screen to the right */
+                left: auto;   /* IMPORTANT: Clears any leftover left positioning! */
+                width: 100%;
+                height: 100vh;
+                background-color: var(--white);
                 
-                /* Stripping out the buggy fade/transform rules */
-                opacity: 1 !important; 
-                visibility: visible !important; 
-                pointer-events: auto !important; 
-                transform: none !important; 
+                /* Center the links like The Reserve */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 40px;
+                padding: 0;
+                
+                /* Reset any previous hide/fade attempts */
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                pointer-events: auto;
+                
+                transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+                z-index: 999; /* Sits right under the 1001 hamburger */
             }
-            .nav-links.open { 
-                right: 0 !important; /* Slides into view! */
+
+            .nav-links.open {
+                right: 0; /* Slide in! */
             }
+
             .nav-links a { 
-                color: var(--navy) !important; 
-                font-size: 22px !important; /* Nice and large for mobile tapping */
-                text-shadow: none !important; 
+                color: var(--navy); 
+                text-shadow: none; 
+                font-size: 24px; /* Larger, easier-to-tap links */
             }
             
             .portfolio-header { flex-direction: column; align-items: flex-start; gap: 20px; }
