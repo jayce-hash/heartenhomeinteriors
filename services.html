@@ -9,6 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
     
     <style>
+        /* =============================================
+           HEARTEN HOME INTERIORS - MASTER STYLESHEET
+        ============================================= */
         :root {
             --navy: #142040;
             --gold: #BFA15F;
@@ -77,7 +80,7 @@
         }
         .nav-brand { position: relative; z-index: 1001; }
         
-        .nav-logo-img { display: flex; align-items: center; gap: 16px; }
+        .nav-logo-link { display: flex; align-items: center; gap: 16px; }
         .nav-logo-img img { height: 85px; width: auto; transition: var(--transition); }
         .nav-logo-text {
             font-family: var(--font-serif); font-size: clamp(20px, 3vw, 26px);
@@ -90,27 +93,17 @@
         .nav-links a {
             color: var(--white); font-size: var(--text-xs); letter-spacing: var(--tracking-wide);
             text-transform: uppercase; text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            transition: var(--transition);
         }
         .nav-links a:hover { opacity: 0.6; }
-        
-        .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; position: relative; }
-        .menu-toggle span { display: block; width: 28px; height: 1px; background-color: var(--white); transition: var(--transition); }
-        
-        /* Hamburger X Animation */
-        .menu-toggle.open span { background-color: var(--navy) !important; }
-        .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .menu-toggle.open span:nth-child(2) { opacity: 0; }
-        .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         nav.scrolled { background-color: var(--white); height: 75px; box-shadow: 0 4px 30px rgba(0,0,0,0.04); }
         nav.scrolled .nav-logo-text, nav.scrolled .nav-links a { color: var(--navy); text-shadow: none; }
-        nav.scrolled .menu-toggle span { background-color: var(--navy); }
         
         nav.inner-nav { background-color: var(--white); height: 100px; box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
         nav.inner-nav.scrolled { height: 75px; }
         nav.inner-nav .nav-logo-text, nav.inner-nav .nav-links a { color: var(--navy); text-shadow: none; }
         nav.inner-nav .nav-links a[style*="color: var(--gold)"] { color: var(--gold); }
-        nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 
         /* =============================================
            INNER HERO
@@ -296,30 +289,68 @@
         .footer-links a:hover { color: var(--gold); }
         .copyright { font-size: var(--text-xs); color: var(--text-light); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
 
+        .footer-logo-img { margin: 0 auto 32px; }
+        .footer-logo-img img { width: 300px; height: auto; display: block; margin: 0 auto; }
+
         /* =============================================
-           MOBILE
+           MOBILE RESPONSIVENESS
         ============================================= */
         @media (max-width: 1024px) {
             .service-block { gap: 60px; }
         }
         @media (max-width: 768px) {
-            nav, nav.inner-nav { height: 80px; background-color: var(--white); }
-            nav .nav-logo-text { color: var(--navy); text-shadow: none; font-size: 20px; }
-            nav .menu-toggle span { background-color: var(--navy); }
-            .nav-logo-img img { height: 50px; } /* Scales down so text fits */
+            /* 1. Stack the Nav Bar */
+            nav, nav.inner-nav, nav.scrolled, nav.inner-nav.scrolled { 
+                height: auto !important; 
+                flex-direction: column; 
+                align-items: center;
+                padding: 24px 5% 16px; 
+                background-color: var(--white); 
+            } 
             
-            .menu-toggle { display: flex; }
-            .nav-links {
-                flex-direction: column; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-                background-color: var(--white); padding: 120px 5% 0; gap: 30px;
-                transform: translateY(-100%); pointer-events: none; transition: var(--transition);
-                z-index: 999;
+            .nav-brand { margin-bottom: 16px; width: 100%; display: flex; justify-content: center; }
+            
+            /* Bring logo and text closer and perfectly center them */
+            .nav-logo-link { 
+                display: flex; 
+                flex-direction: row !important; /* Forces them side-by-side */
+                align-items: center; 
+                justify-content: center; 
+                gap: 8px; /* Tighter spacing */
             }
-            .nav-links.open { transform: translateY(0); pointer-events: all; }
-            .nav-links a { color: var(--navy); text-shadow: none; }
-            .footer-links a { margin: 0 10px 15px; }
+            
+            nav .nav-logo-text { color: var(--navy); text-shadow: none; font-size: 26px; } 
+            .nav-logo-img img { height: 65px; } 
+            
+            /* 2. Secondary Horizontal Nav Bar */
+            .nav-links {
+                position: relative; 
+                top: 0; left: 0;
+                width: 100%; 
+                height: auto;
+                background-color: transparent; 
+                display: flex;
+                flex-direction: row; 
+                flex-wrap: wrap; 
+                justify-content: center; 
+                align-items: center; 
+                gap: 16px; 
+                padding: 16px 0 0;
+                margin: 0;
+                border-top: 1px solid rgba(20, 32, 64, 0.1); 
+                z-index: 1000;
+            }
+            .nav-links a { 
+                color: var(--navy); 
+                font-size: 12px; 
+                letter-spacing: 2px;
+                text-shadow: none; 
+            }
 
-            .inner-hero { padding: 140px 5% 80px; }
+            /* 3. Adjust the Hero down slightly to account for the taller nav */
+            .inner-hero { padding: 180px 5% 80px !important; } 
+
+            /* Rest of your mobile layout */
             .service-page-section { padding: 80px 5%; }
             .service-block, .service-block.reverse {
                 grid-template-columns: 1fr;
@@ -333,25 +364,18 @@
             .process-section { padding: 80px 5%; }
             .process-grid { grid-template-columns: 1fr; gap: 40px; }
             .services-cta { padding: 80px 5%; }
+            .footer-links a { margin: 0 10px 15px; }
         }
-    
-        /* LOGO STYLES */
-        .footer-logo-img { margin: 0 auto 32px; }
-        .footer-logo-img img { width: 300px; height: auto; display: block; margin: 0 auto; }
-
     </style>
 </head>
 <body>
 
     <nav id="navbar" class="inner-nav">
         <div class="nav-brand">
-            <a href="index.html" class="nav-logo-img">
-                <img src="Final_Logo_Monogram_Navy.png" alt="Hearten Home Interiors Logo">
+            <a href="index.html" class="nav-logo-link">
+                <div class="nav-logo-img"><img src="Final_Logo_Monogram_Navy.png" alt="Hearten Home Interiors Logo"></div>
                 <span class="nav-logo-text">Hearten Home Interiors</span>
             </a>
-        </div>
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span><span></span><span></span>
         </div>
         <div class="nav-links" id="nav-links">
             <a href="index.html">Home</a>
@@ -524,18 +548,7 @@
         window.addEventListener('scroll', function () {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
         });
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            mobileMenu.classList.toggle('open');
-        });
-        document.querySelectorAll('.nav-links a').forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                mobileMenu.classList.remove('open');
-            });
-        });
+        
         function reveal() {
             document.querySelectorAll('.reveal').forEach(el => {
                 if (el.getBoundingClientRect().top < window.innerHeight - 90) {
@@ -543,6 +556,7 @@
                 }
             });
         }
+        
         window.addEventListener('scroll', reveal);
         reveal();
     </script>
