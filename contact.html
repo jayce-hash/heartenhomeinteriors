@@ -79,7 +79,7 @@
         
         .nav-brand { position: relative; z-index: 1001; }
         
-        .nav-logo-img { display: flex; align-items: center; gap: 16px; }
+        .nav-logo-link { display: flex; align-items: center; gap: 16px; }
         .nav-logo-img img { height: 85px; width: auto; transition: var(--transition); }
         .nav-logo-text {
             font-family: var(--font-serif); font-size: clamp(20px, 3vw, 26px);
@@ -282,23 +282,24 @@
             nav, nav.inner-nav, nav.scrolled, nav.inner-nav.scrolled { 
                 height: auto !important; 
                 flex-direction: column; 
-                align-items: center;
-                padding: 24px 5% 16px; 
+                padding: 16px 5% 12px; 
                 background-color: var(--white); 
             } 
             
-            .nav-brand { margin-bottom: 16px; width: 100%; }
-            
-            /* Bring logo and text closer and perfectly center them */
-            .nav-logo-img { 
+            /* 2. Logo and Title on the SAME LINE, perfectly centered */
+            .nav-brand { margin-bottom: 12px; width: 100%; display: flex; justify-content: center; }
+            .nav-logo-link { 
+                display: flex; 
+                flex-direction: row !important; /* Forces them side-by-side */
+                align-items: center; 
                 justify-content: center; 
-                gap: 8px; /* Tighter spacing */
+                gap: 12px; 
             }
             
-            nav .nav-logo-text { color: var(--navy); text-shadow: none; font-size: 26px; } 
-            .nav-logo-img img { height: 65px; } 
+            nav .nav-logo-text { font-size: 22px; color: var(--navy); text-shadow: none; } 
+            .nav-logo-img img { height: 45px; } 
             
-            /* 2. Secondary Horizontal Nav Bar */
+            /* 3. Secondary Horizontal Nav Bar */
             .nav-links {
                 position: relative; 
                 top: 0; left: 0;
@@ -310,21 +311,21 @@
                 flex-wrap: wrap; 
                 justify-content: center; 
                 align-items: center; 
-                gap: 16px; 
-                padding: 16px 0 0;
+                gap: 12px; 
+                padding: 12px 0 0;
                 margin: 0;
                 border-top: 1px solid rgba(20, 32, 64, 0.1); 
                 z-index: 1000;
             }
             .nav-links a { 
                 color: var(--navy); 
-                font-size: 12px; 
-                letter-spacing: 2px;
+                font-size: 11px; 
+                letter-spacing: 1px;
                 text-shadow: none; 
             }
             
-            /* 3. Adjust the Hero down slightly to account for the taller nav */
-            .inner-hero { padding: 180px 5% 80px; } 
+            /* 4. Push Hero down to prevent cutoff */
+            .inner-hero { padding: 180px 5% 80px !important; } 
 
             .contact-section { padding: 80px 5% 100px; }
             .contact-grid { grid-template-columns: 1fr; gap: 60px; }
@@ -337,8 +338,8 @@
 
     <nav id="navbar" class="inner-nav">
         <div class="nav-brand">
-            <a href="index.html" class="nav-logo-img">
-                <img src="Final_Logo_Monogram_Navy.png" alt="Hearten Home Interiors Logo">
+            <a href="index.html" class="nav-logo-link">
+                <div class="nav-logo-img"><img src="Final_Logo_Monogram_Navy.png" alt="Hearten Home Interiors Logo"></div>
                 <span class="nav-logo-text">Hearten Home Interiors</span>
             </a>
         </div>
