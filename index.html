@@ -248,37 +248,39 @@
             .nav-logo-img img { height: 50px; } 
             
             /* 1. Force the logo and hamburger to the very top layer */
-            .menu-toggle { display: flex; z-index: 1005 !important; }
+            .menu-toggle { display: flex !important; z-index: 1005 !important; }
             .nav-brand { z-index: 1005 !important; }
             
-            /* 2. Brute-force the menu styling */
+            /* 2. The Reserve's Slide-In Method */
             .nav-links {
-                display: flex !important;
-                flex-direction: column !important; 
-                justify-content: center !important; /* Centers the links vertically */
-                position: absolute !important; 
+                position: fixed !important; 
                 top: 0 !important; 
-                left: 0 !important; 
-                width: 100vw !important; 
+                right: -100% !important; /* Starts hidden off-screen to the right */
+                left: auto !important;
+                width: 100% !important; 
                 height: 100vh !important;
                 background-color: var(--white) !important; 
+                display: flex !important;
+                flex-direction: column !important; 
+                justify-content: center !important; 
+                align-items: center !important;
                 padding: 0 !important; 
                 gap: 40px !important;
-                opacity: 0 !important; 
-                visibility: hidden !important; 
-                pointer-events: none !important; 
-                transition: opacity 0.4s ease, visibility 0.4s ease !important;
-                transform: none !important; /* Kills the buggy slide animation */
-                z-index: 999 !important; /* Sits right under the logo/hamburger */
-            }
-            .nav-links.open { 
+                transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important; /* Smooth slide */
+                z-index: 999 !important; 
+                
+                /* Stripping out the buggy fade/transform rules */
                 opacity: 1 !important; 
                 visibility: visible !important; 
                 pointer-events: auto !important; 
+                transform: none !important; 
+            }
+            .nav-links.open { 
+                right: 0 !important; /* Slides into view! */
             }
             .nav-links a { 
                 color: var(--navy) !important; 
-                font-size: 20px !important; 
+                font-size: 22px !important; /* Nice and large for mobile tapping */
                 text-shadow: none !important; 
             }
             
