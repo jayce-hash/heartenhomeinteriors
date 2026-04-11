@@ -238,13 +238,13 @@
             nav, nav.inner-nav, nav.scrolled, nav.inner-nav.scrolled { 
                 height: auto !important; 
                 flex-direction: column; 
-                padding: 16px 5% 12px; 
+                padding: 24px 5% 16px; /* Added breathing room */
                 background-color: var(--white); 
             } 
             
-            .nav-brand { margin-bottom: 12px; }
-            nav .nav-logo-text { font-size: 18px; } 
-            .nav-logo-img img { height: 40px; } 
+            .nav-brand { margin-bottom: 16px; } /* Space between logo and links */
+            nav .nav-logo-text { font-size: 26px; } /* Increased from 20px */
+            .nav-logo-img img { height: 65px; } /* Increased from 50px */
             
             /* 2. Secondary Horizontal Nav Bar */
             .nav-links {
@@ -255,23 +255,23 @@
                 background-color: transparent; 
                 display: flex;
                 flex-direction: row; 
-                flex-wrap: wrap; /* Neatly wraps to two lines on tiny phones */
+                flex-wrap: wrap; 
                 justify-content: center; 
                 align-items: center; 
-                gap: 16px; /* Perfect spacing */
-                padding: 12px 0 0;
+                gap: 16px; 
+                padding: 16px 0 0;
                 margin: 0;
-                border-top: 1px solid rgba(20, 32, 64, 0.1); /* Elegant divider line */
+                border-top: 1px solid rgba(20, 32, 64, 0.1); 
                 z-index: 1000;
             }
             .nav-links a { 
                 color: var(--navy); 
-                font-size: 11px; /* Scaled down perfectly for horizontal fit */
+                font-size: 12px; /* Bumped slightly for legibility */
                 letter-spacing: 2px;
             }
             
             /* 3. Adjust the Hero down slightly to account for the taller nav */
-            .hero-clean { padding: 180px 5% 80px; } 
+            .hero-clean { padding: 200px 5% 80px; } 
             .hero-clean h1 { font-size: 34px; margin-bottom: 12px; }
             .break-mobile { display: initial; }
 
