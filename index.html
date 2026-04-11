@@ -21,8 +21,10 @@
             --text-main: #2D2D2D;
             --text-light: #7A7570;
             --transition: all 0.4s ease-in-out;
+
             --font-serif: 'Cormorant Garamond', serif;
             --font-sans: 'Jost', sans-serif;
+
             --text-xs: 11px;
             --text-sm: 15px;
             --text-md: 24px;
@@ -103,26 +105,12 @@
             font-size: var(--text-xs); letter-spacing: var(--tracking-wide);
             text-transform: uppercase; transition: var(--transition);
         }
-        .nav-links a:hover { opacity: 0.6; }
-        
-        .menu-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 1001; position: relative; }
-        .menu-toggle span { display: block; width: 28px; height: 1px; background-color: var(--navy); transition: var(--transition); }
-        
-        /* Hamburger X Animation */
-        .menu-toggle.open span { background-color: var(--navy); }
-        .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .menu-toggle.open span:nth-child(2) { opacity: 0; }
-        .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        .nav-links a:hover { color: var(--gold); }
 
+        /* Scrolled & Inner Nav States */
         nav.scrolled { background-color: var(--white); height: 75px; box-shadow: 0 4px 30px rgba(0,0,0,0.04); }
-        nav.scrolled .nav-logo-text, nav.scrolled .nav-links a { color: var(--navy); text-shadow: none; }
-        nav.scrolled .menu-toggle span { background-color: var(--navy); }
-
         nav.inner-nav { background-color: var(--white); height: 100px; box-shadow: 0 4px 30px rgba(0,0,0,0.03); }
         nav.inner-nav.scrolled { height: 75px; }
-        nav.inner-nav .nav-logo-text, nav.inner-nav .nav-links a { color: var(--navy); text-shadow: none; }
-        nav.inner-nav .nav-links a[style*="color: var(--gold)"] { color: var(--gold); }
-        nav.inner-nav .menu-toggle span { background-color: var(--navy); }
 
         /* =============================================
            PAGE LAYOUTS
@@ -246,53 +234,55 @@
         }
 
         @media (max-width: 768px) {
-            /* Fix the Nav Bar */
-            nav, nav.inner-nav { height: 80px; background-color: var(--white); } 
-            nav .nav-logo-text { font-size: 20px; } 
-            .nav-logo-img img { height: 50px; } 
-            
-            /* Hamburger & Logo Layering */
-            .menu-toggle { display: flex; z-index: 1001; position: relative; }
-            
-            /* Clean Slide-In Menu */
-            .nav-links {
-                position: fixed; 
-                top: 0; 
-                left: 0;
-                width: 100%; 
-                height: 100vh;
-                background-color: var(--white); 
-                display: flex;
+            /* 1. Stack the Nav Bar */
+            nav, nav.inner-nav, nav.scrolled, nav.inner-nav.scrolled { 
+                height: auto !important; 
                 flex-direction: column; 
+                padding: 16px 5% 12px; 
+                background-color: var(--white); 
+            } 
+            
+            .nav-brand { margin-bottom: 12px; }
+            nav .nav-logo-text { font-size: 18px; } 
+            .nav-logo-img img { height: 40px; } 
+            
+            /* 2. Secondary Horizontal Nav Bar */
+            .nav-links {
+                position: relative; 
+                top: 0; left: 0;
+                width: 100%; 
+                height: auto;
+                background-color: transparent; 
+                display: flex;
+                flex-direction: row; 
+                flex-wrap: wrap; /* Neatly wraps to two lines on tiny phones */
                 justify-content: center; 
                 align-items: center; 
-                gap: 40px;
-                padding: 0;
+                gap: 16px; /* Perfect spacing */
+                padding: 12px 0 0;
                 margin: 0;
-                transform: translateX(100%); /* Bulletproof slide technique */
-                transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-                z-index: 1000; /* Directly below hamburger */
-            }
-            .nav-links.open { 
-                transform: translateX(0); /* Slides into view */
+                border-top: 1px solid rgba(20, 32, 64, 0.1); /* Elegant divider line */
+                z-index: 1000;
             }
             .nav-links a { 
                 color: var(--navy); 
-                font-size: 24px; 
-                text-shadow: none; 
+                font-size: 11px; /* Scaled down perfectly for horizontal fit */
+                letter-spacing: 2px;
             }
             
-            /* Section Adjustments */
+            /* 3. Adjust the Hero down slightly to account for the taller nav */
+            .hero-clean { padding: 180px 5% 80px; } 
+            .hero-clean h1 { font-size: 34px; margin-bottom: 12px; }
+            .break-mobile { display: initial; }
+
+            /* Rest of your mobile layout */
             .portfolio-header { flex-direction: column; align-items: flex-start; gap: 20px; }
             .portfolio-grid { grid-template-columns: 1fr; }
             .home-about-grid { grid-template-columns: 1fr; gap: 40px; }
             .footer-links a { margin: 0 10px 15px; }
 
-            .hero-clean { padding: 140px 5% 80px; } 
-            .hero-clean h1 { font-size: 34px; margin-bottom: 12px; }
-            .break-mobile { display: initial; }
-
             .belief-strip { padding: 80px 5%; }
+            .home-about-section, .home-services-section, .portfolio { padding: 80px 5%; }
         }
     </style>
 </head>
@@ -312,10 +302,6 @@
             <a href="services.html">Services</a>
             <a href="projects.html">Projects</a>
             <a href="contact.html">Contact</a>
-        </div>
-
-        <div class="menu-toggle" id="mobile-menu">
-            <span></span><span></span><span></span>
         </div>
     </nav>
 
@@ -395,21 +381,6 @@
     <script>
         window.addEventListener('scroll', function () {
             document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
-        });
-        
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-        
-        mobileMenu.addEventListener('click', () => {
-            navLinks.classList.toggle('open');
-            mobileMenu.classList.toggle('open');
-        });
-        
-        document.querySelectorAll('.nav-links a').forEach(item => {
-            item.addEventListener('click', () => {
-                navLinks.classList.remove('open');
-                mobileMenu.classList.remove('open');
-            });
         });
         
         function reveal() {
