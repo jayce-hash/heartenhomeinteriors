@@ -10,17 +10,17 @@
     
     <style>
         :root {
-            /* Crisp Cabana Palette */
-            --navy: #18253A;
-            --clay: #8CA3B5; /* French Blue */
-            --clay-light: #B2C4D1;
-            --oatmeal: #DBCDC0; /* Warm Sand */
-            --alabaster: #F8F9FA;
+            --navy: #1C2633;
+            --slate: #6B7B8C;       
+            --sage: #7C8573;        
+            --walnut: #594433;      
+            --linen: #F0EFEA;       
+            --alabaster: #F7F6F2;
             --white: #FFFFFF;
             
             --text-main: #2A2A2A;
             --text-light: #6E6B67;
-            --border-subtle: rgba(24, 37, 58, 0.08);
+            --border-subtle: rgba(28, 38, 51, 0.08);
             
             --transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
             --font-serif: 'Cormorant Garamond', serif;
@@ -29,8 +29,8 @@
             --text-xs: 12px; --text-sm: 16px; --text-md: 26px; --text-lg: 46px; --text-xl: clamp(48px, 6vw, 76px);
             --tracking-wide: 2px;
 
-            /* Wide Cabana Stripe */
-            --cabana-stripe: repeating-linear-gradient(to right, transparent, transparent 120px, rgba(140, 163, 181, 0.15) 120px, rgba(140, 163, 181, 0.15) 240px);
+            --grasscloth-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.12'/%3E%3C/svg%3E");
+            --grasscloth-weave: repeating-linear-gradient(to bottom, transparent, transparent 2px, rgba(255, 255, 255, 0.04) 2px, rgba(255, 255, 255, 0.04) 4px), repeating-linear-gradient(to right, transparent, transparent 3px, rgba(0, 0, 0, 0.02) 3px, rgba(0, 0, 0, 0.02) 4px);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -39,62 +39,65 @@
 
         h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; color: var(--navy); line-height: 1.15; }
         h1 { font-size: var(--text-xl); } h2 { font-size: var(--text-lg); } h3 { font-size: var(--text-md); }
-        em { color: var(--clay); font-style: italic; }
-        .eyebrow { font-family: var(--font-sans); font-size: var(--text-xs); font-weight: 500; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--clay); display: block; margin-bottom: 20px; }
+        em { color: var(--slate); font-style: italic; }
+        .eyebrow { font-family: var(--font-sans); font-size: var(--text-xs); font-weight: 500; letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--sage); display: block; margin-bottom: 20px; }
         a { text-decoration: none; color: inherit; transition: var(--transition); }
 
         .btn { display: inline-block; padding: 18px 42px; text-transform: uppercase; letter-spacing: var(--tracking-wide); font-size: var(--text-xs); font-weight: 500; font-family: var(--font-sans); transition: var(--transition); cursor: pointer; text-align: center; border-radius: 2px; }
         .btn-solid { background-color: var(--navy); color: var(--white); border: 1px solid var(--navy); }
-        .btn-solid:hover { background-color: var(--clay); border-color: var(--clay); color: var(--white); }
+        .btn-solid:hover { background-color: var(--white); border-color: var(--white); color: var(--navy); }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        nav { position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; z-index: 1000; transition: var(--transition); background-color: var(--alabaster); height: 110px; border-bottom: 1px solid var(--border-subtle); }
+        nav { position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; z-index: 1000; transition: var(--transition); background-color: transparent; height: 110px; border-bottom: 1px solid transparent; }
         .nav-logo-link { display: flex; align-items: center; gap: 16px; }
         .nav-logo-img img { height: 65px; width: auto; transition: var(--transition); }
         .nav-logo-text { font-family: var(--font-serif); font-size: clamp(20px, 2.5vw, 26px); color: var(--navy); letter-spacing: 1px; transition: var(--transition); white-space: nowrap; font-weight: 500; }
         .nav-links { display: flex; gap: 40px; align-items: center; }
         .nav-links a { color: var(--navy); font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; font-weight: 400; transition: color 0.3s ease; }
-        .nav-links a:hover, .nav-links a.active { color: var(--clay); }
-        nav.scrolled { background-color: rgba(248, 249, 250, 0.98); height: 85px; backdrop-filter: blur(10px); }
+        .nav-links a:hover, .nav-links a.active { color: var(--slate); }
+        nav.scrolled { background-color: rgba(247, 246, 242, 0.98); height: 85px; border-bottom: 1px solid var(--border-subtle); backdrop-filter: blur(10px); }
 
-        .inner-hero { padding: 220px 5% 100px; background-color: var(--alabaster); text-align: center; position: relative; }
+        .inner-hero { padding: 220px 5% 100px; background-color: var(--alabaster); text-align: center; position: relative; border-bottom: 1px solid var(--border-subtle); }
         .inner-hero::before { content: ''; position: absolute; top: 0; left: 50%; width: 1px; height: 100%; background-color: var(--border-subtle); transform: translateX(-50%); z-index: 0; }
         .inner-hero-content { position: relative; z-index: 2; background: var(--alabaster); display: inline-block; padding: 0 40px; }
         .inner-hero p { color: var(--text-light); max-width: 600px; margin: 0 auto; font-family: var(--font-serif); font-size: 22px; font-style: italic; line-height: 1.5; }
 
         .portfolio { padding: 80px 5% 140px; background-color: var(--white); }
         .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; max-width: 1400px; margin: 0 auto; }
-        .portfolio-item { position: relative; aspect-ratio: 4/5; overflow: hidden; background-color: var(--oatmeal); display: block; } 
+        .portfolio-item { position: relative; aspect-ratio: 4/5; overflow: hidden; background-color: var(--linen); display: block; } 
         .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1); }
         .portfolio-item:hover img { transform: scale(1.05); }
-        .portfolio-overlay { position: absolute; inset: 0; background: rgba(24, 37, 58, 0.8); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: var(--transition); text-align: center; padding: 24px; }
+        .portfolio-overlay { position: absolute; inset: 0; background: rgba(28, 38, 51, 0.8); display: flex; flex-direction: column; align-items: center; justify-content: center; opacity: 0; transition: var(--transition); text-align: center; padding: 24px; }
         .portfolio-item:hover .portfolio-overlay { opacity: 1; }
         .portfolio-project-name { font-family: var(--font-serif); font-size: 28px; color: var(--white); margin-bottom: 8px; font-weight: 400; }
-        .portfolio-location { font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--clay-light); margin-bottom: 20px; }
-        .portfolio-view { font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--alabaster); border-bottom: 1px solid rgba(248, 249, 250, 0.4); padding-bottom: 4px; transition: var(--transition); }
-        .portfolio-item:hover .portfolio-view { border-color: var(--clay-light); color: var(--clay-light); }
+        .portfolio-location { font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--slate); margin-bottom: 20px; }
+        .portfolio-view { font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--alabaster); border-bottom: 1px solid rgba(247, 246, 242, 0.4); padding-bottom: 4px; transition: var(--transition); }
+        .portfolio-item:hover .portfolio-view { border-color: var(--slate); color: var(--slate); }
 
         /* THE TEXTURED WALL */
-        .projects-cta { padding: 140px 5%; background-color: var(--alabaster); background-image: var(--cabana-stripe); text-align: center; border-top: 1px solid var(--border-subtle); }
-        .projects-cta-inner { max-width: 680px; margin: 0 auto; }
-        .projects-cta .eyebrow { color: var(--clay); margin-bottom: 20px; }
+        .projects-cta { padding: 140px 5%; position: relative; background-color: var(--slate); text-align: center; box-shadow: inset 0 10px 30px rgba(0,0,0,0.05); }
+        .projects-cta::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: var(--grasscloth-noise), var(--grasscloth-weave); mix-blend-mode: multiply; opacity: 0.8; }
+        .projects-cta-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+        .projects-cta .eyebrow { color: var(--white); margin-bottom: 20px; }
         .projects-cta h2 { color: var(--navy); font-size: clamp(36px, 4vw, 54px); margin-bottom: 24px; line-height: 1.15; }
-        .projects-cta h2 em { color: var(--clay); }
-        .projects-cta p { color: var(--text-light); margin-bottom: 44px; font-size: 17px; line-height: 1.8; }
+        .projects-cta h2 em { color: var(--white); }
+        .projects-cta p { color: var(--navy); margin-bottom: 44px; font-size: 17px; line-height: 1.8; }
 
-        footer { background-color: var(--navy); padding: 80px 5% 40px; text-align: center; color: var(--alabaster); }
+        footer { background-color: var(--navy); padding: 80px 5% 40px; text-align: center; color: var(--alabaster); position: relative; }
+        footer::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: var(--grasscloth-noise); opacity: 0.15; }
+        .footer-content { position: relative; z-index: 1; }
         .footer-logo-img { margin: 0 auto 30px; }
         .footer-logo-img img { width: 220px; height: auto; display: block; margin: 0 auto; mix-blend-mode: screen; opacity: 0.9;}
-        .footer-tagline { font-family: var(--font-serif); font-size: 24px; font-style: italic; color: var(--clay-light); margin-bottom: 40px; }
+        .footer-tagline { font-family: var(--font-serif); font-size: 24px; font-style: italic; color: var(--slate); margin-bottom: 40px; }
         .footer-links { margin-bottom: 40px; }
         .footer-links a { margin: 0 20px; font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--alabaster); font-weight: 400; display: inline-block; margin-bottom: 10px; opacity: 0.7; transition: var(--transition);}
-        .footer-links a:hover { color: var(--clay-light); opacity: 1; }
-        .copyright { font-size: 11px; color: rgba(248, 249, 250, 0.3); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+        .footer-links a:hover { color: var(--slate); opacity: 1; }
+        .copyright { font-size: 11px; color: rgba(247, 246, 242, 0.3); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
 
         @media (max-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
-        @media (max-width: 768px) { nav, nav.scrolled { height: auto !important; flex-direction: column; padding: 16px 5% 12px; background-color: var(--alabaster); } .nav-brand { margin-bottom: 16px; width: 100%; display: flex; justify-content: center; } .nav-logo-link { flex-direction: row !important; align-items: center; justify-content: center; gap: 12px; } .nav-logo-text { font-size: 22px; } .nav-logo-img img { height: 45px; } .nav-links { width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 16px; padding: 16px 0 0; border-top: 1px solid var(--border-subtle); } .nav-links a { font-size: 11px; } .inner-hero { padding: 200px 5% 60px !important; } .inner-hero::before { display: none; } .inner-hero-content { padding: 0; } .portfolio { padding: 60px 5% 100px; } .portfolio-grid { grid-template-columns: 1fr; gap: 20px; } .projects-cta { padding: 100px 5%; } .footer-links a { margin: 0 12px 15px; } }
+        @media (max-width: 768px) { nav, nav.scrolled { height: auto !important; flex-direction: column; padding: 16px 5% 12px; background-color: var(--alabaster); } .nav-brand { margin-bottom: 16px; width: 100%; display: flex; justify-content: center; } .nav-logo-link { flex-direction: row !important; align-items: center; justify-content: center; gap: 12px; } .nav-logo-text { font-size: 22px; } .nav-logo-img img { height: 45px; } .nav-links { width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 16px; padding: 16px 0 0; border-top: 1px solid var(--border-subtle); } .nav-links a { font-size: 11px; } .inner-hero { padding: 200px 5% 60px !important; border-bottom: none;} .inner-hero::before { display: none; } .inner-hero-content { padding: 0; } .portfolio { padding: 60px 5% 100px; } .portfolio-grid { grid-template-columns: 1fr; gap: 20px; } .projects-cta { padding: 100px 5%; } .footer-links a { margin: 0 12px 15px; } }
     </style>
 </head>
 <body>
@@ -103,6 +106,7 @@
         <div class="nav-links" id="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html" class="active">Projects</a><a href="contact.html">Contact</a></div>
     </nav>
     <header class="inner-hero"><div class="inner-hero-content reveal"><span class="eyebrow">Portfolio</span><h1>Beloved <em>Homes</em></h1><p>Each space here was built for the family inside it — not for the photograph. These are a few of their stories.</p></div></header>
+    
     <section class="portfolio">
         <div class="portfolio-grid reveal">
             <a href="#" class="portfolio-item"><img src="placeholder.jpg" alt="Project"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 1</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
@@ -113,8 +117,17 @@
             <a href="#" class="portfolio-item"><img src="placeholder.jpg" alt="Project"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 6</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
         </div>
     </section>
-    <section class="projects-cta reveal"><div class="projects-cta-inner"><span class="eyebrow">Ready to Begin?</span><h2>Your home deserves<br>to be <em>next.</em></h2><p>Every project in this portfolio began with a single conversation — a client who knew their home wasn't quite right and was ready to do something about it. If that's you, Bonnie would love to hear your story.</p><a href="contact.html" class="btn btn-solid">Begin Your Story</a></div></section>
-    <footer><div class="footer-logo-img"><img src="Final_Logo_Wordmark_Footer.png" alt="Hearten Home"></div><p class="footer-tagline">Where beautiful spaces become beloved homes.</p><div class="footer-links"><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div><div class="copyright">&copy; 2026 Hearten Home Interiors. Based in Keller, TX.</div></footer>
+
+    <section class="projects-cta reveal">
+        <div class="projects-cta-inner">
+            <span class="eyebrow">Ready to Begin?</span>
+            <h2>Your home deserves<br>to be <em>next.</em></h2>
+            <p>Every project in this portfolio began with a single conversation — a client who knew their home wasn't quite right and was ready to do something about it. If that's you, Bonnie would love to hear your story.</p>
+            <a href="contact.html" class="btn btn-solid">Begin Your Story</a>
+        </div>
+    </section>
+
+    <footer><div class="footer-content"><div class="footer-logo-img"><img src="Final_Logo_Wordmark_Footer.png" alt="Hearten Home"></div><p class="footer-tagline">Where beautiful spaces become beloved homes.</p><div class="footer-links"><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div><div class="copyright">&copy; 2026 Hearten Home Interiors. Based in Dallas / Fort Worth, TX.</div></div></footer>
     <script>
         window.addEventListener('scroll', function () { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
         function reveal() { document.querySelectorAll('.reveal').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight - 100) { el.classList.add('active'); } }); }
