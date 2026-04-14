@@ -47,6 +47,8 @@
         .btn { display: inline-block; padding: 18px 42px; text-transform: uppercase; letter-spacing: var(--tracking-wide); font-size: var(--text-xs); font-weight: 500; font-family: var(--font-sans); transition: var(--transition); cursor: pointer; text-align: center; border-radius: 2px; }
         .btn-solid { background-color: var(--navy); color: var(--white); border: 1px solid var(--navy); }
         .btn-solid:hover { background-color: var(--slate); border-color: var(--slate); color: var(--white); }
+        .btn-light { background-color: transparent; color: var(--navy); border: 1px solid var(--navy); }
+        .btn-light:hover { background-color: var(--navy); color: var(--white); border-color: var(--navy); }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
@@ -78,6 +80,7 @@
         .portfolio-view { font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--alabaster); border-bottom: 1px solid rgba(247, 246, 242, 0.4); padding-bottom: 4px; transition: var(--transition); }
         .portfolio-item:hover .portfolio-view { border-color: var(--slate); color: var(--slate); }
 
+        /* THE TEXTURED WALL CTA */
         .projects-cta { padding: 140px 5%; position: relative; background-color: var(--slate); text-align: center; box-shadow: inset 0 10px 30px rgba(0,0,0,0.05); }
         .projects-cta::before { content: ''; position: absolute; inset: 0; z-index: 0; pointer-events: none; background-image: var(--grasscloth-noise), var(--grasscloth-weave); mix-blend-mode: multiply; opacity: 0.8; }
         .projects-cta-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
@@ -106,16 +109,32 @@
         <div class="nav-brand"><a href="index.html" class="nav-logo-link"><div class="nav-logo-img"><img src="Final_Logo_Monogram_Navy.png" alt="Hearten Home"></div><span class="nav-logo-text">Hearten Home Interiors</span></a></div>
         <div class="nav-links" id="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html" class="active">Projects</a><a href="contact.html">Contact</a></div>
     </nav>
+    
     <header class="inner-hero"><div class="inner-hero-content reveal"><span class="eyebrow">Portfolio</span><h1>Beloved <em>Homes</em></h1><p>Each space here was built for the family inside it — not for the photograph. These are a few of their stories.</p></div></header>
     
     <section class="portfolio">
         <div class="portfolio-grid reveal">
-            <a href="#" class="portfolio-item"><img src="placeholder.jpg" alt="Project"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 1</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
-            <a href="#" class="portfolio-item"><img src="placeholder.jpg" alt="Project"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 2</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
-            <a href="#" class="portfolio-item"><img src="placeholder.jpg" alt="Project"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 3</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
-            <a href="#" class="portfolio-item"><img src="placeholder.jpg" alt="Project"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 4</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
-            <a href="#" class="portfolio-item"><img src="placeholder.jpg" alt="Project"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 5</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
-            <a href="#" class="portfolio-item"><img src="placeholder.jpg" alt="Project"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 6</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project1.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 1"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 1</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project2.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 2"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 2</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project3.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 3"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 3</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project4.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 4"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 4</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project5.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 5"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 5</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project6.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 6"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 6</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project7.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 7"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 7</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project8.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 8"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 8</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project9.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 9"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 9</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project10.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 10"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 10</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project11.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 11"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 11</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project12.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 12"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 12</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project13.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 13"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 13</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project14.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 14"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 14</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project15.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 15"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 15</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project16.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 16"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 16</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project17.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 17"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 17</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project18.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 18"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 18</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project19.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 19"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 19</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project20.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 20"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 20</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project21.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 21"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 21</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
         </div>
     </section>
 
@@ -124,7 +143,7 @@
             <span class="eyebrow">Ready to Begin?</span>
             <h2>Your home deserves<br>to be <em>next.</em></h2>
             <p>Every project in this portfolio began with a single conversation — a client who knew their home wasn't quite right and was ready to do something about it. If that's you, Bonnie would love to hear your story.</p>
-            <a href="contact.html" class="btn btn-solid">Begin Your Story</a>
+            <a href="contact.html" class="btn btn-light">Begin Your Story</a>
         </div>
     </section>
 
