@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selected Works | Hearten Home Interiors</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =============================================
+           HEARTEN HOME - ELEVATED INTERIOR AESTHETIC
+        ============================================= */
+        :root {
+            --navy: #1A2434;
+            --clay: #B76E5D;
+            --clay-light: #D69788;
+            --oatmeal: #EBE5DB;
+            --alabaster: #F6F4F0;
+            --white: #FFFFFF;
+            
+            --text-main: #2C2B29;
+            --text-light: #6E6B67;
+            --border-subtle: rgba(26, 36, 52, 0.08);
+            
+            --transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            
+            --font-serif: 'Cormorant Garamond', serif;
+            --font-sans: 'Jost', sans-serif;
+            
+            --text-xs: 12px;
+            --text-sm: 16px;
+            --text-md: 26px;
+            --text-lg: 46px;
+            --text-xl: clamp(48px, 6vw, 76px);
+            --tracking-wide: 2px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-sans);
+            font-size: var(--text-sm);
+            font-weight: 300;
+            background-color: var(--alabaster);
+            color: var(--text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1, h2, h3 { font-family: var(--font-serif); font-weight: 400; color: var(--navy); line-height: 1.15; }
+        h1 { font-size: var(--text-xl); }
+        h2 { font-size: var(--text-lg); }
+        h3 { font-size: var(--text-md); }
+        
+        em { color: var(--clay); font-style: italic; }
+
+        .eyebrow {
+            font-family: var(--font-sans); font-size: var(--text-xs); font-weight: 500;
+            letter-spacing: var(--tracking-wide); text-transform: uppercase;
+            color: var(--clay); display: block; margin-bottom: 20px;
+        }
+
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block; padding: 18px 42px; 
+            text-transform: uppercase; letter-spacing: var(--tracking-wide);
+            font-size: var(--text-xs); font-weight: 500; font-family: var(--font-sans);
+            transition: var(--transition); cursor: pointer; text-align: center;
+            border-radius: 2px;
+        }
+        
+        .btn-solid { background-color: var(--navy); color: var(--white); border: 1px solid var(--navy); }
+        .btn-solid:hover { background-color: var(--clay); border-color: var(--clay); color: var(--white); }
+
+        .btn-light { background-color: var(--alabaster); color: var(--navy); border: 1px solid var(--alabaster); }
+        .btn-light:hover { background-color: var(--clay); color: var(--white); border-color: var(--clay); }
+
+        /* --- ANIMATIONS --- */
+        .reveal {
+            opacity: 0; transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .reveal.active { opacity: 1; transform: translateY(0); }
+
+        /* =============================================
+           NAVIGATION
+        ============================================= */
+        nav {
+            position: fixed; top: 0; left: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0 5%; z-index: 1000;
+            transition: var(--transition);
+            background-color: var(--alabaster); height: 110px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        
+        .nav-logo-link { display: flex; align-items: center; gap: 16px; }
+        .nav-logo-img img { height: 65px; width: auto; transition: var(--transition); }
+        .nav-logo-text {
+            font-family: var(--font-serif); font-size: clamp(20px, 2.5vw, 26px);
+            color: var(--navy); letter-spacing: 1px; transition: var(--transition);
+            white-space: nowrap; font-weight: 500;
+        }
+
+        .nav-links { display: flex; gap: 40px; align-items: center; }
+        .nav-links a {
+            color: var(--navy); font-size: var(--text-xs); letter-spacing: var(--tracking-wide);
+            text-transform: uppercase; font-weight: 400; transition: color 0.3s ease;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--clay); }
+
+        nav.scrolled { 
+            background-color: rgba(246, 244, 240, 0.98); 
+            height: 85px; 
+            backdrop-filter: blur(10px);
+        }
+
+        /* =============================================
+           INNER HERO
+        ============================================= */
+        .inner-hero { 
+            padding: 220px 5% 100px; 
+            background-color: var(--alabaster); 
+            text-align: center; 
+            position: relative;
+        }
+        
+        .inner-hero::before {
+            content: ''; position: absolute; top: 0; left: 50%; width: 1px; height: 100%;
+            background-color: var(--border-subtle); transform: translateX(-50%); z-index: 0;
+        }
+
+        .inner-hero-content {
+            position: relative; z-index: 2; background: var(--alabaster); 
+            display: inline-block; padding: 0 40px;
+        }
+
+        .inner-hero p { 
+            color: var(--text-light); 
+            max-width: 600px; 
+            margin: 0 auto; 
+            font-family: var(--font-serif); 
+            font-size: 22px; 
+            font-style: italic;
+            line-height: 1.5;
+        }
+
+        /* =============================================
+           PORTFOLIO GALLERY
+        ============================================= */
+        .portfolio { padding: 80px 5% 140px; background-color: var(--white); }
+        
+        .portfolio-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 30px; 
+            max-width: 1400px; 
+            margin: 0 auto; 
+        }
+        
+        .portfolio-item { 
+            position: relative; aspect-ratio: 4/5; overflow: hidden; 
+            background-color: var(--oatmeal); display: block; 
+        } 
+        
+        .portfolio-item img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1); 
+        }
+        
+        .portfolio-item:hover img { transform: scale(1.05); }
+        
+        .portfolio-overlay { 
+            position: absolute; inset: 0; background: rgba(26, 36, 52, 0.8); 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            opacity: 0; transition: var(--transition); text-align: center; padding: 24px; 
+        }
+        
+        .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+        
+        .portfolio-project-name { 
+            font-family: var(--font-serif); font-size: 28px; 
+            color: var(--white); margin-bottom: 8px; font-weight: 400; 
+        }
+        
+        .portfolio-location { 
+            font-size: var(--text-xs); letter-spacing: var(--tracking-wide); 
+            text-transform: uppercase; color: var(--clay-light); margin-bottom: 20px; 
+        }
+        
+        .portfolio-view { 
+            font-size: var(--text-xs); letter-spacing: var(--tracking-wide); 
+            text-transform: uppercase; color: var(--alabaster); 
+            border-bottom: 1px solid rgba(246, 244, 240, 0.4); padding-bottom: 4px; 
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover .portfolio-view { border-color: var(--clay-light); color: var(--clay-light); }
+
+        /* =============================================
+           CTA SECTION
+        ============================================= */
+        .projects-cta { 
+            padding: 140px 5%; 
+            background-color: var(--navy); 
+            text-align: center; 
+        }
+        
+        .projects-cta-inner { max-width: 680px; margin: 0 auto; }
+        
+        .projects-cta .eyebrow { color: var(--clay-light); margin-bottom: 20px; }
+        
+        .projects-cta h2 { 
+            color: var(--alabaster); 
+            font-size: clamp(36px, 4vw, 54px); 
+            margin-bottom: 24px; 
+            line-height: 1.15; 
+        }
+        
+        .projects-cta h2 em { color: var(--clay-light); }
+        
+        .projects-cta p { 
+            color: rgba(246, 244, 240, 0.7); 
+            margin-bottom: 44px; 
+            font-size: 17px; 
+            line-height: 1.8; 
+        }
+
+        /* =============================================
+           FOOTER
+        ============================================= */
+        footer { background-color: var(--navy); padding: 0 5% 40px; text-align: center; color: var(--alabaster); }
+        
+        .footer-logo-img { margin: 0 auto 30px; }
+        .footer-logo-img img { width: 260px; height: auto; display: block; margin: 0 auto; filter: invert(1) brightness(2); opacity: 0.9;}
+        
+        .footer-tagline { font-family: var(--font-serif); font-size: 24px; font-style: italic; color: var(--clay-light); margin-bottom: 40px; }
+        
+        .footer-links { margin-bottom: 40px; }
+        .footer-links a { margin: 0 20px; font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--alabaster); font-weight: 400; display: inline-block; margin-bottom: 10px; opacity: 0.7; transition: var(--transition);}
+        .footer-links a:hover { color: var(--clay-light); opacity: 1; }
+        
+        .copyright { font-size: 11px; color: rgba(246, 244, 240, 0.3); letter-spacing: var(--tracking-wide); text-transform: uppercase; }
+
+        /* =============================================
+           MOBILE RESPONSIVENESS
+        ============================================= */
+        @media (max-width: 1024px) { 
+            .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } 
+        }
+        
+        @media (max-width: 768px) {
+            nav, nav.inner-nav, nav.scrolled { 
+                height: auto !important; flex-direction: column; 
+                padding: 16px 5% 12px; background-color: var(--alabaster); 
+            } 
+            .nav-brand { margin-bottom: 16px; width: 100%; display: flex; justify-content: center; }
+            .nav-logo-link { flex-direction: row !important; align-items: center; justify-content: center; gap: 12px; }
+            .nav-logo-text { font-size: 22px; } 
+            .nav-logo-img img { height: 45px; } 
+            
+            .nav-links {
+                width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; 
+                justify-content: center; gap: 16px; padding: 16px 0 0; 
+                border-top: 1px solid var(--border-subtle); 
+            }
+            .nav-links a { font-size: 11px; }
+            
+            .inner-hero { padding: 200px 5% 60px !important; } 
+            .inner-hero::before { display: none; }
+            .inner-hero-content { padding: 0; }
+
+            .portfolio { padding: 60px 5% 100px; }
+            .portfolio-grid { grid-template-columns: 1fr; gap: 20px; }
+            
+            .projects-cta { padding: 100px 5%; }
+            .footer-links a { margin: 0 12px 15px; }
+            footer { padding-top: 80px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="navbar" class="inner-nav">
+        <div class="nav-brand">
+            <a href="index.html" class="nav-logo-link">
+                <div class="nav-logo-img"><img src="Final_Logo_Monogram_Navy.png" alt="Hearten Home Interiors Logo"></div>
+                <span class="nav-logo-text">Hearten Home Interiors</span>
+            </a>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <header class="inner-hero">
+        <div class="inner-hero-content reveal">
+            <span class="eyebrow">Portfolio</span>
+            <h1>Beloved <em>Homes</em></h1>
+            <p>Each space here was built for the family inside it — not for the photograph. These are a few of their stories.</p>
+        </div>
+    </header>
+
+    <section class="portfolio">
+        <div class="portfolio-grid reveal">
+            <a href="Project1.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 1"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 1</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project2.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 2"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 2</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project3.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 3"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 3</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project4.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 4"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 4</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project5.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 5"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 5</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project6.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 6"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 6</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project7.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 7"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 7</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project8.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 8"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 8</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project9.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 9"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 9</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project10.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 10"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 10</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project11.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 11"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 11</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project12.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 12"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 12</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project13.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 13"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 13</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project14.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 14"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 14</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project15.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 15"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 15</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project16.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 16"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 16</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project17.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 17"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 17</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project18.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 18"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 18</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project19.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 19"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 19</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="Project20.html" class="portfolio-item"><img src="placeholder.jpg" alt="Project 20"><div class="portfolio-overlay"><div class="portfolio-project-name">Project Title 20</div><div class="portfolio-location">City, State</div><span class="portfolio-view">View Project</span></div></a>
+        </div>
+    </section>
+
+    <section class="projects-cta reveal">
+        <div class="projects-cta-inner">
+            <span class="eyebrow">Ready to Begin?</span>
+            <h2>Your home deserves<br>to be <em>next.</em></h2>
+            <p>Every project in this portfolio began with a single conversation — a client who knew their home wasn't quite right and was ready to do something about it. If that's you, Bonnie would love to hear your story.</p>
+            <a href="contact.html" class="btn btn-light">Begin Your Story</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo-img"><img src="Final_Logo_Wordmark_Navy.png" alt="Hearten Home Interiors"></div>
+        <p class="footer-tagline">Where beautiful spaces become beloved homes.</p>
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+        </div>
+        <div class="copyright">&copy; 2026 Hearten Home Interiors. Based in Keller, TX.</div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        window.addEventListener('scroll', function () { 
+            document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); 
+        });
+        
+        function reveal() { 
+            document.querySelectorAll('.reveal').forEach(el => { 
+                if (el.getBoundingClientRect().top < window.innerHeight - 100) { 
+                    el.classList.add('active'); 
+                } 
+            }); 
+        }
+        
+        window.addEventListener('scroll', reveal);
+        setTimeout(reveal, 100);
+    </script>
+</body>
+</html>
