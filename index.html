@@ -288,6 +288,23 @@
 
         .widget-container { max-width: 1400px; margin: 0 auto; width: 100%; margin-top: 60px; }
 
+        .agency-signature { 
+            font-size: 10px; 
+            color: rgba(247, 246, 242, 0.25); /* Matches the muted copyright text */
+            letter-spacing: 2px; 
+            text-transform: uppercase; 
+            margin-top: 12px;
+        }
+        .agency-link { 
+            color: var(--slate); /* The light blue from her mood board */
+            font-weight: 400; 
+            text-decoration: none; 
+            transition: var(--transition);
+        }
+        .agency-link:hover { 
+            color: var(--white); 
+        }
+
         /* =============================================
            MOBILE RESPONSIVENESS
         ============================================= */
@@ -429,6 +446,12 @@
             </div>
             
             <div class="copyright">&copy; 2026 Hearten Home Interiors. Based in Dallas / Fort Worth, TX.</div>
+
+            <div class="agency-signature"> 
+                <span class="signature-text">Digital Experience by</span> 
+                <a href="https://jwdigital.ink" target="_blank" rel="noopener" class="agency-link">JW Digital</a> 
+            </div>
+            
         </div>
     </footer>
 
