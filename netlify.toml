@@ -1,0 +1,7 @@
+# Builds the portfolio pages from Bonnie's CMS entries on every deploy.
+[build]
+  command = "pip install pyyaml Pillow --quiet && python3 build.py"
+  publish = "."
+
+[build.environment]
+  PYTHON_VERSION = "3.11"

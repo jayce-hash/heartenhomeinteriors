@@ -3,6 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <meta name="description" content="Begin your story with Hearten Home Interiors. Tell Bonnie about your Dallas/Fort Worth home and the design or renovation you're dreaming of.">
+    <link rel="canonical" href="https://heartenhome.com/contact.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Hearten Home Interiors">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:title" content="Begin Your Story | Hearten Home Interiors">
+    <meta property="og:description" content="Begin your story with Hearten Home Interiors. Tell Bonnie about your Dallas/Fort Worth home and the design or renovation you're dreaming of.">
+    <meta property="og:url" content="https://heartenhome.com/contact.html">
+    <meta property="og:image" content="https://heartenhome.com/images/share-default.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://heartenhome.com/images/share-default.jpg">
+    <meta name="twitter:title" content="Begin Your Story | Hearten Home Interiors">
+    <meta name="twitter:description" content="Begin your story with Hearten Home Interiors. Tell Bonnie about your Dallas/Fort Worth home and the design or renovation you're dreaming of.">
     <title>Begin Your Story | Hearten Home Interiors</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -133,7 +151,9 @@
                 <div class="expect-note"><p>"From the first dream board to the very last detail I handle everything, so you can simply step into a home you love."</p></div>
             </div>
             <div class="contact-form-container reveal">
-                <form action="#" class="editorial-form">
+                <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="editorial-form">
+                    <input type="hidden" name="form-name" value="contact">
+                    <p hidden><label>Skip: <input name="bot-field"></label></p>
                     <div class="form-group"><label for="name">Your Name</label><input type="text" id="name" name="name" placeholder="First & Last" required></div>
                     <div class="form-group"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="Where Bonnie can reach you" required></div>
                     <div class="form-group">
