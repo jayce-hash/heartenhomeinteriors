@@ -16,6 +16,7 @@ collections:
   - name: "projects"
     label: "Portfolio Projects"
     label_singular: "Project"
+    editor: { preview: false }
     description: "Add, edit, or remove the homes shown on your portfolio page."
     folder: "projects"
     create: true
