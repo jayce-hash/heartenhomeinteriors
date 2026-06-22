@@ -11,7 +11,7 @@ Design goal: a malformed entry is skipped with a warning, never crashes the
 build, so the live site is never taken down by a bad entry.
 """
 import os, re, glob, html
-from PIL import Image
+from PIL import Image, ImageOps
 import yaml
 
 ROOT     = os.path.dirname(os.path.abspath(__file__))
@@ -51,7 +51,8 @@ def optimize(src_rel, max_w):
     out_rel = f"/images/projects/opt/{name}-{max_w}.webp"
     out = os.path.join(ROOT, out_rel.lstrip("/"))
     try:
-        im = Image.open(src).convert("RGB")
+        im = Image.open(src)
+        im = ImageOps.exif_transpose(im).convert("RGB")
         if im.width > max_w:
             im = im.resize((max_w, round(im.height * max_w / im.width)), Image.LANCZOS)
         im.save(out, "WEBP", quality=82, method=6)
