@@ -1,0 +1,669 @@
+# Hearten Home Interiors - portfolio editor configuration.
+# Bonnie only ever sees the "Portfolio Projects" collection below, so there is
+# nothing else on the site she can reach or accidentally change.
+
+backend:
+  name: git-gateway      # email/password login via Netlify Identity (no GitHub account needed)
+  branch: main
+
+media_folder: "images/projects"      # where uploaded photos are stored
+public_folder: "/images/projects"
+
+publish_mode: simple
+site_url: https://heartenhome.com    # update to the real domain during the domain pass
+
+collections:
+  - name: "projects"
+    label: "Portfolio Projects"
+    label_singular: "Project"
+    description: "Add, edit, or remove the homes shown on your portfolio page."
+    folder: "projects"
+    create: true
+    delete: true
+    slug: "{{slug}}"
+    summary: "{{title}}  -  {{location}}"
+    sortable_fields: ["order", "title"]
+    fields:
+      - label: "Project Name"
+        name: "title"
+        widget: "string"
+        hint: "The name shown on the project, e.g. A Kitchen Built for Sunday Mornings."
+
+      - label: "Service Type"
+        name: "service"
+        widget: "select"
+        hint: "Pick the type of project."
+        options:
+          - "Turn-Key Renovation"
+          - "Full-Service Design"
+          - "Room Styling & Furnishings"
+          - "Holiday & Hosting Readiness"
+
+      - label: "Location"
+        name: "location"
+        widget: "string"
+        hint: "City and state, e.g. Southlake, TX."
+
+      - label: "Year"
+        name: "year"
+        widget: "string"
+        required: false
+        hint: "Optional. The year the project was finished."
+
+      - label: "Cover Photo"
+        name: "cover"
+        widget: "image"
+        hint: "The main photo for this project. Don't worry about photo size, it's resized automatically."
+
+      - label: "Short Description"
+        name: "summary"
+        widget: "text"
+        hint: "Two or three sentences about the home and the family."
+
+      - label: "Gallery Photos"
+        name: "gallery"
+        widget: "list"
+        required: false
+        label_singular: "Photo"
+        summary: "{{fields.image}}"
+        field: { label: "Photo", name: "image", widget: "image" }
+        hint: "Add as many room photos as you like. Drag to reorder them."
+
+      - label: "Display Order"
+        name: "order"
+        widget: "number"
+        required: false
+        default: 1
+        value_type: "int"
+        hint: "Lower numbers show first on the portfolio page. Leave at 1 if you're not sure."
+
+  - name: "pages"
+    label: "Website Pages"
+    label_singular: "Page"
+    editor: { preview: false }
+    files:
+      - name: "index"
+        label: "Home Page"
+        file: "content/index.json"
+        fields:
+          - label: "Photo: Bonnie1.webp"
+            name: "index_photo1"
+            widget: "image"
+            required: false
+          - label: "Eyebrow: Interior Design & Renovation Dallas/ Fort Wor..."
+            name: "index_eyebrow1"
+            widget: "string"
+            required: false
+            hint: "Currently: Interior Design & Renovation Dallas/ Fort Worth"
+          - label: "Eyebrow: The Designer"
+            name: "index_eyebrow2"
+            widget: "string"
+            required: false
+            hint: "Currently: The Designer"
+          - label: "Eyebrow: Our Offerings"
+            name: "index_eyebrow3"
+            widget: "string"
+            required: false
+            hint: "Currently: Our Offerings"
+          - label: "Eyebrow: Recent Work"
+            name: "index_eyebrow4"
+            widget: "string"
+            required: false
+            hint: "Currently: Recent Work"
+          - label: "Heading: A Few Beloved Homes"
+            name: "index_heading1"
+            widget: "string"
+            required: false
+            hint: "Currently: A Few Beloved Homes"
+          - label: "Quote: At Hearten Home Interiors, we design with pur..."
+            name: "index_quote1"
+            widget: "text"
+            required: false
+            hint: "Currently: At Hearten Home Interiors, we design with purpose-thoughtful spaces in DFW that work beautifully, live well, and last."
+          - label: "Button: Begin Your Story"
+            name: "index_button1"
+            widget: "string"
+            required: false
+            hint: "Currently: Begin Your Story"
+          - label: "Button: Read Her Story"
+            name: "index_button2"
+            widget: "string"
+            required: false
+            hint: "Currently: Read Her Story"
+          - label: "Button: Explore Services"
+            name: "index_button3"
+            widget: "string"
+            required: false
+            hint: "Currently: Explore Services"
+          - label: "Button: Follow Along"
+            name: "index_button4"
+            widget: "string"
+            required: false
+            hint: "Currently: Follow Along"
+          - label: "Text: Designed for the life you really live \u2014 creat..."
+            name: "index_text1"
+            widget: "text"
+            required: false
+            hint: "Currently: Designed for the life you really live \u2014 creating spaces where great memories happen."
+          - label: "Text: For thirty years, Bonnie Roden was the friend..."
+            name: "index_text2"
+            widget: "text"
+            required: false
+            hint: "Currently: For thirty years, Bonnie Roden was the friend everyone called \u2014 the one who could walk into a home and see what it was trying to become."
+          - label: "Text: In 2024, she finally put her name on a door. ..."
+            name: "index_text3"
+            widget: "text"
+            required: false
+            hint: "Currently: In 2024, she finally put her name on a door. Hearten Home Interiors is the business she spent three decades building without knowing it and "
+          - label: "Text: From full-scale renovations to intentional ro..."
+            name: "index_text4"
+            widget: "text"
+            required: false
+            hint: "Currently: From full-scale renovations to intentional room styling and holiday readiness, Bonnie guides the creative direction from the very first mood"
+          - label: "Text: Every detail is handled \u2014 the contractors, th..."
+            name: "index_text5"
+            widget: "text"
+            required: false
+            hint: "Currently: Every detail is handled \u2014 the contractors, the timelines, the decisions \u2014 so you can simply step into your new space and enjoy."
+      - name: "about"
+        label: "About Page"
+        file: "content/about.json"
+        fields:
+          - label: "Photo: Bonnie1.webp"
+            name: "about_photo1"
+            widget: "image"
+            required: false
+          - label: "Eyebrow: The Designer"
+            name: "about_eyebrow1"
+            widget: "string"
+            required: false
+            hint: "Currently: The Designer"
+          - label: "Eyebrow: The Philosophy"
+            name: "about_eyebrow2"
+            widget: "string"
+            required: false
+            hint: "Currently: The Philosophy"
+          - label: "Number: 01"
+            name: "about_number1"
+            widget: "string"
+            required: false
+            hint: "Currently: 01"
+          - label: "Number: 02"
+            name: "about_number2"
+            widget: "string"
+            required: false
+            hint: "Currently: 02"
+          - label: "Number: 03"
+            name: "about_number3"
+            widget: "string"
+            required: false
+            hint: "Currently: 03"
+          - label: "Number: 04"
+            name: "about_number4"
+            widget: "string"
+            required: false
+            hint: "Currently: 04"
+          - label: "Word: Hearten"
+            name: "about_word1"
+            widget: "string"
+            required: false
+            hint: "Currently: Hearten"
+          - label: "Pronunciation: / \u02c8h\u00e4rt-\u0259n / \u00b7 verb"
+            name: "about_pronunciation1"
+            widget: "string"
+            required: false
+            hint: "Currently: / \u02c8h\u00e4rt-\u0259n / \u00b7 verb"
+          - label: "Subheading: A room is designed for the lives inside it an..."
+            name: "about_subheading1"
+            widget: "string"
+            required: false
+            hint: "Currently: A room is designed for the lives inside it and the desired atmosphere."
+          - label: "Subheading: Authentic design that serves others."
+            name: "about_subheading2"
+            widget: "string"
+            required: false
+            hint: "Currently: Authentic design that serves others."
+          - label: "Subheading: Your home should feel like you \u2014 not her port..."
+            name: "about_subheading3"
+            widget: "string"
+            required: false
+            hint: "Currently: Your home should feel like you \u2014 not her portfolio"
+          - label: "Subheading: Gathering and home is sacred"
+            name: "about_subheading4"
+            widget: "string"
+            required: false
+            hint: "Currently: Gathering and home is sacred"
+          - label: "Text: Thirty years of knowing that the most well-de..."
+            name: "about_text1"
+            widget: "text"
+            required: false
+            hint: "Currently: Thirty years of knowing that the most well-designed home is the one that makes you want to stay a while."
+          - label: "Text: For thirty years, Bonnie Roden was the friend..."
+            name: "about_text2"
+            widget: "text"
+            required: false
+            hint: "Currently: For thirty years, Bonnie Roden was the friend everyone called \u2014 the one who could walk into a home and see what it was trying to become. Who"
+          - label: "Text: She did it because she loved it...because the..."
+            name: "about_text3"
+            widget: "text"
+            required: false
+            hint: "Currently: She did it because she loved it...because there is something that happens when a space becomes exactly right \u2014 a quality of ease, a sense of"
+          - label: "Text: Bonnie chased that feeling for three decades ..."
+            name: "about_text4"
+            widget: "text"
+            required: false
+            hint: "Currently: Bonnie chased that feeling for three decades before she put her name on a door. In 2024, she finally did."
+          - label: "Text: Hearten Home Interiors is the business she sp..."
+            name: "about_text5"
+            widget: "text"
+            required: false
+            hint: "Currently: Hearten Home Interiors is the business she spent thirty years building without knowing it. Her goal is as simple as it is rare: to make you "
+          - label: "Text: She is based in Keller, Texas, and serves the..."
+            name: "about_text6"
+            widget: "text"
+            required: false
+            hint: "Currently: She is based in Keller, Texas, and serves the greater Dallas / Fort Worth area \u2014 full renovations, new-build design from start to finish, an"
+          - label: "Text: These are the convictions that shape every ro..."
+            name: "about_text7"
+            widget: "text"
+            required: false
+            hint: "Currently: These are the convictions that shape every room she designs, every material she selects, every decision she makes on your behalf."
+          - label: "Text: Great design is not about the room. It is abo..."
+            name: "about_text8"
+            widget: "text"
+            required: false
+            hint: "Currently: Great design is not about the room. It is about the Sunday dinners, the holidays, the kids coming home from college, making memories! Functi"
+          - label: "Text: Her clients get the benefit of three decades ..."
+            name: "about_text9"
+            widget: "text"
+            required: false
+            hint: "Currently: Her clients get the benefit of three decades of taste, vendor relationships, and the quiet confidence of someone who wants you to love your "
+          - label: "Text: Bonnie has seen trends come and go. She knows..."
+            name: "about_text10"
+            widget: "text"
+            required: false
+            hint: "Currently: Bonnie has seen trends come and go. She knows what endures. Bonnie does not have a signature aesthetic she imposes on every client. She has "
+          - label: "Text: Hospitality is not a service \u2014 it is a design..."
+            name: "about_text11"
+            widget: "text"
+            required: false
+            hint: "Currently: Hospitality is not a service \u2014 it is a design philosophy. Bonnie builds homes that invite people in and make them stay. A well-set table is "
+      - name: "services"
+        label: "Services Page"
+        file: "content/services.json"
+        fields:
+          - label: "Photo: placeholder-renovation.jpg"
+            name: "services_photo1"
+            widget: "image"
+            required: false
+          - label: "Photo: placeholder-design.jpg"
+            name: "services_photo2"
+            widget: "image"
+            required: false
+          - label: "Photo: placeholder-decor.jpg"
+            name: "services_photo3"
+            widget: "image"
+            required: false
+          - label: "Photo: placeholder-holiday.jpg"
+            name: "services_photo4"
+            widget: "image"
+            required: false
+          - label: "Eyebrow: What We Do Together"
+            name: "services_eyebrow1"
+            widget: "string"
+            required: false
+            hint: "Currently: What We Do Together"
+          - label: "Eyebrow: How We Work"
+            name: "services_eyebrow2"
+            widget: "string"
+            required: false
+            hint: "Currently: How We Work"
+          - label: "Eyebrow: Ready to Begin?"
+            name: "services_eyebrow3"
+            widget: "string"
+            required: false
+            hint: "Currently: Ready to Begin?"
+          - label: "Number: 01"
+            name: "services_number1"
+            widget: "string"
+            required: false
+            hint: "Currently: 01"
+          - label: "Number: 02"
+            name: "services_number2"
+            widget: "string"
+            required: false
+            hint: "Currently: 02"
+          - label: "Number: 03"
+            name: "services_number3"
+            widget: "string"
+            required: false
+            hint: "Currently: 03"
+          - label: "Number: 04"
+            name: "services_number4"
+            widget: "string"
+            required: false
+            hint: "Currently: 04"
+          - label: "Label: Includes"
+            name: "services_label1"
+            widget: "string"
+            required: false
+            hint: "Currently: Includes"
+          - label: "Label: Includes"
+            name: "services_label2"
+            widget: "string"
+            required: false
+            hint: "Currently: Includes"
+          - label: "Label: Includes"
+            name: "services_label3"
+            widget: "string"
+            required: false
+            hint: "Currently: Includes"
+          - label: "Label: Includes"
+            name: "services_label4"
+            widget: "string"
+            required: false
+            hint: "Currently: Includes"
+          - label: "Heading: A Simple, Joyful Process"
+            name: "services_heading1"
+            widget: "string"
+            required: false
+            hint: "Currently: A Simple, Joyful Process"
+          - label: "Subheading: The Conversation"
+            name: "services_subheading1"
+            widget: "string"
+            required: false
+            hint: "Currently: The Conversation"
+          - label: "Subheading: The Vision"
+            name: "services_subheading2"
+            widget: "string"
+            required: false
+            hint: "Currently: The Vision"
+          - label: "Subheading: The Build"
+            name: "services_subheading3"
+            widget: "string"
+            required: false
+            hint: "Currently: The Build"
+          - label: "Subheading: The Reveal"
+            name: "services_subheading4"
+            widget: "string"
+            required: false
+            hint: "Currently: The Reveal"
+          - label: "List item: Spatial planning & design direction"
+            name: "services_list1"
+            widget: "string"
+            required: false
+            hint: "Currently: Spatial planning & design direction"
+          - label: "List item: Material, tile, and fixture selection"
+            name: "services_list2"
+            widget: "string"
+            required: false
+            hint: "Currently: Material, tile, and fixture selection"
+          - label: "List item: Contractor coordination & oversight"
+            name: "services_list3"
+            widget: "string"
+            required: false
+            hint: "Currently: Contractor coordination & oversight"
+          - label: "List item: Kitchen, bath, and whole-home scope"
+            name: "services_list4"
+            widget: "string"
+            required: false
+            hint: "Currently: Kitchen, bath, and whole-home scope"
+          - label: "List item: Final walk-through & project close"
+            name: "services_list5"
+            widget: "string"
+            required: false
+            hint: "Currently: Final walk-through & project close"
+          - label: "List item: Full design direction from blueprint stage"
+            name: "services_list6"
+            widget: "string"
+            required: false
+            hint: "Currently: Full design direction from blueprint stage"
+          - label: "List item: Hard finish, fixture & architectural detail s..."
+            name: "services_list7"
+            widget: "string"
+            required: false
+            hint: "Currently: Hard finish, fixture & architectural detail selection"
+          - label: "List item: Mood boards & material presentations"
+            name: "services_list8"
+            widget: "string"
+            required: false
+            hint: "Currently: Mood boards & material presentations"
+          - label: "List item: Builder & trade coordination"
+            name: "services_list9"
+            widget: "string"
+            required: false
+            hint: "Currently: Builder & trade coordination"
+          - label: "List item: New builds and major remodel scope"
+            name: "services_list10"
+            widget: "string"
+            required: false
+            hint: "Currently: New builds and major remodel scope"
+          - label: "List item: Custom furniture sourcing & procurement"
+            name: "services_list11"
+            widget: "string"
+            required: false
+            hint: "Currently: Custom furniture sourcing & procurement"
+          - label: "List item: Textiles, rugs, and window treatments"
+            name: "services_list12"
+            widget: "string"
+            required: false
+            hint: "Currently: Textiles, rugs, and window treatments"
+          - label: "List item: Art curation & accessory styling"
+            name: "services_list13"
+            widget: "string"
+            required: false
+            hint: "Currently: Art curation & accessory styling"
+          - label: "List item: Single-room to whole-home scope"
+            name: "services_list14"
+            widget: "string"
+            required: false
+            hint: "Currently: Single-room to whole-home scope"
+          - label: "List item: Full reveal day styling"
+            name: "services_list15"
+            widget: "string"
+            required: false
+            hint: "Currently: Full reveal day styling"
+          - label: "List item: Seasonal & holiday decor installation"
+            name: "services_list16"
+            widget: "string"
+            required: false
+            hint: "Currently: Seasonal & holiday decor installation"
+          - label: "List item: Custom mantle garlands & tree styling"
+            name: "services_list17"
+            widget: "string"
+            required: false
+            hint: "Currently: Custom mantle garlands & tree styling"
+          - label: "List item: Thanksgiving & entertaining tablescapes"
+            name: "services_list18"
+            widget: "string"
+            required: false
+            hint: "Currently: Thanksgiving & entertaining tablescapes"
+          - label: "List item: Front entry & exterior seasonal styling"
+            name: "services_list19"
+            widget: "string"
+            required: false
+            hint: "Currently: Front entry & exterior seasonal styling"
+          - label: "List item: Post-season takedown available"
+            name: "services_list20"
+            widget: "string"
+            required: false
+            hint: "Currently: Post-season takedown available"
+          - label: "Button: Start the Conversation"
+            name: "services_button1"
+            widget: "string"
+            required: false
+            hint: "Currently: Start the Conversation"
+          - label: "Text: Every detail handled, every decision guided \u2014..."
+            name: "services_text1"
+            widget: "text"
+            required: false
+            hint: "Currently: Every detail handled, every decision guided \u2014 so you can simply step into a home you love."
+          - label: "Text: Your home should grow with you. Whether it's ..."
+            name: "services_text2"
+            widget: "text"
+            required: false
+            hint: "Currently: Your home should grow with you. Whether it's a kitchen that has never worked quite right, a bathroom you've been meaning to address for year"
+          - label: "Text: She manages the process start to finish \u2014 spa..."
+            name: "services_text3"
+            widget: "text"
+            required: false
+            hint: "Currently: She manages the process start to finish \u2014 spatial planning, material selection, contractor communication, timeline management \u2014 so you are n"
+          - label: "Text: Building from the ground up or undertaking a ..."
+            name: "services_text4"
+            widget: "text"
+            required: false
+            hint: "Currently: Building from the ground up or undertaking a significant remodel is one of the most personal things you'll ever do. Bonnie guides the creati"
+          - label: "Text: The result is a home where the bones are as b..."
+            name: "services_text5"
+            widget: "text"
+            required: false
+            hint: "Currently: The result is a home where the bones are as beautiful as they are functional. Where the decisions made at the beginning serve the family liv"
+          - label: "Text: A room is finished not when there is nothing ..."
+            name: "services_text6"
+            widget: "text"
+            required: false
+            hint: "Currently: A room is finished not when there is nothing left to add, but when there is nothing left to remove. Bonnie curates furniture, textiles, rugs"
+          - label: "Text: Whether you are refreshing a single room or f..."
+            name: "services_text7"
+            widget: "text"
+            required: false
+            hint: "Currently: Whether you are refreshing a single room or furnishing a newly built home from scratch, it culminates in a reveal day where every pillow is "
+          - label: "Text: Bonnie believes deeply in the power of gather..."
+            name: "services_text8"
+            widget: "text"
+            required: false
+            hint: "Currently: Bonnie believes deeply in the power of gathering. A home that welcomes \u2014 that makes people want to linger, to come back, to feel held by the"
+          - label: "Text: Her seasonal styling and holiday readiness se..."
+            name: "services_text9"
+            widget: "text"
+            required: false
+            hint: "Currently: Her seasonal styling and holiday readiness services ensure your home is prepared to receive the people you love. You focus on the memories. "
+          - label: "Text: From the first conversation to the final walk..."
+            name: "services_text10"
+            widget: "text"
+            required: false
+            hint: "Currently: From the first conversation to the final walk-through, Bonnie guides every step so the journey is as beautiful as the destination."
+          - label: "Text: It starts with a relaxed call \u2014 your wishlist..."
+            name: "services_text11"
+            widget: "text"
+            required: false
+            hint: "Currently: It starts with a relaxed call \u2014 your wishlist, your lifestyle, your dreams for the space. No pressure. Just listening."
+          - label: "Text: Bonnie builds a curated mood board and design..."
+            name: "services_text12"
+            widget: "text"
+            required: false
+            hint: "Currently: Bonnie builds a curated mood board and design direction tailored entirely to your family \u2014 not a template, not a trend. Yours."
+          - label: "Text: Every detail managed. Every contractor coordi..."
+            name: "services_text13"
+            widget: "text"
+            required: false
+            hint: "Currently: Every detail managed. Every contractor coordinated. Every decision guided. You never juggle timelines or chase answers alone."
+          - label: "Text: Your home, transformed. Bonnie walks you thro..."
+            name: "services_text14"
+            widget: "text"
+            required: false
+            hint: "Currently: Your home, transformed. Bonnie walks you through every space until it feels exactly right \u2014 and then she hands you the keys."
+          - label: "Text: That's exactly what the first conversation is..."
+            name: "services_text15"
+            widget: "text"
+            required: false
+            hint: "Currently: That's exactly what the first conversation is for. Bonnie will listen to where you are, ask the right questions, and help you figure out wha"
+      - name: "contact"
+        label: "Contact Page"
+        file: "content/contact.json"
+        fields:
+          - label: "Eyebrow: Let's Begin"
+            name: "contact_eyebrow1"
+            widget: "string"
+            required: false
+            hint: "Currently: Let's Begin"
+          - label: "Label: Reach Bonnie Directly"
+            name: "contact_label1"
+            widget: "string"
+            required: false
+            hint: "Currently: Reach Bonnie Directly"
+          - label: "Label: Studio Location"
+            name: "contact_label2"
+            widget: "string"
+            required: false
+            hint: "Currently: Studio Location"
+          - label: "Form label: Your Name"
+            name: "contact_form1"
+            widget: "string"
+            required: false
+            hint: "Currently: Your Name"
+          - label: "Form label: Email Address"
+            name: "contact_form2"
+            widget: "string"
+            required: false
+            hint: "Currently: Email Address"
+          - label: "Form label: What Are You Dreaming Of?"
+            name: "contact_form3"
+            widget: "string"
+            required: false
+            hint: "Currently: What Are You Dreaming Of?"
+          - label: "Form label: Tell Bonnie About Your Home"
+            name: "contact_form4"
+            widget: "string"
+            required: false
+            hint: "Currently: Tell Bonnie About Your Home"
+          - label: "Dropdown option: Select a project type"
+            name: "contact_dropdown1"
+            widget: "string"
+            required: false
+            hint: "Currently: Select a project type"
+          - label: "Dropdown option: Turn-Key Renovation"
+            name: "contact_dropdown2"
+            widget: "string"
+            required: false
+            hint: "Currently: Turn-Key Renovation"
+          - label: "Dropdown option: Full-Service Design"
+            name: "contact_dropdown3"
+            widget: "string"
+            required: false
+            hint: "Currently: Full-Service Design"
+          - label: "Dropdown option: Room Styling & Furnishings"
+            name: "contact_dropdown4"
+            widget: "string"
+            required: false
+            hint: "Currently: Room Styling & Furnishings"
+          - label: "Dropdown option: Holiday & Hosting Readiness"
+            name: "contact_dropdown5"
+            widget: "string"
+            required: false
+            hint: "Currently: Holiday & Hosting Readiness"
+          - label: "Dropdown option: Not Sure Yet - Let's Talk"
+            name: "contact_dropdown6"
+            widget: "string"
+            required: false
+            hint: "Currently: Not Sure Yet - Let's Talk"
+          - label: "Button: Send Your Inquiry"
+            name: "contact_button1"
+            widget: "string"
+            required: false
+            hint: "Currently: Send Your Inquiry"
+          - label: "Text: Every beloved home starts with a single conve..."
+            name: "contact_text1"
+            widget: "text"
+            required: false
+            hint: "Currently: Every beloved home starts with a single conversation. We would love to hear about yours."
+          - label: "Text: Whether you are dreaming of a full renovation..."
+            name: "contact_text2"
+            widget: "text"
+            required: false
+            hint: "Currently: Whether you are dreaming of a full renovation, ready to finally furnish that new build, or simply want a home that feels more like you this "
+          - label: "Text: Bonnie reads every inquiry personally. There ..."
+            name: "contact_text3"
+            widget: "text"
+            required: false
+            hint: "Currently: Bonnie reads every inquiry personally. There is no intake team, no automated response. Just Bonnie and a genuine interest in what your home "
+          - label: "Text: \"From the first dream board to the very last ..."
+            name: "contact_text4"
+            widget: "text"
+            required: false
+            hint: "Currently: \"From the first dream board to the very last detail I handle everything, so you can simply step into a home you love.\""
+          - label: "Text: Bonnie personally reads and responds to every..."
+            name: "contact_text5"
+            widget: "text"
+            required: false
+            hint: "Currently: Bonnie personally reads and responds to every inquiry, typically within 48 hours."
