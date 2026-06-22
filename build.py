@@ -103,7 +103,7 @@ def render_pages():
         data = _json.load(open(cpath, encoding="utf-8"))
         out = open(tpath, encoding="utf-8").read()
         for k, v in data.items():
-            out = out.replace("{{T:" + k + "}}", html.escape(str(v), quote=False))
+            out = out.replace("{{T:" + k + "}}", html.escape(str(v), quote=False).replace("\r\n", "<br>").replace("\n", "<br>"))
             out = out.replace("{{I:" + k + "}}", str(v))
         open(os.path.join(ROOT, f"{page}.html"), "w", encoding="utf-8").write(out)
         print(f"  rendered {page}.html")
