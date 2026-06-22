@@ -129,7 +129,11 @@ def main():
         alt = f"{d['title']} interior design in {d['location']}"
         d["_cover_opt"] = optimize(d["cover"], 1000)
         hero_opt = optimize(d["cover"], 1800)
-        imgs = [optimize(g["image"], 1600) for g in (d.get("gallery") or []) if g.get("image")]
+        imgs = []
+        for g in (d.get("gallery") or []):
+            src = g.get("image") if isinstance(g, dict) else g
+            if src:
+                imgs.append(optimize(src, 1600))
         if not imgs:
             imgs = [d["_cover_opt"]]
         nxt = (f"project-{entries[(idx+1) % len(entries)]['_slug']}.html"
