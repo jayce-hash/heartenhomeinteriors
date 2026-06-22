@@ -90,7 +90,26 @@ def sort_key(d):
     return (order, -year)
 
 
+
+def render_pages():
+    """Render index/about/services/contact from their editable content + templates."""
+    import json as _json
+    for page in ["index", "about", "services", "contact"]:
+        cpath = os.path.join(ROOT, "content", f"{page}.json")
+        tpath = os.path.join(ROOT, "_templates", f"{page}.html")
+        if not (os.path.exists(cpath) and os.path.exists(tpath)):
+            continue
+        data = _json.load(open(cpath, encoding="utf-8"))
+        out = open(tpath, encoding="utf-8").read()
+        for k, v in data.items():
+            out = out.replace("{{T:" + k + "}}", html.escape(str(v), quote=False))
+            out = out.replace("{{I:" + k + "}}", str(v))
+        open(os.path.join(ROOT, f"{page}.html"), "w", encoding="utf-8").write(out)
+        print(f"  rendered {page}.html")
+
+
 def main():
+    render_pages()
     entries = []
     for path in sorted(glob.glob(os.path.join(PROJ_DIR, "*.md"))):
         d = parse(path)
