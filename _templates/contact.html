@@ -85,7 +85,8 @@
 
         /* THE TICKING STRIPE PATTERN */
         .contact-section { padding: 80px 5% 140px; background-color: var(--linen); background-image: var(--ticking-stripe); border-bottom: 1px solid var(--border-subtle); }
-        .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 70px; max-width: 1200px; margin: 0 auto; align-items: center; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 70px; max-width: 1200px; margin: 0 auto; align-items: start; }
+        .contact-right { display: flex; flex-direction: column; gap: 30px; }
         
         /* Contact info wrapped in a white card to match form */
         .contact-info { background-color: transparent; padding: 0 10px 0 0; border: none; box-shadow: none; }
@@ -150,11 +151,19 @@
                 <div class="contact-methods"><a>Keller, TX</a><a>Serving Dallas / Fort Worth &amp; Surrounding Areas</a></div>
                 <div class="expect-note"><p>{{T:contact_text4}}</p></div>
             </div>
-            <div class="contact-form-container reveal" style="display:flex;flex-direction:column;justify-content:center;text-align:center;">
-                <span class="contact-detail-label" style="margin-bottom:16px;">Start Here</span>
-                <h2 style="margin-bottom:22px;">{{T:contact_hl3}}</h2>
-                <p style="color:var(--text-light);font-size:17px;line-height:1.8;margin:0 auto 36px;max-width:420px;">A few quick questions about your home and the project you're dreaming of. It takes about two minutes, and Bonnie personally reads every response.</p>
-                <a href="https://forms.gle/oV9xyPPhSdG9CHQEA" target="_blank" rel="noopener" class="btn btn-solid" style="align-self:center;">Begin Your Inquiry</a>
+            <div class="contact-right reveal">
+                <div class="contact-form-container" style="display:flex;flex-direction:column;justify-content:center;text-align:center;">
+                    <span class="contact-detail-label" style="margin-bottom:16px;">Start Here</span>
+                    <h2 style="margin-bottom:22px;">{{T:contact_hl3}}</h2>
+                    <p style="color:var(--text-light);font-size:17px;line-height:1.8;margin:0 auto 30px;max-width:420px;">A few quick questions about your home and the project you're dreaming of. It takes about two minutes, and Bonnie personally reads every response.</p>
+                    <a href="https://forms.gle/oV9xyPPhSdG9CHQEA" target="_blank" rel="noopener" class="btn btn-solid" style="align-self:center;">Begin Your Inquiry</a>
+                </div>
+                <div class="contact-form-container" style="display:flex;flex-direction:column;justify-content:center;text-align:center;">
+                    <span class="contact-detail-label" style="margin-bottom:16px;">The Details</span>
+                    <h2 style="margin-bottom:22px;">{{T:contact_hl4}}</h2>
+                    <p style="color:var(--text-light);font-size:17px;line-height:1.8;margin:0 auto 30px;max-width:420px;">A closer look at our services, our process, and what it is like to work together, from the first call to reveal day.</p>
+                    <a href="/Hearten-Home-Investment-Guide.pdf" target="_blank" rel="noopener" class="btn btn-solid" style="align-self:center;">View the Guide</a>
+                </div>
             </div>
         </div>
     </section>

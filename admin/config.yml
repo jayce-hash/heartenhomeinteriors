@@ -633,6 +633,11 @@ collections:
         label: "Contact Page"
         file: "content/contact.json"
         fields:
+          - label: "Headline: Our Investment Guide"
+            name: "contact_hl4"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
           - label: "Headline: Begin Your Story"
             name: "contact_hl1"
             widget: "string"
