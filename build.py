@@ -92,6 +92,14 @@ def sort_key(d):
 
 
 
+def _rich(s):
+    """Editable text -> safe HTML: escape, newline to <br>, *word* to <em>word</em>."""
+    s = html.escape(str(s), quote=False)
+    s = s.replace("\r\n", "<br>").replace("\n", "<br>")
+    s = re.sub(r"\*([^*]+)\*", r"<em>\1</em>", s)
+    return s
+
+
 def render_pages():
     """Render index/about/services/contact from their editable content + templates."""
     import json as _json
@@ -103,7 +111,7 @@ def render_pages():
         data = _json.load(open(cpath, encoding="utf-8"))
         out = open(tpath, encoding="utf-8").read()
         for k, v in data.items():
-            out = out.replace("{{T:" + k + "}}", html.escape(str(v), quote=False).replace("\r\n", "<br>").replace("\n", "<br>"))
+            out = out.replace("{{T:" + k + "}}", _rich(v))
             out = out.replace("{{I:" + k + "}}", str(v))
         open(os.path.join(ROOT, f"{page}.html"), "w", encoding="utf-8").write(out)
         print(f"  rendered {page}.html")

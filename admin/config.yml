@@ -87,6 +87,16 @@ collections:
         label: "Home Page"
         file: "content/index.json"
         fields:
+          - label: "Headline: Meet Bonnie"
+            name: "index_hl2"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
+          - label: "Headline: Design & Renovation"
+            name: "index_hl3"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
           - label: "Photo: Bonnie1.webp"
             name: "index_photo1"
             widget: "image"
@@ -170,6 +180,26 @@ collections:
         label: "About Page"
         file: "content/about.json"
         fields:
+          - label: "Headline: Meet Bonnie"
+            name: "about_hl1"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
+          - label: "Headline: She changed the atmosphere."
+            name: "about_hl2"
+            widget: "text"
+            hint: "Wrap a word in *asterisks* for the italic accent. Press Enter for a line break."
+
+          - label: "Headline: I was once told I changed the atmosphere in ..."
+            name: "about_hl3"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
+          - label: "Headline: What Bonnie Believes"
+            name: "about_hl4"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
           - label: "Photo: Bonnie1.webp"
             name: "about_photo1"
             widget: "image"
@@ -293,6 +323,36 @@ collections:
         label: "Services Page"
         file: "content/services.json"
         fields:
+          - label: "Headline: Design, Renovation & Styling"
+            name: "services_hl1"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
+          - label: "Headline: Turn-Key Renovations"
+            name: "services_hl2"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
+          - label: "Headline: Full-Service Design"
+            name: "services_hl3"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
+          - label: "Headline: Room Styling & Furnishings"
+            name: "services_hl4"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
+          - label: "Headline: Every detail is handled — the contractors, t..."
+            name: "services_hl5"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
+          - label: "Headline: Not sure which service is right for you?"
+            name: "services_hl6"
+            widget: "text"
+            hint: "Wrap a word in *asterisks* for the italic accent. Press Enter for a line break."
+
           - label: "Photo: placeholder-renovation.jpg"
             name: "services_photo1"
             widget: "image"
@@ -573,6 +633,21 @@ collections:
         label: "Contact Page"
         file: "content/contact.json"
         fields:
+          - label: "Headline: Begin Your Story"
+            name: "contact_hl1"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
+          - label: "Headline: Tell us about your home."
+            name: "contact_hl2"
+            widget: "text"
+            hint: "Wrap a word in *asterisks* for the italic accent. Press Enter for a line break."
+
+          - label: "Headline: Share your vision"
+            name: "contact_hl3"
+            widget: "string"
+            hint: "Wrap a word in *asterisks* for the italic accent."
+
           - label: "Eyebrow: Let's Begin"
             name: "contact_eyebrow1"
             widget: "string"
