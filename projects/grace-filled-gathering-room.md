@@ -1,10 +1,12 @@
 ---
-title: A Gathering Room That Holds the Whole Family
-service: Full-Service Design
+title: The Father of the Bride House
+service: Turn-Key Renovation
 location: Colleyville, TX
-year: "2023"
-cover: /images/projects/family.jpeg
-summary: "A growing family needed one room that could do everything: homework, holidays, and the quiet end of an ordinary day. We layered durable fabrics with warm wood and soft light to make a space that works as hard as they do."
+year: "2026"
+cover: /images/projects/77c6370f-75e4-415e-86ba-e7247ea71506.png
+summary: Helped some newlyweds with a blended family renovate a home to the home
+  of their dreams! We created a space for all 6 grown kids & renovated every
+  inch, including the exterior!
 gallery:
   - image: /images/projects/family.jpeg
   - image: /images/projects/ig1.jpeg
