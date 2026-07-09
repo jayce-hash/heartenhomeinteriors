@@ -47,7 +47,7 @@ def parse(path):
 def optimize(src_rel, max_w):
     """Resize + convert to WebP. Returns web path, or original on failure."""
     src = os.path.join(ROOT, src_rel.lstrip("/"))
-    name = slugify(os.path.splitext(os.path.basename(src))[0])
+    name = slugify(os.path.splitext(os.path.relpath(src, ROOT))[0])
     out_rel = f"/images/projects/opt/{name}-{max_w}.webp"
     out = os.path.join(ROOT, out_rel.lstrip("/"))
     try:
@@ -133,12 +133,21 @@ def render_pages():
 def main():
     render_pages()
     entries = []
-    for path in sorted(glob.glob(os.path.join(PROJ_DIR, "*.md"))):
-        d = parse(path)
-        d["_slug"] = slugify(os.path.splitext(os.path.basename(path))[0])
+    for md in sorted(glob.glob(os.path.join(PROJ_DIR, "*", "project.md"))):
+        pdir = os.path.dirname(md)
+        slug = os.path.basename(pdir)
+        if slug.startswith("_"):        # skip projects/_TEMPLATE
+            continue
+        d = parse(md)
+        d["_slug"] = slug
+        covers = sorted(glob.glob(os.path.join(pdir, "cover.*")))
+        d["cover"] = ("/" + os.path.relpath(covers[0], ROOT)) if covers else None
+        gfiles = [g for g in sorted(glob.glob(os.path.join(pdir, "gallery", "*")))
+                  if g.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))]
+        d["gallery"] = ["/" + os.path.relpath(g, ROOT) for g in gfiles]
         missing = [k for k in REQUIRED if not d.get(k)]
         if missing:
-            print(f"SKIP {os.path.basename(path)} -> missing required: {', '.join(missing)}")
+            print(f"SKIP {slug} -> missing required: {', '.join(missing)}")
             continue
         entries.append(d)
 

@@ -1,7 +1,7 @@
 {
-  "services_photo1": "placeholder-renovation.jpg",
-  "services_photo2": "placeholder-design.jpg",
-  "services_photo3": "placeholder-decor.jpg",
+  "services_photo1": "/images/services/renovation.jpg",
+  "services_photo2": "/images/services/design.jpg",
+  "services_photo3": "/images/services/styling.jpg",
   "services_photo4": "placeholder-holiday.jpg",
   "services_eyebrow1": "What We Do Together",
   "services_eyebrow2": "How We Work",
