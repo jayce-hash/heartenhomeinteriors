@@ -140,13 +140,15 @@
         .tripp-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
         .tripp-photos img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 4px; background-color: var(--linen); display: block; }
         .team-note { padding: clamp(60px,8vw,100px) 5%; background-color: var(--white); border-top: 1px solid var(--border-subtle); }
-        .team-note-inner { max-width: 680px; margin: 0 auto; text-align: center; }
-        .team-note-inner h2 { font-size: clamp(28px,3.2vw,38px); margin: 8px 0 18px; line-height: 1.15; }
-        .team-note-inner p { color: var(--text-light); font-size: 17px; line-height: 1.8; }
-        .team-member { margin-top: 40px; display: flex; flex-direction: column; align-items: center; }
-        .team-member img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; background-color: var(--linen); }
-        .team-member-name { font-family: var(--font-serif); font-size: 22px; color: var(--navy); margin-top: 16px; }
-        .team-member-role { font-family: var(--font-sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-top: 4px; }
+        .team-note-header { max-width: 680px; margin: 0 auto 50px; text-align: center; }
+        .team-note-header h2 { font-size: clamp(28px,3.2vw,38px); margin: 8px 0 18px; line-height: 1.15; }
+        .team-note-header p { color: var(--text-light); font-size: 17px; line-height: 1.8; }
+        .team-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 40px; }
+        .team-card { text-align: center; }
+        .team-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 4px; background-color: var(--linen); display: block; }
+        .team-card-name { font-family: var(--font-serif); font-size: 22px; color: var(--navy); margin-top: 18px; }
+        .team-card-role { font-family: var(--font-sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-top: 5px; }
+        @media (max-width:768px){ .team-grid { grid-template-columns: 1fr; gap: 36px; max-width: 320px; } }
         @media (max-width:768px){ .tripp-grid { grid-template-columns: 1fr; gap: 34px; } }
     </style>
 </head>
@@ -172,14 +174,26 @@
         </div>
     </section>
     <section class="team-note reveal">
-        <div class="team-note-inner">
+        <div class="team-note-header">
             <span class="eyebrow">The Team</span>
             <h2>A small team, a <em>personal</em> touch</h2>
             <p>Alongside Bonnie and Tripp, a close-knit team helps bring every home to life, caring about the details as much as you do.</p>
-            <div class="team-member">
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="Bonnie1.webp" alt="Bonnie Roden">
+                <div class="team-card-name">Bonnie Roden</div>
+                <div class="team-card-role">Owner &amp; Principal Designer</div>
+            </div>
+            <div class="team-card">
+                <img src="tripp-photo-2.jpg" alt="Tripp Roden">
+                <div class="team-card-name">Tripp Roden</div>
+                <div class="team-card-role">General Contractor</div>
+            </div>
+            <div class="team-card">
                 <img src="mcklane.jpg" alt="McKlane">
-                <div class="team-member-name">McKlane</div>
-                <div class="team-member-role">Design Assistant</div>
+                <div class="team-card-name">McKlane</div>
+                <div class="team-card-role">Design Assistant</div>
             </div>
         </div>
     </section>
