@@ -366,6 +366,14 @@
             .belief-strip { padding: 80px 5%; }
             .home-about-section, .home-services-section, .portfolio { padding: 80px 5%; }
         }
+        .reviews-section { padding: clamp(90px,12vw,150px) 5%; background-color: var(--white); text-align: center; border-bottom: 1px solid var(--border-subtle); }
+        .reviews-header { margin-bottom: 56px; }
+        .reviews-header h2 { font-size: clamp(32px,4vw,48px); margin-top: 8px; line-height: 1.1; }
+        .reviews-track { max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 56px; }
+        .review-quote { font-family: var(--font-serif); font-style: italic; font-weight: 300; font-size: clamp(22px,2.6vw,30px); line-height: 1.5; color: var(--navy); }
+        .review-quote::before { content: '\201C'; display: block; font-family: var(--font-serif); font-size: 64px; line-height: .5; color: var(--slate); opacity: .3; margin-bottom: 18px; }
+        .review-name { margin-top: 22px; font-size: var(--text-xs); letter-spacing: var(--tracking-wide); text-transform: uppercase; color: var(--sage); font-weight: 500; }
+        @media (max-width:768px){ .reviews-section { padding: 80px 5%; } }
     </style>
     <script type="application/ld+json">
     {
@@ -432,6 +440,13 @@
         </div>
     </header>
 
+    <section class="reviews-section reveal">
+        <div class="reviews-header">
+            <span class="eyebrow">Kind Words</span>
+            <h2>Loved by the families <em>we serve</em></h2>
+        </div>
+        <div class="reviews-track"><figure class="review-card"><blockquote class="review-quote">They took every idea we had and turned it into the dream home we always envisioned. What we did not expect was walking away with more than a beautiful home — we walked away with a friendship that will last a lifetime.</blockquote><figcaption class="review-name">Kate &amp; Greg</figcaption></figure></div>
+    </section>
     <section class="home-about-section">
         <div class="home-about-grid reveal">
             <div class="home-about-img">

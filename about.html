@@ -133,6 +133,21 @@
 
         @media (max-width: 1024px) { .about-grid { gap: 60px; grid-template-columns: 1fr 1fr; } .pillars-grid { gap: 20px; } .pillar-item { padding: 40px 30px; } }
         @media (max-width: 768px) { nav, nav.scrolled { height: auto !important; flex-direction: column; padding: 16px 5% 12px; background-color: var(--alabaster); } .nav-brand { margin-bottom: 16px; width: 100%; display: flex; justify-content: center; } .nav-logo-link { flex-direction: row !important; align-items: center; justify-content: center; gap: 12px; } .nav-logo-text { font-size: 22px; } .nav-logo-img img { height: 58px; } .nav-links { width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 16px; padding: 16px 0 0; border-top: 1px solid var(--border-subtle); } .nav-links a { font-size: 11px; } .inner-hero { padding: 200px 5% 60px !important; border-bottom: none;} .inner-hero::before { display: none; } .inner-hero-content { padding: 0; } .about-section { padding: 40px 5% 80px; } .about-grid { grid-template-columns: 1fr; gap: 50px; } .about-image { padding-right: 20px; padding-bottom: 20px; } .about-image img { border-radius: 120px 120px 4px 4px; } .pillars-grid { grid-template-columns: 1fr; } .belief-strip, .pillars-section { padding: 80px 5%; } .definition-strip { padding: 100px 5%; } .footer-links a { margin: 0 12px 15px; } }
+        .tripp-section { padding: clamp(70px,9vw,120px) 5%; background-color: var(--alabaster); border-top: 1px solid var(--border-subtle); }
+        .tripp-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .tripp-text h2 { font-size: clamp(30px,3.5vw,40px); margin-bottom: 20px; line-height: 1.15; }
+        .tripp-text p { color: var(--text-light); font-size: 17px; line-height: 1.8; }
+        .tripp-photos { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 440px; }
+        .tripp-photos img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 4px; background-color: var(--linen); display: block; }
+        .team-note { padding: clamp(60px,8vw,100px) 5%; background-color: var(--white); border-top: 1px solid var(--border-subtle); }
+        .team-note-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+        .team-note-inner h2 { font-size: clamp(28px,3.2vw,38px); margin: 8px 0 18px; line-height: 1.15; }
+        .team-note-inner p { color: var(--text-light); font-size: 17px; line-height: 1.8; }
+        .team-member { margin-top: 40px; display: flex; flex-direction: column; align-items: center; }
+        .team-member img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; background-color: var(--linen); }
+        .team-member-name { font-family: var(--font-serif); font-size: 22px; color: var(--navy); margin-top: 16px; }
+        .team-member-role { font-family: var(--font-sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-top: 4px; }
+        @media (max-width:768px){ .tripp-grid { grid-template-columns: 1fr; gap: 34px; } }
     </style>
 </head>
 <body>
@@ -143,6 +158,30 @@
     <header class="inner-hero"><div class="inner-hero-content reveal"><span class="eyebrow">The Designer</span><h1>Meet <em>Bonnie</em></h1><p>Thirty years of knowing that the most well-designed home is the one that makes you want to stay a while.</p></div></header>
     <section class="about-section"><div class="about-grid"><div class="about-image reveal"><img src="Bonnie1.webp" alt="Bonnie Roden"></div><div class="about-text reveal"><h2>She changed the<br><em>atmosphere.</em></h2><p>For thirty years, Bonnie Roden was the friend everyone called — the one who could walk into a home and see what it was trying to become. Who rearranged a living room on a Saturday afternoon and changed the way a family used it. Who helped a girlfriend stage her house for sale and watched it go in a week.</p><p>She did it because she loved it…because there is something that happens when a space becomes exactly right — a quality of ease, a sense of belonging, a feeling of being held by the room instead of merely occupying it.</p><p>Bonnie chased that feeling for three decades before she put her name on a door. In 2024, she finally did.</p><p>Hearten Home Interiors is the business she spent thirty years building without knowing it. Her goal is as simple as it is rare: to make you love your home more — not just because it's beautiful, but because it is finally, undeniably, yours.</p><p>She is based in Keller, Texas, and serves the greater Dallas / Fort Worth area — full renovations, new-build design from start to finish, and the kind of styling that makes you wonder how you ever lived without it.</p><div class="signature">Bonnie Roden</div></div></div></section>
     
+    <section class="tripp-section reveal">
+        <div class="tripp-grid">
+            <div class="tripp-text">
+                <span class="eyebrow">The Build</span>
+                <h2>From Vision <em>to Reality</em></h2>
+                <p>Bonnie designs it, then passes the baton to her husband Tripp, Hearten Home's general contractor, who makes it happen. From renovations to full remodels, Tripp manages the build, so the home Bonnie envisions becomes the home you live in.</p>
+            </div>
+            <div class="tripp-photos">
+                <img src="tripp-photo-2.jpg" alt="Tripp Roden">
+            </div>
+        </div>
+    </section>
+    <section class="team-note reveal">
+        <div class="team-note-inner">
+            <span class="eyebrow">The Team</span>
+            <h2>A small team, a <em>personal</em> touch</h2>
+            <p>Alongside Bonnie and Tripp, a close-knit team helps bring every home to life, caring about the details as much as you do.</p>
+            <div class="team-member">
+                <img src="mcklane.jpg" alt="McKlane">
+                <div class="team-member-name">McKlane</div>
+                <div class="team-member-role">Design Assistant</div>
+            </div>
+        </div>
+    </section>
     <section class="belief-strip reveal">
         <div class="belief-content">
             <blockquote>"I was once told I changed the atmosphere in a client's home. That feeling is one of the best in the world — and it is the one I chase in <em>every project.</em>"</blockquote>

@@ -133,6 +133,21 @@
 
         @media (max-width: 1024px) { .about-grid { gap: 60px; grid-template-columns: 1fr 1fr; } .pillars-grid { gap: 20px; } .pillar-item { padding: 40px 30px; } }
         @media (max-width: 768px) { nav, nav.scrolled { height: auto !important; flex-direction: column; padding: 16px 5% 12px; background-color: var(--alabaster); } .nav-brand { margin-bottom: 16px; width: 100%; display: flex; justify-content: center; } .nav-logo-link { flex-direction: row !important; align-items: center; justify-content: center; gap: 12px; } .nav-logo-text { font-size: 22px; } .nav-logo-img img { height: 58px; } .nav-links { width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 16px; padding: 16px 0 0; border-top: 1px solid var(--border-subtle); } .nav-links a { font-size: 11px; } .inner-hero { padding: 200px 5% 60px !important; border-bottom: none;} .inner-hero::before { display: none; } .inner-hero-content { padding: 0; } .about-section { padding: 40px 5% 80px; } .about-grid { grid-template-columns: 1fr; gap: 50px; } .about-image { padding-right: 20px; padding-bottom: 20px; } .about-image img { border-radius: 120px 120px 4px 4px; } .pillars-grid { grid-template-columns: 1fr; } .belief-strip, .pillars-section { padding: 80px 5%; } .definition-strip { padding: 100px 5%; } .footer-links a { margin: 0 12px 15px; } }
+        .tripp-section { padding: clamp(70px,9vw,120px) 5%; background-color: var(--alabaster); border-top: 1px solid var(--border-subtle); }
+        .tripp-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .tripp-text h2 { font-size: clamp(30px,3.5vw,40px); margin-bottom: 20px; line-height: 1.15; }
+        .tripp-text p { color: var(--text-light); font-size: 17px; line-height: 1.8; }
+        .tripp-photos { display: grid; grid-template-columns: 1fr; gap: 16px; max-width: 440px; }
+        .tripp-photos img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 4px; background-color: var(--linen); display: block; }
+        .team-note { padding: clamp(60px,8vw,100px) 5%; background-color: var(--white); border-top: 1px solid var(--border-subtle); }
+        .team-note-inner { max-width: 680px; margin: 0 auto; text-align: center; }
+        .team-note-inner h2 { font-size: clamp(28px,3.2vw,38px); margin: 8px 0 18px; line-height: 1.15; }
+        .team-note-inner p { color: var(--text-light); font-size: 17px; line-height: 1.8; }
+        .team-member { margin-top: 40px; display: flex; flex-direction: column; align-items: center; }
+        .team-member img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; background-color: var(--linen); }
+        .team-member-name { font-family: var(--font-serif); font-size: 22px; color: var(--navy); margin-top: 16px; }
+        .team-member-role { font-family: var(--font-sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-top: 4px; }
+        @media (max-width:768px){ .tripp-grid { grid-template-columns: 1fr; gap: 34px; } }
     </style>
 </head>
 <body>
@@ -143,6 +158,30 @@
     <header class="inner-hero"><div class="inner-hero-content reveal"><span class="eyebrow">{{T:about_eyebrow1}}</span><h1>{{T:about_hl1}}</h1><p>{{T:about_text1}}</p></div></header>
     <section class="about-section"><div class="about-grid"><div class="about-image reveal"><img src="{{I:about_photo1}}" alt="Bonnie Roden"></div><div class="about-text reveal"><h2>{{T:about_hl2}}</h2><p>{{T:about_text2}}</p><p>{{T:about_text3}}</p><p>{{T:about_text4}}</p><p>{{T:about_text5}}</p><p>{{T:about_text6}}</p><div class="signature">Bonnie Roden</div></div></div></section>
     
+    <section class="tripp-section reveal">
+        <div class="tripp-grid">
+            <div class="tripp-text">
+                <span class="eyebrow">{{T:about_tripp_eyebrow}}</span>
+                <h2>{{T:about_tripp_hl}}</h2>
+                <p>{{T:about_tripp_text}}</p>
+            </div>
+            <div class="tripp-photos">
+                <img src="{{I:about_photo_tripp2}}" alt="Tripp Roden">
+            </div>
+        </div>
+    </section>
+    <section class="team-note reveal">
+        <div class="team-note-inner">
+            <span class="eyebrow">{{T:about_team_eyebrow}}</span>
+            <h2>{{T:about_team_hl}}</h2>
+            <p>{{T:about_team_text}}</p>
+            <div class="team-member">
+                <img src="{{I:about_photo_team}}" alt="{{T:about_team_name}}">
+                <div class="team-member-name">{{T:about_team_name}}</div>
+                <div class="team-member-role">{{T:about_team_role}}</div>
+            </div>
+        </div>
+    </section>
     <section class="belief-strip reveal">
         <div class="belief-content">
             <blockquote>{{T:about_hl3}}</blockquote>
