@@ -406,7 +406,6 @@
   ]
 }
     </script>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -538,17 +537,6 @@
         
         window.addEventListener('scroll', reveal);
         setTimeout(reveal, 100); // Trigger once on load
-    </script>
-    <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", function (user) {
-          if (!user) {
-            window.netlifyIdentity.on("login", function () {
-              document.location.href = "/admin/";
-            });
-          }
-        });
-      }
     </script>
 </body>
 </html>
