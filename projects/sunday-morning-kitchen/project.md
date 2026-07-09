@@ -1,8 +1,8 @@
 ---
-title: A Kitchen Built for Sunday Mornings
+title: The Father of the Bride House
 service: Turn-Key Renovation
-location: Southlake, TX
-year: "2024"
-summary: This family loved cooking together, but the old galley kitchen kept them apart. We opened the wall to the breakfast room, added a generous island, and chose finishes that hide everyday life so the space always feels ready for company.
+location: Colleyville, TX
+year: "2025"
+summary: This newly wed couple and blended family created the most beautiful timeless home. The home was gutted and reimagined for their specific needs . There is a space for every adult child , and a special place now they all can call home . 
 order: 1
 ---
