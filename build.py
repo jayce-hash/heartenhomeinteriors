@@ -117,14 +117,12 @@ def render_pages():
             out = out.replace("{{I:" + k + "}}", str(v))
         if page == "index":
             reviews = data.get("reviews") or []
-            cards = "".join(
-                '<figure class="review-card"><blockquote class="review-quote">'
-                + _rich(r.get("quote", ""))
-                + '</blockquote><figcaption class="review-name">'
-                + _rich(r.get("name", ""))
-                + '</figcaption></figure>'
-                for r in reviews if r.get("quote")
-            )
+            def _card(r):
+                q = '<blockquote class="review-quote">' + _rich(r.get("quote", "")) + '</blockquote>'
+                nm = (r.get("name") or "").strip()
+                fc = '<figcaption class="review-name">' + _rich(nm) + '</figcaption>' if nm else ''
+                return '<figure class="review-card">' + q + fc + '</figure>'
+            cards = "".join(_card(r) for r in reviews if r.get("quote"))
             out = out.replace("{{REVIEWS}}", cards)
         open(os.path.join(ROOT, f"{page}.html"), "w", encoding="utf-8").write(out)
         print(f"  rendered {page}.html")
