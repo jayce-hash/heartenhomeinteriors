@@ -150,6 +150,8 @@
         .team-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 4px; background-color: var(--linen); display: block; }
         .team-card-name { font-family: var(--font-serif); font-size: 22px; color: var(--navy); margin-top: 18px; }
         .team-card-role { font-family: var(--font-sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-top: 5px; }
+        .team-card-email { display: inline-block; font-family: var(--font-sans); font-size: 13px; color: var(--slate); margin-top: 10px; text-decoration: none; letter-spacing: 0.3px; transition: color 0.2s; }
+        .team-card-email:hover { color: var(--navy); text-decoration: underline; }
         @media (max-width:768px){ .team-grid { grid-template-columns: 1fr; gap: 36px; max-width: 320px; } }
         @media (max-width:768px){ .tripp-grid { grid-template-columns: 1fr; gap: 34px; } }
     </style>
@@ -186,16 +188,19 @@
                 <img src="{{I:about_photo1}}" alt="{{T:about_team_b_name}}">
                 <div class="team-card-name">{{T:about_team_b_name}}</div>
                 <div class="team-card-role">{{T:about_team_b_role}}</div>
+                <a class="team-card-email" href="mailto:{{I:about_team_b_email}}">{{T:about_team_b_email}}</a>
             </div>
             <div class="team-card">
                 <img src="{{I:about_photo_tripp3}}" alt="{{T:about_team_t_name}}">
                 <div class="team-card-name">{{T:about_team_t_name}}</div>
                 <div class="team-card-role">{{T:about_team_t_role}}</div>
+                <a class="team-card-email" href="mailto:{{I:about_team_t_email}}">{{T:about_team_t_email}}</a>
             </div>
             <div class="team-card">
                 <img src="{{I:about_photo_team}}" alt="{{T:about_team_name}}">
                 <div class="team-card-name">{{T:about_team_name}}</div>
                 <div class="team-card-role">{{T:about_team_role}}</div>
+                <a class="team-card-email" href="mailto:{{I:about_team_m_email}}">{{T:about_team_m_email}}</a>
             </div>
         </div>
     </section>
