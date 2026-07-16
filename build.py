@@ -140,6 +140,9 @@ def main():
         d["_slug"] = slug
         covers = sorted(glob.glob(os.path.join(pdir, "cover.*")))
         d["cover"] = ("/" + os.path.relpath(covers[0], ROOT)) if covers else None
+        # Optional wide hero image for the project page banner. Falls back to cover.
+        heroes = sorted(glob.glob(os.path.join(pdir, "hero.*")))
+        d["hero"] = ("/" + os.path.relpath(heroes[0], ROOT)) if heroes else None
         gfiles = [g for g in sorted(glob.glob(os.path.join(pdir, "gallery", "*")))
                   if g.lower().endswith((".jpg", ".jpeg", ".png", ".webp"))]
         d["gallery"] = ["/" + os.path.relpath(g, ROOT) for g in gfiles]
@@ -157,7 +160,7 @@ def main():
     for idx, d in enumerate(entries):
         alt = f"{d['title']} interior design in {d['location']}"
         d["_cover_opt"] = optimize(d["cover"], 1000)
-        hero_opt = optimize(d["cover"], 1800)
+        hero_opt = optimize(d["hero"] or d["cover"], 1800)
         imgs = []
         for g in (d.get("gallery") or []):
             src = g.get("image") if isinstance(g, dict) else g
@@ -177,6 +180,7 @@ def main():
                 .replace("{{METADESC}}", esc(" ".join(str(d["summary"]).split())[:155]))
                 .replace("{{GALLERY}}", gallery_section(imgs, esc(alt)))
                 .replace("{{HERO}}", hero_opt)
+                .replace("{{HERO_FOCUS}}", esc(d.get("hero_focus") or "center"))
                 .replace("{{CANONICAL}}", canonical)
                 .replace("{{OGIMAGE}}", ogimage)
                 .replace("{{NEXT}}", nxt))
