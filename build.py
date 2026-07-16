@@ -55,7 +55,7 @@ def optimize(src_rel, max_w):
         im = ImageOps.exif_transpose(im).convert("RGB")
         if im.width > max_w:
             im = im.resize((max_w, round(im.height * max_w / im.width)), Image.LANCZOS)
-        im.save(out, "WEBP", quality=82, method=6)
+        im.save(out, "WEBP", quality=90, method=6)
         return out_rel
     except Exception as e:
         print(f"  ! image skipped ({src_rel}): {e}")
@@ -63,25 +63,13 @@ def optimize(src_rel, max_w):
 
 
 def gallery_section(images, alt):
-    blocks, i = [], 0
-    while i < len(images):
-        if i + 1 < len(images):
-            blocks.append(
-                '<div class="gallery-grid gallery-2-col">\n'
-                f'            <img src="{images[i]}" alt="{alt}" loading="lazy">\n'
-                f'            <img src="{images[i+1]}" alt="{alt}" loading="lazy">\n'
-                "        </div>"
-            )
-            i += 2
-        else:
-            blocks.append(
-                '<div class="gallery-grid gallery-1-col">\n'
-                f'            <img src="{images[i]}" alt="{alt}" loading="lazy">\n'
-                "        </div>"
-            )
-            i += 1
-    return ('<section class="project-gallery-section reveal">\n        '
-            + "\n        ".join(blocks) + "\n    </section>")
+    figs = "\n            ".join(
+        f'<figure><img src="{src}" alt="{alt}" loading="lazy"></figure>'
+        for src in images
+    )
+    return ('<section class="project-gallery-section reveal">\n'
+            '        <div class="gallery-masonry">\n            '
+            + figs + "\n        </div>\n    </section>")
 
 
 def sort_key(d):
