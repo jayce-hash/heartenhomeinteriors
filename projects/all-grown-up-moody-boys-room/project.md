@@ -1,5 +1,5 @@
 ---
-title: All Grown Up Moody Boy's Room
+title: title: "All Grown Up\nMoody Boy's Room"
 service: Full-Service Design
 location: Colleyville, TX
 year: "2025"
