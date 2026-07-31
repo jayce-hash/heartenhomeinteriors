@@ -1,8 +1,8 @@
 ---
-title: All Grown Up Moody Boy’s Room
+title: The Father of the Bride House
 service: Full-Service Design
 location: Colleyville, TX
 year: "2025"
-summary: "This is the third bedroom I have worked on for this young man and now he is an adult! This moody bedroom with lounge area is a dream and delivered the vibe he wanted and will for years to come!”
+summary: "This newly wed couple and blended family created the most beautiful timeless home. The home was gutted and reimagined for their specific needs. There is a space for every adult child, and a special place they can all now call home."
 order: 2
 ---
