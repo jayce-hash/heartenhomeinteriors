@@ -28,6 +28,14 @@ def esc(s):
     return html.escape(str(s), quote=True)
 
 
+def title_forms(t):
+    """Return (plain, display). Plain collapses whitespace for meta/alt/<title>.
+    Display keeps line breaks as <br> so a title can wrap where the user intends."""
+    plain = " ".join(str(t).split())
+    disp = esc(t).replace("\r\n", "<br>").replace("\n", "<br>")
+    return plain, disp
+
+
 def slugify(s):
     return re.sub(r"[^a-z0-9]+", "-", str(s).lower()).strip("-")
 
@@ -152,7 +160,8 @@ def main():
 
     # detail pages
     for idx, d in enumerate(entries):
-        alt = f"{d['title']} interior design in {d['location']}"
+        title_plain, title_display = title_forms(d["title"])
+        alt = f"{title_plain} interior design in {d['location']}"
         d["_cover_opt"] = optimize(d["cover"], 1000)
         hero_opt = optimize(d["hero"] or d["cover"], 1800)
         imgs = []
@@ -167,7 +176,8 @@ def main():
         canonical = f"{BASE}/project-{d['_slug']}.html"
         ogimage = f"{BASE}{hero_opt}"
         page = (TEMPLATE
-                .replace("{{TITLE}}", esc(d["title"]))
+                .replace("{{TITLE_DISPLAY}}", title_display)
+                .replace("{{TITLE}}", esc(title_plain))
                 .replace("{{SERVICE}}", esc(d["service"]))
                 .replace("{{LOCATION}}", esc(d["location"]))
                 .replace("{{SUMMARY}}", esc(d["summary"]))
@@ -184,19 +194,19 @@ def main():
     # gallery grid -> projects.html (only the marked region is touched)
     cards = []
     for d in entries:
+        t_plain, t_disp = title_forms(d["title"])
         cards.append(
             f'<a href="project-{d["_slug"]}.html" class="portfolio-item">'
-            f'<img src="{d["_cover_opt"]}" alt="{esc(d["title"])}" loading="lazy">'
+            f'<img src="{d["_cover_opt"]}" alt="{esc(t_plain)}" loading="lazy">'
             f'<div class="portfolio-overlay">'
-            f'<div class="portfolio-project-name">{esc(d["title"])}</div>'
+            f'<div class="portfolio-project-name">{t_disp}</div>'
             f'<div class="portfolio-location">{esc(d["location"])}</div>'
             f'<span class="portfolio-view">View Project</span></div></a>'
         )
     for d in placeholders:                 # non-clickable holder tiles, appended last
         cards.append(
             '<div class="portfolio-item portfolio-coming-soon">'
-            '<span class="cs-eyebrow">New Project</span>'
-            '<span class="cs-title">Coming Soon</span>'
+            '<span class="cs-title">More projects loading soon...</span>'
             '<span class="cs-rule"></span></div>'
         )
     grid = "\n            ".join(cards) if cards else ""
