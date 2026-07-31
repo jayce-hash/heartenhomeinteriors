@@ -119,6 +119,7 @@ def render_pages():
 def main():
     render_pages()
     entries = []
+    placeholders = []          # "coming soon" holder tiles: shown in grid, no page
     for md in sorted(glob.glob(os.path.join(PROJ_DIR, "*", "project.md"))):
         pdir = os.path.dirname(md)
         slug = os.path.basename(pdir)
@@ -126,6 +127,11 @@ def main():
             continue
         d = parse(md)
         d["_slug"] = slug
+        # A coming-soon holder fills a grid slot but has no photos and no page.
+        if d.get("coming_soon"):
+            placeholders.append(d)
+            print(f"  placeholder tile: {slug}")
+            continue
         covers = sorted(glob.glob(os.path.join(pdir, "cover.*")))
         d["cover"] = ("/" + os.path.relpath(covers[0], ROOT)) if covers else None
         # Optional wide hero image for the project page banner. Falls back to cover.
@@ -185,6 +191,13 @@ def main():
             f'<div class="portfolio-project-name">{esc(d["title"])}</div>'
             f'<div class="portfolio-location">{esc(d["location"])}</div>'
             f'<span class="portfolio-view">View Project</span></div></a>'
+        )
+    for d in placeholders:                 # non-clickable holder tiles, appended last
+        cards.append(
+            '<div class="portfolio-item portfolio-coming-soon">'
+            '<span class="cs-eyebrow">New Project</span>'
+            '<span class="cs-title">Coming Soon</span>'
+            '<span class="cs-rule"></span></div>'
         )
     grid = "\n            ".join(cards) if cards else ""
     pg = open(os.path.join(ROOT, "projects.html"), encoding="utf-8").read()
