@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>document.documentElement.className += ' js';</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="/favicon.ico" sizes="any">
@@ -17,6 +18,9 @@
     <meta property="og:description" content="A portfolio of Dallas/Fort Worth homes by Hearten Home Interiors, each one designed for the family inside it, not for the photograph.">
     <meta property="og:url" content="https://heartenhome.com/projects.html">
     <meta property="og:image" content="https://heartenhome.com/images/site/share-default.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hearten Home Interiors, interior design in Dallas Fort Worth">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://heartenhome.com/images/site/share-default.jpg">
     <meta name="twitter:title" content="Selected Works | Hearten Home Interiors">
@@ -68,7 +72,8 @@
         .btn-light { background-color: transparent; color: var(--navy); border: 1px solid var(--navy); }
         .btn-light:hover { background-color: var(--navy); color: var(--white); border-color: var(--navy); }
 
-        .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1); }
+        .reveal { transition: opacity 1s cubic-bezier(0.25, 1, 0.5, 1), transform 1s cubic-bezier(0.25, 1, 0.5, 1); }
+        .js .reveal { opacity: 0; transform: translateY(30px); }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
         nav { position: fixed; top: 0; left: 0; width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 5%; z-index: 1000; transition: var(--transition); background-color: transparent; height: 110px; border-bottom: 1px solid transparent; }
@@ -126,11 +131,47 @@
         @media (max-width: 1024px) { .portfolio-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
         @media (max-width: 768px) { nav, nav.scrolled { height: auto !important; flex-direction: column; padding: 16px 5% 12px; background-color: var(--alabaster); } .nav-brand { margin-bottom: 16px; width: 100%; display: flex; justify-content: center; } .nav-logo-link { flex-direction: row !important; align-items: center; justify-content: center; gap: 12px; } .nav-logo-text { font-size: 22px; } .nav-logo-img img { height: 58px; } .nav-links { width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 16px; padding: 16px 0 0; border-top: 1px solid var(--border-subtle); } .nav-links a { font-size: 11px; } .inner-hero { padding: 200px 5% 60px !important; border-bottom: none;} .inner-hero::before { display: none; } .inner-hero-content { padding: 0; } .portfolio { padding: 60px 5% 100px; } .portfolio-grid { grid-template-columns: 1fr; gap: 20px; } .projects-cta { padding: 100px 5%; } .footer-links a { margin: 0 12px 15px; } }
     </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "https://heartenhome.com/projects.html",
+  "url": "https://heartenhome.com/projects.html",
+  "name": "Selected Works | Hearten Home Interiors",
+  "isPartOf": {
+    "@id": "https://heartenhome.com/#website"
+  },
+  "about": {
+    "@id": "https://heartenhome.com/#studio"
+  }
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://heartenhome.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Projects",
+      "item": "https://heartenhome.com/projects.html"
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <nav id="navbar">
-        <div class="nav-brand"><a href="index.html" class="nav-logo-link"><div class="nav-logo-img"><img src="/images/site/logo-monogram-navy.png" alt="Hearten Home"></div><span class="nav-logo-text">Hearten Home Interiors</span></a></div>
-        <div class="nav-links" id="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html" class="active">Projects</a><a href="contact.html">Contact</a></div>
+        <div class="nav-brand"><a href="/" class="nav-logo-link"><div class="nav-logo-img"><img src="/images/site/logo-monogram-navy.png" alt="Hearten Home"></div><span class="nav-logo-text">Hearten Home Interiors</span></a></div>
+        <div class="nav-links" id="nav-links"><a href="/">Home</a><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html" class="active">Projects</a><a href="contact.html">Contact</a></div>
     </nav>
     
     <header class="inner-hero"><div class="inner-hero-content reveal"><span class="eyebrow">Portfolio</span><h1>Beloved <em>Homes</em></h1><p>Each space here was built for the family inside it — not for the photograph. These are a few of their stories.</p></div></header>
@@ -138,7 +179,9 @@
     <section class="portfolio">
         <div class="portfolio-grid reveal">
             <!-- PROJECTS:START -->
-            <a href="project-the-father-of-the-bride-house.html" class="portfolio-item"><img src="/images/projects/opt/projects-the-father-of-the-bride-house-cover-1000.webp" alt="The Father of the Bride House" loading="lazy"><div class="portfolio-overlay"><div class="portfolio-project-name">The Father of the Bride House</div><div class="portfolio-location">Colleyville, TX</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project-the-father-of-the-bride-house.html" class="portfolio-item"><img src="/images/projects/opt/projects-the-father-of-the-bride-house-cover-1000.webp" alt="The Father of the Bride House interior design in Colleyville, TX" width="1000" height="1777" loading="lazy" decoding="async"><div class="portfolio-overlay"><div class="portfolio-project-name">The Father of the Bride House</div><div class="portfolio-location">Colleyville, TX</div><span class="portfolio-view">View Project</span></div></a>
+            <a href="project-all-grown-up-moody-boys-room.html" class="portfolio-item"><img src="/images/projects/opt/projects-all-grown-up-moody-boys-room-cover-1000.webp" alt="All Grown Up Moody Boy&#x27;s Room interior design in Colleyville, TX" width="1000" height="667" loading="lazy" decoding="async"><div class="portfolio-overlay"><div class="portfolio-project-name">All Grown Up<br>Moody Boy&#x27;s Room</div><div class="portfolio-location">Colleyville, TX</div><span class="portfolio-view">View Project</span></div></a>
+            <div class="portfolio-item portfolio-coming-soon"><span class="cs-title">More projects loading soon...</span><span class="cs-rule"></span></div>
             <!-- PROJECTS:END -->
         </div>
     </section>

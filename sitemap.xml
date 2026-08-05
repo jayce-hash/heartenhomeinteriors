@@ -1,10 +1,204 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://heartenhome.com/</loc><lastmod>2026-07-09</lastmod></url>
-  <url><loc>https://heartenhome.com/about.html</loc><lastmod>2026-07-09</lastmod></url>
-  <url><loc>https://heartenhome.com/services.html</loc><lastmod>2026-07-09</lastmod></url>
-  <url><loc>https://heartenhome.com/projects.html</loc><lastmod>2026-07-09</lastmod></url>
-  <url><loc>https://heartenhome.com/contact.html</loc><lastmod>2026-07-09</lastmod></url>
-  <url><loc>https://heartenhome.com/project-sunday-morning-kitchen.html</loc><lastmod>2026-07-09</lastmod></url>
-  <url><loc>https://heartenhome.com/project-grace-filled-gathering-room.html</loc><lastmod>2026-07-09</lastmod></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemaps/image/1.1">
+  <url>
+    <loc>https://heartenhome.com/</loc>
+    <lastmod>2026-08-05</lastmod>
+  </url>
+  <url>
+    <loc>https://heartenhome.com/about.html</loc>
+    <lastmod>2026-08-05</lastmod>
+  </url>
+  <url>
+    <loc>https://heartenhome.com/services.html</loc>
+    <lastmod>2026-08-05</lastmod>
+  </url>
+  <url>
+    <loc>https://heartenhome.com/contact.html</loc>
+    <lastmod>2026-08-05</lastmod>
+  </url>
+  <url>
+    <loc>https://heartenhome.com/projects.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-cover-1000.webp</image:loc>
+      <image:caption>Hearten Home Interiors portfolio, Dallas Fort Worth</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-cover-1000.webp</image:loc>
+      <image:caption>Hearten Home Interiors portfolio, Dallas Fort Worth</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://heartenhome.com/project-the-father-of-the-bride-house.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-01-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-02-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-03-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-04-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-05-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-06-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-07-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-08-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-09-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-10-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-11-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-12-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-13-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-14-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-15-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-16-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-17-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-18-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-19-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-20-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-21-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-22-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-23-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-the-father-of-the-bride-house-gallery-24-1600.webp</image:loc>
+      <image:caption>The Father of the Bride House, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://heartenhome.com/project-all-grown-up-moody-boys-room.html</loc>
+    <lastmod>2026-08-05</lastmod>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-01-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-02-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-03-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-04-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-05-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-06-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-07-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-08-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-09-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-10-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-11-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-12-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-13-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-14-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-15-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-16-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://heartenhome.com/images/projects/opt/projects-all-grown-up-moody-boys-room-gallery-17-1600.webp</image:loc>
+      <image:caption>All Grown Up Moody Boy&#x27;s Room, Colleyville, TX interior design by Hearten Home Interiors</image:caption>
+    </image:image>
+  </url>
 </urlset>

@@ -18,6 +18,9 @@
     <meta property="og:description" content="Full-service interior design, renovation, and styling in Dallas/Fort Worth. Every detail handled so you can step into a home you love.">
     <meta property="og:url" content="https://heartenhome.com/services.html">
     <meta property="og:image" content="https://heartenhome.com/images/site/share-default.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hearten Home Interiors, interior design in Dallas Fort Worth">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://heartenhome.com/images/site/share-default.jpg">
     <meta name="twitter:title" content="Design & Renovation | Hearten Home Interiors">
@@ -117,12 +120,17 @@
         .process-header { text-align: center; margin-bottom: 80px; }
         .process-header h2 { margin-bottom: 16px; }
         .process-header p { color: var(--text-light); max-width: 560px; margin: 0 auto; font-size: 17px; }
-        .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; max-width: 1400px; margin: 0 auto; }
-        .process-step { background-color: var(--white); padding: 50px 30px; text-align: center; border: 1px solid var(--border-subtle); position: relative; transition: var(--transition); box-shadow: 0 30px 60px rgba(28, 38, 51, 0.05); }
-        .process-step::before { content: ''; position: absolute; top: -1px; left: -1px; right: -1px; height: 3px; background-color: var(--slate); transform: scaleX(0); transform-origin: center; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
-        .process-step:hover::before { transform: scaleX(1); }
-        .step-number { font-family: var(--font-serif); font-size: 36px; color: var(--sage); margin-bottom: 20px; font-style: italic; }
-        .process-step h3 { margin-bottom: 16px; font-size: 24px; line-height: 1.2; }
+        .process-steps { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; }
+        .process-step { display: flex; gap: 32px; align-items: flex-start; background-color: var(--white); padding: 40px 44px; border: 1px solid var(--border-subtle); border-bottom: none; position: relative; transition: var(--transition); }
+        .process-step:last-child { border-bottom: 1px solid var(--border-subtle); }
+        .process-step::before { content: ''; position: absolute; top: 0; left: -1px; width: 3px; height: 100%; background-color: var(--slate); transform: scaleY(0); transform-origin: top; transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); }
+        .process-step:hover::before { transform: scaleY(1); }
+        .step-number { font-family: var(--font-serif); font-size: 40px; line-height: 1; color: var(--sage); font-style: italic; flex: 0 0 auto; min-width: 58px; }
+        .step-body { flex: 1; }
+        .process-step h3 { margin-bottom: 12px; font-size: 22px; line-height: 1.2; }
+        .step-body p { color: var(--text-light); font-size: 16px; line-height: 1.7; }
+        .process-guide-cta { text-align: center; margin-top: 56px; }
+        @media (max-width: 768px){ .process-step { flex-direction: column; gap: 10px; padding: 30px 24px; } .step-number { font-size: 34px; } }
         .process-step p { color: var(--text-light); font-size: 15px; line-height: 1.8; }
 
         .services-cta { padding: 140px 5%; background-color: var(--alabaster); text-align: center; }
@@ -144,30 +152,135 @@
         @media (max-width: 1024px) { .service-block { gap: 60px; } .process-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; } }
         @media (max-width: 768px) { nav, nav.scrolled { height: auto !important; flex-direction: column; padding: 16px 5% 12px; background-color: var(--alabaster); } .nav-brand { margin-bottom: 16px; width: 100%; display: flex; justify-content: center; } .nav-logo-link { flex-direction: row !important; align-items: center; justify-content: center; gap: 12px; } .nav-logo-text { font-size: 22px; } .nav-logo-img img { height: 58px; } .nav-links { width: 100%; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 16px; padding: 16px 0 0; border-top: 1px solid var(--border-subtle); } .nav-links a { font-size: 11px; } .inner-hero { padding: 200px 5% 60px !important; border-bottom: none;} .inner-hero::before { display: none; } .inner-hero-content { padding: 0; } .service-page-section { padding: 80px 5%; } .service-block, .service-block.reverse { grid-template-columns: 1fr; gap: 50px; margin-bottom: 100px; } .service-block.reverse .service-image { grid-column: 1; grid-row: 1; } .service-block.reverse .service-content { grid-column: 1; grid-row: 2; padding-left: 0; } .service-content { padding-right: 0; } .service-image { padding-bottom: 20px; } .service-image::before { right: -20px; bottom: 0; } .service-block.reverse .service-image::before { left: -20px; right: auto; } .service-image img { border-radius: 120px 120px 4px 4px; } .belief-strip { padding: 100px 5%; } .process-section { padding: 100px 5%; } .process-grid { grid-template-columns: 1fr; gap: 20px; } .services-cta { padding: 100px 5%; } .footer-links a { margin: 0 12px 15px; } }
     </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://heartenhome.com/services.html",
+  "url": "https://heartenhome.com/services.html",
+  "name": "Design & Renovation | Hearten Home Interiors",
+  "isPartOf": {
+    "@id": "https://heartenhome.com/#website"
+  },
+  "about": {
+    "@id": "https://heartenhome.com/#studio"
+  },
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Service",
+          "name": "Turn-Key Renovation",
+          "serviceType": "Turn-Key Renovation",
+          "provider": {
+            "@id": "https://heartenhome.com/#studio"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Dallas/Fort Worth"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "item": {
+          "@type": "Service",
+          "name": "Full-Service Design",
+          "serviceType": "Full-Service Design",
+          "provider": {
+            "@id": "https://heartenhome.com/#studio"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Dallas/Fort Worth"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Service",
+          "name": "Room Styling and Furnishings",
+          "serviceType": "Room Styling and Furnishings",
+          "provider": {
+            "@id": "https://heartenhome.com/#studio"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Dallas/Fort Worth"
+          }
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Service",
+          "name": "Holiday and Hosting Readiness",
+          "serviceType": "Holiday and Hosting Readiness",
+          "provider": {
+            "@id": "https://heartenhome.com/#studio"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Dallas/Fort Worth"
+          }
+        }
+      }
+    ]
+  }
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://heartenhome.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Services",
+      "item": "https://heartenhome.com/services.html"
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <nav id="navbar">
-        <div class="nav-brand"><a href="index.html" class="nav-logo-link"><div class="nav-logo-img"><img src="/images/site/logo-monogram-navy.png" alt="Hearten Home"></div><span class="nav-logo-text">Hearten Home Interiors</span></a></div>
-        <div class="nav-links" id="nav-links"><a href="index.html">Home</a><a href="about.html">About</a><a href="services.html" class="active">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
+        <div class="nav-brand"><a href="/" class="nav-logo-link"><div class="nav-logo-img"><img src="/images/site/logo-monogram-navy.png" alt="Hearten Home"></div><span class="nav-logo-text">Hearten Home Interiors</span></a></div>
+        <div class="nav-links" id="nav-links"><a href="/">Home</a><a href="about.html">About</a><a href="services.html" class="active">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
     </nav>
-    <header class="inner-hero"><div class="inner-hero-content reveal"><span class="eyebrow">What We Do Together</span><h1>Design, Renovation &amp; <em>Styling</em></h1><p>Every detail handled, every decision guided — so you can simply step into a home you love.</p></div></header>
+    <header class="inner-hero"><div class="inner-hero-content reveal"><span class="eyebrow">What We Do Together</span><h1>Design, Decorating &amp; <em>Renovation</em></h1><p>Every detail handled, every decision guided — so you can simply step into a home you love.</p></div></header>
     
     <section class="service-page-section">
         <div class="service-block-container">
             <div class="service-block reveal">
-                <div class="service-image"><img src="/images/services/renovation.jpg1" alt="Turn-Key Renovations"></div>
-                <div class="service-content"><span class="service-number">01</span><h2>Turn-Key <em>Renovations</em></h2><p>Your home should grow with you. Whether it's a kitchen that has never worked quite right, a bathroom you've been meaning to address for years, or a whole-home transformation you've been building toward — Bonnie brings the vision, the contractor relationships, and the oversight to make it exceptional.</p><p>She manages the process start to finish — spatial planning, material selection, contractor communication, timeline management — so you are never juggling decisions alone. You step into the result.</p>
+                <div class="service-image"><img src="/images/services/renovation.jpg" alt="Turn-Key Renovations"></div>
+                <div class="service-content"><span class="service-number">01</span><h2>Turn-Key <em>Renovations</em></h2><p>Your home should grow with you. Whether it's a kitchen that has never worked quite right, a bathroom you've been meaning to address for years, or a whole-home transformation you've been building toward, Bonnie brings the design vision while Tripp, Hearten Home's Director of Construction, manages the build, the contractor relationships, and the on-site oversight to make it exceptional.</p><p>Together they manage the process start to finish: spatial planning, material selection, contractor communication, and timeline management, so you are never juggling decisions alone. You step into the result.</p>
                     <div class="service-includes"><span class="service-includes-label">Includes</span><ul><li>Spatial planning &amp; design direction</li><li>Material, tile, and fixture selection</li><li>Contractor coordination &amp; oversight</li><li>Kitchen, bath, and whole-home scope</li><li>Final walk-through &amp; project close</li></ul></div>
                 </div>
             </div>
             <div class="service-block reverse reveal">
-                <div class="service-image"><img src="/images/services/design.jpg1" alt="Full Service Design"></div>
+                <div class="service-image"><img src="/images/services/design.jpg" alt="Full Service Design"></div>
                 <div class="service-content"><span class="service-number">02</span><h2>Full-Service <em>Design</em></h2><p>Building from the ground up or undertaking a significant remodel is one of the most personal things you'll ever do. Bonnie guides the creative direction from the very first blueprint to the final walk-through — every hard finish, every fixture, every architectural detail decided with intention.</p><p>The result is a home where the bones are as beautiful as they are functional. Where the decisions made at the beginning serve the family living there for decades.</p>
                     <div class="service-includes"><span class="service-includes-label">Includes</span><ul><li>Full design direction from blueprint stage</li><li>Hard finish, fixture &amp; architectural detail selection</li><li>Mood boards &amp; material presentations</li><li>Builder &amp; trade coordination</li><li>New builds and major remodel scope</li></ul></div>
                 </div>
             </div>
             <div class="service-block reveal">
-                <div class="service-image"><img src="/images/services/styling.jpg1" alt="Room Styling & Furnishings"></div>
+                <div class="service-image"><img src="/images/services/styling.jpg" alt="Room Styling & Furnishings"></div>
                 <div class="service-content"><span class="service-number">03</span><h2>Room Styling &amp; <em>Furnishings</em></h2><p>A room is finished not when there is nothing left to add, but when there is nothing left to remove. Bonnie curates furniture, textiles, rugs, and art that tell your family's story — not her preferences, yours.</p><p>Whether you are refreshing a single room or furnishing a newly built home from scratch, it culminates in a reveal day where every pillow is fluffed, every shelf is perfectly styled, and you fall in love with a space all over again.</p>
                     <div class="service-includes"><span class="service-includes-label">Includes</span><ul><li>Custom furniture sourcing &amp; procurement</li><li>Textiles, rugs, and window treatments</li><li>Art curation &amp; accessory styling</li><li>Single-room to whole-home scope</li><li>Full reveal day styling</li></ul></div>
                 </div>
@@ -183,12 +296,14 @@
 
     <section class="process-section reveal">
         <div class="process-header"><span class="eyebrow">How We Work</span><h2>A Simple, Joyful Process</h2><p>From the first conversation to the final walk-through, Bonnie guides every step so the journey is as beautiful as the destination.</p></div>
-        <div class="process-grid">
-            <div class="process-step"><div class="step-number">01</div><h3>The Conversation</h3><p>It starts with a relaxed call — your wishlist, your lifestyle, your dreams for the space. No pressure. Just listening.</p></div>
-            <div class="process-step"><div class="step-number">02</div><h3>The Vision</h3><p>Bonnie builds a curated mood board and design direction tailored entirely to your family — not a template, not a trend. Yours.</p></div>
-            <div class="process-step"><div class="step-number">03</div><h3>The Build</h3><p>Every detail managed. Every contractor coordinated. Every decision guided. You never juggle timelines or chase answers alone.</p></div>
-            <div class="process-step"><div class="step-number">04</div><h3>The Reveal</h3><p>Your home, transformed. Bonnie walks you through every space until it feels exactly right — and then she hands you the keys.</p></div>
+        <div class="process-steps">
+            <div class="process-step"><div class="step-number">01</div><div class="step-body"><h3>The Consultation</h3><p>We identify your particular goals for the project, address the budget, and discuss planning your dream home over a phone call. Your site visit appointment is booked after this call.</p></div></div>
+            <div class="process-step"><div class="step-number">02</div><div class="step-body"><h3>Design Direction</h3><p>Color direction and schematics are presented to you, where you can provide feedback, ask questions, and fine tune the direction of the design.</p></div></div>
+            <div class="process-step"><div class="step-number">03</div><div class="step-body"><h3>The Presentation</h3><p>We develop the furniture, fabric, and finish selections for our detailed design presentation. We take your feedback to make any revisions, and finalize the fabric and finish selections for your custom design proposal.</p></div></div>
+            <div class="process-step"><div class="step-number">04</div><div class="step-body"><h3>Proposal &amp; Procurement</h3><p>This stage involves meeting on site with specialty contractors, our workroom, and all necessary trades for your project. Here we begin gathering estimates specific to your project scope and put together a detailed cost proposal. Upon approval, you’ll receive a request for payment to begin the ordering and procurement phase. From that point on, the ball is in our court. We carefully manage the entire logistics process through installation, giving you an effortless home renovation experience.</p></div></div>
+            <div class="process-step"><div class="step-number">05</div><div class="step-body"><h3>Installation</h3><p>We have established close working relationships with the trade vendors that we bring into your home. We manage all of the deliveries, contractors, and installations. We are here to handle all logistics and any product issues that may arise. Your trust is important to us, and we want to ensure you are thrilled with our service and have an exceptional experience.</p></div></div>
         </div>
+        <div class="process-guide-cta"><a href="/Hearten-Home-Investment-Guide.pdf" target="_blank" rel="noopener" class="btn btn-solid" style="align-self:center;">View the Guide</a></div>
     </section>
 
     <section class="services-cta reveal"><div class="services-cta-inner"><span class="eyebrow">Ready to Begin?</span><h2>Not sure which service<br>is right for <em>you?</em></h2><p>That's exactly what the first conversation is for. Bonnie will listen to where you are, ask the right questions, and help you figure out what your home actually needs. There's no obligation — just a genuine interest in what your space could become.</p><a href="contact.html" class="btn btn-solid">Start the Conversation</a></div></section>
