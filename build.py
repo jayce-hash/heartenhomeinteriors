@@ -190,6 +190,48 @@ def render_pages():
         print(f"  rendered {page}.html")
 
 
+def analytics_snippet():
+    """GA4 tag, injected at build time.
+
+    The measurement ID lives in the Netlify environment variable
+    GA_MEASUREMENT_ID, not in this repo, so it is never committed and can be
+    changed without a code deploy. If the variable is unset (local builds,
+    previews) nothing is injected at all.
+    """
+    gid = os.environ.get("GA_MEASUREMENT_ID", "").strip()
+    if not gid:
+        return ""
+    return (
+        f'<script async src="https://www.googletagmanager.com/gtag/js?id={gid}"></script>\n'
+        '    <script>\n'
+        '      window.dataLayer = window.dataLayer || [];\n'
+        '      function gtag(){dataLayer.push(arguments);}\n'
+        "      gtag('js', new Date());\n"
+        f"      gtag('config', '{gid}');\n"
+        '    </script>\n'
+    )
+
+
+def stamp_analytics():
+    """Put the tag on every page the site actually serves. Runs last so it
+    catches the generated pages too."""
+    tag = analytics_snippet()
+    if not tag:
+        print("  GA_MEASUREMENT_ID not set, skipping analytics tag")
+        return
+    n = 0
+    for path in sorted(glob.glob(os.path.join(ROOT, "*.html"))):
+        if os.path.basename(path).startswith("_"):
+            continue                      # _project_template.html is not served
+        s = open(path, encoding="utf-8").read()
+        if "googletagmanager.com/gtag" in s:
+            continue
+        s = s.replace("</head>", "    " + tag + "</head>", 1)
+        open(path, "w", encoding="utf-8").write(s)
+        n += 1
+    print(f"  analytics tag added to {n} page(s)")
+
+
 def main():
     render_pages()
     entries = []
@@ -323,6 +365,8 @@ def main():
     sm.append("</urlset>")
     open(os.path.join(ROOT, "sitemap.xml"), "w").write("\n".join(sm) + "\n")
     print(f"sitemap.xml written ({len(entries) + 5} URLs, {n_img} images)")
+
+    stamp_analytics()
 
     print(f"Done. {len(entries)} project(s) live in the portfolio.")
 
