@@ -5,3 +5,31 @@
 
 [build.environment]
   PYTHON_VERSION = "3.11"
+
+# Retired projects. These two pages were indexed by Google before they were
+# removed, so they still get crawled and still report as 404s in Search Console.
+# A 301 passes their history to the portfolio instead of throwing the error away.
+[[redirects]]
+  from = "/project-sunday-morning-kitchen.html"
+  to = "/projects.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/project-grace-filled-gathering-room.html"
+  to = "/projects.html"
+  status = 301
+  force = true
+
+# Legacy naming from the pre-build-script era, in case anything still links in.
+[[redirects]]
+  from = "/project-:slug"
+  to = "/project-:slug.html"
+  status = 301
+
+# Long-cache the generated WebP derivatives. Their filenames change when the
+# source photo changes, so they are safe to pin.
+[[headers]]
+  for = "/images/projects/opt/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

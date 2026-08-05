@@ -18,6 +18,9 @@
     <meta property="og:description" content="Meet Bonnie Roden, the Dallas/Fort Worth designer behind Hearten Home Interiors, with thirty years of making homes you want to stay a while in.">
     <meta property="og:url" content="https://heartenhome.com/about.html">
     <meta property="og:image" content="https://heartenhome.com/images/site/share-default.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hearten Home Interiors, interior design in Dallas Fort Worth">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://heartenhome.com/images/site/share-default.jpg">
     <meta name="twitter:title" content="Meet Bonnie | Hearten Home Interiors">
@@ -155,11 +158,66 @@
         @media (max-width:768px){ .team-grid { grid-template-columns: 1fr; gap: 36px; max-width: 320px; } }
         @media (max-width:768px){ .tripp-grid { grid-template-columns: 1fr; gap: 34px; } }
     </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://heartenhome.com/about.html",
+  "url": "https://heartenhome.com/about.html",
+  "name": "Meet Bonnie | Hearten Home Interiors",
+  "isPartOf": {
+    "@id": "https://heartenhome.com/#website"
+  },
+  "about": {
+    "@id": "https://heartenhome.com/#studio"
+  },
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://heartenhome.com/about.html#bonnie",
+    "name": "Bonnie Roden",
+    "jobTitle": "Principal Designer",
+    "worksFor": {
+      "@id": "https://heartenhome.com/#studio"
+    },
+    "knowsAbout": [
+      "Interior Design",
+      "Home Renovation"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Keller",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    }
+  }
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://heartenhome.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": "https://heartenhome.com/about.html"
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <nav id="navbar">
-        <div class="nav-brand"><a href="index.html" class="nav-logo-link"><div class="nav-logo-img"><img src="/images/site/logo-monogram-navy.png" alt="Hearten Home"></div><span class="nav-logo-text">Hearten Home Interiors</span></a></div>
-        <div class="nav-links" id="nav-links"><a href="index.html">Home</a><a href="about.html" class="active">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
+        <div class="nav-brand"><a href="/" class="nav-logo-link"><div class="nav-logo-img"><img src="/images/site/logo-monogram-navy.png" alt="Hearten Home"></div><span class="nav-logo-text">Hearten Home Interiors</span></a></div>
+        <div class="nav-links" id="nav-links"><a href="/">Home</a><a href="about.html" class="active">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
     </nav>
     <header class="inner-hero"><div class="inner-hero-content reveal"><span class="eyebrow">{{T:about_eyebrow1}}</span><h1>{{T:about_hl1}}</h1><p>{{T:about_text1}}</p></div></header>
     <section class="about-section"><div class="about-grid"><div class="about-image reveal"><img src="{{I:about_photo1}}" alt="Bonnie Roden"></div><div class="about-text reveal"><h2>{{T:about_hl2}}</h2><p>{{T:about_text2}}</p><p>{{T:about_text3}}</p><p>{{T:about_text4}}</p><p>{{T:about_text5}}</p><p>{{T:about_text6}}</p><div class="signature">Bonnie Roden</div></div></div></section>

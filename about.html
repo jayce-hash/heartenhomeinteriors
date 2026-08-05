@@ -18,6 +18,9 @@
     <meta property="og:description" content="Meet Bonnie Roden, the Dallas/Fort Worth designer behind Hearten Home Interiors, with thirty years of making homes you want to stay a while in.">
     <meta property="og:url" content="https://heartenhome.com/about.html">
     <meta property="og:image" content="https://heartenhome.com/images/site/share-default.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hearten Home Interiors, interior design in Dallas Fort Worth">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://heartenhome.com/images/site/share-default.jpg">
     <meta name="twitter:title" content="Meet Bonnie | Hearten Home Interiors">
@@ -150,14 +153,71 @@
         .team-card img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 4px; background-color: var(--linen); display: block; }
         .team-card-name { font-family: var(--font-serif); font-size: 22px; color: var(--navy); margin-top: 18px; }
         .team-card-role { font-family: var(--font-sans); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--sage); margin-top: 5px; }
+        .team-card-email { display: inline-block; font-family: var(--font-sans); font-size: 13px; color: var(--slate); margin-top: 10px; text-decoration: none; letter-spacing: 0.3px; transition: color 0.2s; }
+        .team-card-email:hover { color: var(--navy); text-decoration: underline; }
         @media (max-width:768px){ .team-grid { grid-template-columns: 1fr; gap: 36px; max-width: 320px; } }
         @media (max-width:768px){ .tripp-grid { grid-template-columns: 1fr; gap: 34px; } }
     </style>
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://heartenhome.com/about.html",
+  "url": "https://heartenhome.com/about.html",
+  "name": "Meet Bonnie | Hearten Home Interiors",
+  "isPartOf": {
+    "@id": "https://heartenhome.com/#website"
+  },
+  "about": {
+    "@id": "https://heartenhome.com/#studio"
+  },
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://heartenhome.com/about.html#bonnie",
+    "name": "Bonnie Roden",
+    "jobTitle": "Principal Designer",
+    "worksFor": {
+      "@id": "https://heartenhome.com/#studio"
+    },
+    "knowsAbout": [
+      "Interior Design",
+      "Home Renovation"
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Keller",
+      "addressRegion": "TX",
+      "addressCountry": "US"
+    }
+  }
+}
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://heartenhome.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "About",
+      "item": "https://heartenhome.com/about.html"
+    }
+  ]
+}
+</script>
 </head>
 <body>
     <nav id="navbar">
-        <div class="nav-brand"><a href="index.html" class="nav-logo-link"><div class="nav-logo-img"><img src="/images/site/logo-monogram-navy.png" alt="Hearten Home"></div><span class="nav-logo-text">Hearten Home Interiors</span></a></div>
-        <div class="nav-links" id="nav-links"><a href="index.html">Home</a><a href="about.html" class="active">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
+        <div class="nav-brand"><a href="/" class="nav-logo-link"><div class="nav-logo-img"><img src="/images/site/logo-monogram-navy.png" alt="Hearten Home"></div><span class="nav-logo-text">Hearten Home Interiors</span></a></div>
+        <div class="nav-links" id="nav-links"><a href="/">Home</a><a href="about.html" class="active">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div>
     </nav>
     <header class="inner-hero"><div class="inner-hero-content reveal"><span class="eyebrow">The Designer</span><h1>Meet <em>Bonnie</em></h1><p>Thirty years of knowing that the most well-designed home is the one that makes you want to stay a while.</p></div></header>
     <section class="about-section"><div class="about-grid"><div class="about-image reveal"><img src="/images/team/bonnie.webp" alt="Bonnie Roden"></div><div class="about-text reveal"><h2>She changed the<br><em>atmosphere.</em></h2><p>For thirty years, Bonnie Roden was the friend everyone called — the one who could walk into a home and see what it was trying to become. Who rearranged a living room on a Saturday afternoon and changed the way a family used it. Who helped a girlfriend stage her house for sale and watched it go in a week.</p><p>She did it because she loved it…because there is something that happens when a space becomes exactly right — a quality of ease, a sense of belonging, a feeling of being held by the room instead of merely occupying it.</p><p>Bonnie chased that feeling for three decades before she put her name on a door. In 2024, she finally did.</p><p>Hearten Home Interiors is the business she spent thirty years building without knowing it. Her goal is as simple as it is rare: to make you love your home more — not just because it's beautiful, but because it is finally, undeniably, yours.</p><p>She is based in Keller, Texas, and serves the greater Dallas / Fort Worth area — full renovations, new-build design from start to finish, and the kind of styling that makes you wonder how you ever lived without it.</p><div class="signature">Bonnie Roden</div></div></div></section>
@@ -167,11 +227,11 @@
             <div class="tripp-text">
                 <span class="eyebrow">The Build</span>
                 <h2>From Vision <em>to Reality</em></h2>
-                <p>Bonnie designs it, then passes the baton to her husband Tripp, Hearten Home's general contractor, who makes it happen. From renovations to full remodels, Tripp manages the build, so the home Bonnie envisions becomes the home you live in.</p>
+                <p>Bonnie designs it, then passes the baton to her husband Tripp, Hearten Home's Director of Construction, who makes it happen. From small facelifts to full renovations, Tripp manages the execution, bringing the vision you and Bonnie create to life. They treat your home as if it were their own. Bonnie and Tripp together are a dream team!</p>
             </div>
             <div class="tripp-photos">
-                <img src="/images/projects/opt/family-1800.webp" alt="Tripp Roden">
-                <img src="/images/team/tripp-2.jpg" alt="Tripp Roden">
+                <img src="/images/team/tripp-1.jpg" alt="Bonnie and Tripp Roden">
+                <img src="/images/team/tripp-2.jpg" alt="The Roden family">
             </div>
         </div>
     </section>
@@ -186,16 +246,19 @@
                 <img src="/images/team/bonnie.webp" alt="Bonnie Roden">
                 <div class="team-card-name">Bonnie Roden</div>
                 <div class="team-card-role">Owner &amp; Principal Designer</div>
+                <a class="team-card-email" href="mailto:Bonnie@heartenhome.com">Bonnie@heartenhome.com</a>
             </div>
             <div class="team-card">
-                <img src="/images/team/tripp-2.jpg" alt="Tripp Roden">
+                <img src="/images/team/tripp-3.jpg" alt="Tripp Roden">
                 <div class="team-card-name">Tripp Roden</div>
-                <div class="team-card-role">General Contractor</div>
+                <div class="team-card-role">Director of Construction</div>
+                <a class="team-card-email" href="mailto:Tripp@heartenhome.com">Tripp@heartenhome.com</a>
             </div>
             <div class="team-card">
-                <img src="/images/team/mcklane.jpg" alt="McKlane">
-                <div class="team-card-name">McKlane</div>
+                <img src="/images/team/mcklane.jpg" alt="McKlane O'Neal">
+                <div class="team-card-name">McKlane O'Neal</div>
                 <div class="team-card-role">Design Assistant</div>
+                <a class="team-card-email" href="mailto:McKlane@heartenhome.com">McKlane@heartenhome.com</a>
             </div>
         </div>
     </section>
@@ -206,7 +269,7 @@
     </section>
 
     <section class="pillars-section"><div class="pillars-header reveal"><span class="eyebrow">The Philosophy</span><h2>What Bonnie <em>Believes</em></h2><p>These are the convictions that shape every room she designs, every material she selects, every decision she makes on your behalf.</p></div><div class="pillars-grid"><div class="pillar-item reveal"><span class="pillar-number">01</span><h3>A room is designed for the lives inside it and the desired atmosphere.</h3><p>Great design is not about the room. It is about the Sunday dinners, the holidays, the kids coming home from college, making memories! Function and beauty should always coexist!</p></div><div class="pillar-item reveal"><span class="pillar-number">02</span><h3>Authentic design that serves others.</h3><p>Her clients get the benefit of three decades of taste, vendor relationships, and the quiet confidence of someone who wants you to love your home.</p></div><div class="pillar-item reveal"><span class="pillar-number">03</span><h3>Your home should feel like you — not her portfolio.</h3><p>Bonnie has seen trends come and go. She knows what endures. Bonnie does not have a signature aesthetic she imposes on every client. She has a signature process — one that begins with listening. The result looks like you, not like her last project.</p></div><div class="pillar-item reveal"><span class="pillar-number">04</span><h3>Gathering and home is sacred</h3><p>Hospitality is not a service — it is a design philosophy. Bonnie builds homes that invite people in and make them stay. A well-set table is not decoration. It is an act of love. Preparing clients to sit around their table is a favorite reward.</p></div></div></section>
-    <section class="definition-strip reveal"><div class="definition-inner"><span class="definition-word">Hearten</span><span class="definition-phonetic">/ ˈhärt-ən / · verb</span><div class="definition-divider"></div><p class="definition-text">To make cheerful. To encourage.<br>To change the atmosphere of a place —<br>and the people inside it.</p></div></section>
+    <section class="definition-strip reveal"><div class="definition-inner"><span class="definition-word">Hearten</span><span class="definition-phonetic">[har-ten] · verb</span><div class="definition-divider"></div><p class="definition-text"><p class="definition-text">to make someone feel happier and more positive about a situation<br><br>to make cheerful or encourage</p></div></section>
     <footer><div class="footer-content"><div class="footer-logo-img"><img src="/images/site/logo-wordmark-footer.png" alt="Hearten Home"></div><p class="footer-tagline">Where beautiful spaces become beloved homes.</p><div class="footer-links"><a href="about.html">About</a><a href="services.html">Services</a><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div><div class="copyright">&copy; 2026 Hearten Home Interiors. Based in Keller, TX.</div></div></footer>
     <script>
         window.addEventListener('scroll', function () { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });

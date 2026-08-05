@@ -18,6 +18,9 @@
     <meta property="og:description" content="A Dallas/Fort Worth interior design and renovation studio led by Bonnie Roden, creating spaces designed for the life you really live.">
     <meta property="og:url" content="https://heartenhome.com/">
     <meta property="og:image" content="https://heartenhome.com/images/site/share-default.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Hearten Home Interiors, interior design in Dallas Fort Worth">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://heartenhome.com/images/site/share-default.jpg">
     <meta name="twitter:title" content="Hearten Home Interiors | Dallas Fort Worth">
@@ -386,20 +389,56 @@
         .review-dot.is-active { background: var(--sage); transform: scale(1.3); }
         @media (max-width:768px){ .reviews-section { padding: 80px 5%; } .review-arrow { width: 40px; height: 40px; font-size: 22px; } }
     </style>
+
     <script type="application/ld+json">
-    {
+{
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
+  "@type": [
+    "InteriorDesignBusiness",
+    "HomeAndConstructionBusiness"
+  ],
+  "@id": "https://heartenhome.com/#studio",
   "name": "Hearten Home Interiors",
-  "url": "https://heartenhome.com",
+  "alternateName": "Hearten Home",
+  "url": "https://heartenhome.com/",
   "image": "https://heartenhome.com/images/site/share-default.jpg",
-  "logo": "https://heartenhome.com//images/site/logo-monogram-navy.png",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://heartenhome.com/images/site/logo-monogram-navy.png",
+    "width": 487,
+    "height": 610
+  },
   "description": "Interior design, renovation, and styling studio serving Dallas/Fort Worth, led by Bonnie Roden.",
+  "slogan": "Where beautiful spaces become beloved homes.",
   "email": "bonnie@heartenhome.com",
+  "priceRange": "$$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Keller",
+    "addressRegion": "TX",
+    "addressCountry": "US"
+  },
   "founder": {
     "@type": "Person",
-    "name": "Bonnie Roden"
+    "@id": "https://heartenhome.com/about.html#bonnie",
+    "name": "Bonnie Roden",
+    "jobTitle": "Principal Designer"
   },
+  "employee": [
+    {
+      "@type": "Person",
+      "name": "Tripp Roden",
+      "jobTitle": "Director of Construction"
+    },
+    {
+      "@type": "Person",
+      "name": "McKlane O'Neal",
+      "jobTitle": "Design Assistant"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/heartenhomeinteriors"
+  ],
   "areaServed": [
     {
       "@type": "City",
@@ -408,28 +447,129 @@
     {
       "@type": "City",
       "name": "Fort Worth"
+    },
+    {
+      "@type": "City",
+      "name": "Keller"
+    },
+    {
+      "@type": "City",
+      "name": "Southlake"
+    },
+    {
+      "@type": "City",
+      "name": "Colleyville"
+    },
+    {
+      "@type": "City",
+      "name": "Grapevine"
+    },
+    {
+      "@type": "City",
+      "name": "Westlake"
+    },
+    {
+      "@type": "City",
+      "name": "Trophy Club"
     }
   ],
   "knowsAbout": [
     "Interior Design",
     "Home Renovation",
-    "Interior Styling"
-  ]
+    "Interior Styling",
+    "Kitchen Renovation",
+    "Furnishing and Sourcing"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Design Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Turn-Key Renovation",
+          "provider": {
+            "@id": "https://heartenhome.com/#studio"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Dallas/Fort Worth"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Full-Service Design",
+          "provider": {
+            "@id": "https://heartenhome.com/#studio"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Dallas/Fort Worth"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Room Styling and Furnishings",
+          "provider": {
+            "@id": "https://heartenhome.com/#studio"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Dallas/Fort Worth"
+          }
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Holiday and Hosting Readiness",
+          "provider": {
+            "@id": "https://heartenhome.com/#studio"
+          },
+          "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Dallas/Fort Worth"
+          }
+        }
+      }
+    ]
+  }
 }
-    </script>
+</script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": "https://heartenhome.com/#website",
+  "url": "https://heartenhome.com/",
+  "name": "Hearten Home Interiors",
+  "publisher": {
+    "@id": "https://heartenhome.com/#studio"
+  },
+  "inLanguage": "en-US"
+}
+</script>
 </head>
 <body>
 
     <nav id="navbar">
         <div class="nav-brand">
-            <a href="index.html" class="nav-logo-link">
+            <a href="/" class="nav-logo-link">
                 <div class="nav-logo-img"><img src="/images/site/logo-monogram-navy.png" alt="Hearten Home Interiors Logo"></div>
                 <span class="nav-logo-text">Hearten Home Interiors</span>
             </a>
         </div>
 
         <div class="nav-links" id="nav-links">
-            <a href="index.html" class="active">Home</a>
+            <a href="/" class="active">Home</a>
             <a href="about.html">About</a>
             <a href="services.html">Services</a>
             <a href="projects.html">Projects</a>

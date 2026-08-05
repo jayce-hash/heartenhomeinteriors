@@ -10,7 +10,7 @@ You never edit the finished `.html` files at the root — those are generated. Y
 
 ```
 images/
-  team/        Bonnie, Tripp, McKlane photos
+  team/        Bonnie, Tripp, McKlane O'Neal photos
                  bonnie.webp
                  tripp-1.jpg
                  tripp-2.jpg

@@ -70,14 +70,80 @@ def optimize(src_rel, max_w):
         return src_rel
 
 
-def gallery_section(images, alt):
-    figs = "\n            ".join(
-        f'<figure><img src="{src}" alt="{alt}" loading="lazy"></figure>'
-        for src in images
-    )
+def img_size(web_rel):
+    """(width, height) of a built image, or (None, None) if it cannot be read."""
+    try:
+        with Image.open(os.path.join(ROOT, web_rel.lstrip("/"))) as im:
+            return im.size
+    except Exception:
+        return (None, None)
+
+
+def dim_attrs(web_rel):
+    w, h = img_size(web_rel)
+    return f' width="{w}" height="{h}"' if w and h else ""
+
+
+def gallery_section(images, title_plain, location):
+    """Each photo gets its own alt so the set is not 15 identical strings."""
+    figs = []
+    for i, src in enumerate(images):
+        alt = (f"{title_plain} interior design in {location}" if i == 0
+               else f"{title_plain}, {location} interior design detail {i + 1}")
+        figs.append(f'<figure><img src="{src}" alt="{esc(alt)}"'
+                    f'{dim_attrs(src)} loading="lazy" decoding="async"></figure>')
     return ('<section class="project-gallery-section reveal">\n'
             '        <div class="gallery-masonry">\n            '
-            + figs + "\n        </div>\n    </section>")
+            + "\n            ".join(figs) + "\n        </div>\n    </section>")
+
+
+def project_schema(d, title_plain, canonical, hero_opt, imgs):
+    """BreadcrumbList + ImageGallery so each project can win image and rich results."""
+    import json as _json
+    crumbs = {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
+            {"@type": "ListItem", "position": 2, "name": "Projects",
+             "item": BASE + "/projects.html"},
+            {"@type": "ListItem", "position": 3, "name": title_plain,
+             "item": canonical},
+        ],
+    }
+    def _img(src, i):
+        w, h = img_size(src)
+        o = {"@type": "ImageObject", "contentUrl": BASE + src,
+             "representativeOfPage": i == 0,
+             "caption": f"{title_plain}, {d['location']} interior design"}
+        if w and h:
+            o["width"], o["height"] = w, h
+        return o
+    gallery = {
+        "@context": "https://schema.org",
+        "@type": "ImageGallery",
+        "@id": canonical,
+        "url": canonical,
+        "name": title_plain,
+        "headline": title_plain,
+        "description": " ".join(str(d["summary"]).split()),
+        "isPartOf": {"@id": BASE + "/#website"},
+        "primaryImageOfPage": {"@type": "ImageObject", "contentUrl": BASE + hero_opt},
+        "image": [_img(s, i) for i, s in enumerate(imgs)],
+        "about": {
+            "@type": "Service",
+            "name": str(d["service"]),
+            "provider": {"@id": BASE + "/#studio"},
+            "areaServed": {"@type": "City", "name": str(d["location"])},
+        },
+        "creator": {"@id": BASE + "/#studio"},
+        "contentLocation": {"@type": "Place", "name": str(d["location"])},
+    }
+    if d.get("year"):
+        gallery["dateCreated"] = str(d["year"])
+    return "\n    ".join(
+        '<script type="application/ld+json">\n'
+        + _json.dumps(o, indent=2) + "\n</script>" for o in (crumbs, gallery))
 
 
 def sort_key(d):
@@ -171,6 +237,7 @@ def main():
                 imgs.append(optimize(src, 1600))
         if not imgs:
             imgs = [d["_cover_opt"]]
+        d["_page_images"] = imgs
         nxt = (f"project-{entries[(idx+1) % len(entries)]['_slug']}.html"
                if len(entries) > 1 else "projects.html")
         canonical = f"{BASE}/project-{d['_slug']}.html"
@@ -182,7 +249,8 @@ def main():
                 .replace("{{LOCATION}}", esc(d["location"]))
                 .replace("{{SUMMARY}}", esc(d["summary"]))
                 .replace("{{METADESC}}", esc(" ".join(str(d["summary"]).split())[:155]))
-                .replace("{{GALLERY}}", gallery_section(imgs, esc(alt)))
+                .replace("{{GALLERY}}", gallery_section(imgs, title_plain, d["location"]))
+                .replace("{{SCHEMA}}", project_schema(d, title_plain, canonical, hero_opt, imgs))
                 .replace("{{HERO}}", hero_opt)
                 .replace("{{HERO_FOCUS}}", esc(d.get("hero_focus") or "center"))
                 .replace("{{CANONICAL}}", canonical)
@@ -197,7 +265,8 @@ def main():
         t_plain, t_disp = title_forms(d["title"])
         cards.append(
             f'<a href="project-{d["_slug"]}.html" class="portfolio-item">'
-            f'<img src="{d["_cover_opt"]}" alt="{esc(t_plain)}" loading="lazy">'
+            f'<img src="{d["_cover_opt"]}" alt="{esc(t_plain)} interior design in {esc(d["location"])}"'
+            f'{dim_attrs(d["_cover_opt"])} loading="lazy" decoding="async">'
             f'<div class="portfolio-overlay">'
             f'<div class="portfolio-project-name">{t_disp}</div>'
             f'<div class="portfolio-location">{esc(d["location"])}</div>'
@@ -218,18 +287,42 @@ def main():
     )
     open(os.path.join(ROOT, "projects.html"), "w", encoding="utf-8").write(pg)
 
-    # sitemap.xml (regenerated each build so new projects are included)
+    # sitemap.xml (regenerated each build so new projects are included).
+    # Includes the image extension: a portfolio site earns real traffic from
+    # Google Images, and this is the only way those photos get declared.
     from datetime import date
     today = date.today().isoformat()
-    locs = ["/", "/about.html", "/services.html", "/projects.html", "/contact.html"]
-    locs += [f"/project-{d['_slug']}.html" for d in entries]
     sm = ['<?xml version="1.0" encoding="UTF-8"?>',
-          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
-    for loc in locs:
-        sm.append(f"  <url><loc>{BASE}{loc}</loc><lastmod>{today}</lastmod></url>")
+          '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+          '        xmlns:image="http://www.google.com/schemas/sitemaps/image/1.1">']
+
+    def add(loc, images=(), caption=None):
+        sm.append("  <url>")
+        sm.append(f"    <loc>{BASE}{loc}</loc>")
+        sm.append(f"    <lastmod>{today}</lastmod>")
+        for src in images:
+            sm.append("    <image:image>")
+            sm.append(f"      <image:loc>{BASE}{src}</image:loc>")
+            if caption:
+                sm.append(f"      <image:caption>{esc(caption)}</image:caption>")
+            sm.append("    </image:image>")
+        sm.append("  </url>")
+
+    for loc in ["/", "/about.html", "/services.html", "/contact.html"]:
+        add(loc)
+    add("/projects.html", [d["_cover_opt"] for d in entries],
+        "Hearten Home Interiors portfolio, Dallas Fort Worth")
+    n_img = len(entries)
+    for d in entries:
+        t_plain, _ = title_forms(d["title"])
+        imgs = d.get("_page_images") or [d["_cover_opt"]]
+        n_img += len(imgs)
+        add(f"/project-{d['_slug']}.html", imgs,
+            f"{t_plain}, {d['location']} interior design by Hearten Home Interiors")
+
     sm.append("</urlset>")
     open(os.path.join(ROOT, "sitemap.xml"), "w").write("\n".join(sm) + "\n")
-    print(f"sitemap.xml written ({len(locs)} URLs)")
+    print(f"sitemap.xml written ({len(entries) + 5} URLs, {n_img} images)")
 
     print(f"Done. {len(entries)} project(s) live in the portfolio.")
 
