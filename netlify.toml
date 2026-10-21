@@ -6,6 +6,57 @@
 [build.environment]
   PYTHON_VERSION = "3.11"
 
+# One URL per page. Netlify serves about.html at /about too, and Google has
+# indexed both versions, which splits ranking signals between them. These send
+# every extensionless URL to the .html version the canonicals already name.
+[[redirects]]
+  from = "/about"
+  to = "/about.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/services"
+  to = "/services.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact"
+  to = "/contact.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/projects"
+  to = "/projects.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/project-the-father-of-the-bride-house"
+  to = "/project-the-father-of-the-bride-house.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/project-all-grown-up-moody-boys-room"
+  to = "/project-all-grown-up-moody-boys-room.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/project-sunday-morning-kitchen"
+  to = "/projects.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/project-grace-filled-gathering-room"
+  to = "/projects.html"
+  status = 301
+  force = true
+
 # Retired projects. These two pages were indexed by Google before they were
 # removed, so they still get crawled and still report as 404s in Search Console.
 # A 301 passes their history to the portfolio instead of throwing the error away.

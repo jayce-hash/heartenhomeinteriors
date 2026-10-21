@@ -146,6 +146,17 @@ def project_schema(d, title_plain, canonical, hero_opt, imgs):
         + _json.dumps(o, indent=2) + "\n</script>" for o in (crumbs, gallery))
 
 
+def meta_description(d, limit=158):
+    """'<Service> in <City> by Hearten Home Interiors. <summary>', cut at a word
+    boundary so the snippet never ends mid-word."""
+    lead = f"{d['service']} in {d['location']} by Hearten Home Interiors. "
+    text = lead + " ".join(str(d["summary"]).split())
+    if len(text) <= limit:
+        return text
+    cut = text[:limit - 1].rsplit(" ", 1)[0].rstrip(",;:.-")
+    return cut + "…"
+
+
 def sort_key(d):
     order = d.get("order")
     order = order if isinstance(order, (int, float)) else 9999
@@ -290,7 +301,7 @@ def main():
                 .replace("{{SERVICE}}", esc(d["service"]))
                 .replace("{{LOCATION}}", esc(d["location"]))
                 .replace("{{SUMMARY}}", esc(d["summary"]))
-                .replace("{{METADESC}}", esc(" ".join(str(d["summary"]).split())[:155]))
+                .replace("{{METADESC}}", esc(meta_description(d)))
                 .replace("{{GALLERY}}", gallery_section(imgs, title_plain, d["location"]))
                 .replace("{{SCHEMA}}", project_schema(d, title_plain, canonical, hero_opt, imgs))
                 .replace("{{HERO}}", hero_opt)
